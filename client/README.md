@@ -1,1 +1,1 @@
-## Client side app for paste
+## Client app for paste

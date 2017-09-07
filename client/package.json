@@ -1,7 +1,11 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "paste-client",
+  "version": "0.0.1",
   "private": true,
+  "description": "Client for paste",
+  "repository": "https://github.com/knipferrc/paste",
+  "author": "knipferrc@gmail.com (Tyler Knipfer)",
+  "license": "GPL-3.0",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
