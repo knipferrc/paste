@@ -21,9 +21,7 @@ injectGlobal`
 
 const App = ({ children }) => (
   <ApolloProvider client={client} store={store}>
-    <Provider>
-      {children}
-    </Provider>
+    <Provider>{children}</Provider>
   </ApolloProvider>
 )
 
