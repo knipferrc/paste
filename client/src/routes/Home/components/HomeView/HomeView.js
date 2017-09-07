@@ -10,13 +10,9 @@ const propTypes = {
 }
 
 const HomeView = ({ loading, version }) => {
-  if (loading) {
-    return <p>Loading...</p>
-  }
-
   return (
     <DefaultLayout>
-      <h1>{version}</h1>
+      {loading ? <p>Loading...</p> : <h1>{version}</h1>}
     </DefaultLayout>
   )
 }
