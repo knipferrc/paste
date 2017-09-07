@@ -4,7 +4,7 @@ import React from 'react'
 import { injectGlobal } from 'styled-components'
 
 const propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 injectGlobal`
