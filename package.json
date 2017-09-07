@@ -2,7 +2,6 @@
   "name": "paste",
   "version": "0.0.1",
   "description": "Simple and elegant blogging",
-  "main": "index.js",
   "repository": "https://github.com/knipferrc/paste.git",
   "author": "knipferrc <knipferrc@gmail.com>",
   "license": "GPL-3.0",
