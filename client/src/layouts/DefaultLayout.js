@@ -1,4 +1,4 @@
-import { Close, Drawer, Heading, NavLink, Toolbar } from 'rebass'
+import { Close, Drawer, Flex, Heading, NavLink, Toolbar } from 'rebass'
 import React, { PureComponent } from 'react'
 
 import PropTypes from 'prop-types'
@@ -24,9 +24,18 @@ class DefaultLayout extends PureComponent {
           <NavLink ml="auto">Home</NavLink>
           <NavLink>Create Post</NavLink>
         </Toolbar>
-        <Drawer open={open} position="right" p={3} color="white" bg="gray9">
-          <Heading>
-            Hello <Close onClick={closeDrawer} />
+        <Drawer
+          open={open}
+          p={2}
+          color="white"
+          bg="gray9"
+          style={{ width: 220 }}
+        >
+          <Heading f={2}>
+            <Flex justify="space-between" align="center">
+              <span>Main Menu</span>
+              <Close onClick={closeDrawer} />
+            </Flex>
           </Heading>
         </Drawer>
         {children}
