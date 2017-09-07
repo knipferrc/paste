@@ -1,7 +1,8 @@
+import { ApolloProvider } from 'react-apollo'
 import PropTypes from 'prop-types'
 import { Provider } from 'rebass'
 import React from 'react'
-import { Provider as ReduxProvider } from 'react-redux'
+import client from 'store/client'
 import { injectGlobal } from 'styled-components'
 import store from 'store/store'
 
@@ -19,9 +20,11 @@ injectGlobal`
 `
 
 const App = ({ children }) => (
-  <Provider>
-    <ReduxProvider store={store}>{children}</ReduxProvider>
-  </Provider>
+  <ApolloProvider client={client} store={store}>
+    <Provider>
+      {children}
+    </Provider>
+  </ApolloProvider>
 )
 
 App.propTypes = propTypes
