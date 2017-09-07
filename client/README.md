@@ -1,1 +1,1 @@
-## Client app for paste
+## Client app for pastey

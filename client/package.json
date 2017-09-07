@@ -1,9 +1,9 @@
 {
-  "name": "paste-client",
+  "name": "pastey-client",
   "version": "0.0.1",
   "private": true,
-  "description": "Client for paste",
-  "repository": "https://github.com/knipferrc/paste",
+  "description": "Client for pastey",
+  "repository": "https://github.com/knipferrc/pastey.git",
   "author": "knipferrc@gmail.com (Tyler Knipfer)",
   "license": "GPL-3.0",
   "scripts": {
@@ -11,7 +11,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "format": "prettier --single-quote --no-semi --trailing-comma es5 --write \"src/**/*.js\""
+    "format": "prettier --single-quote --no-semi --trailing-comma es5 --write \"src/**/*.js\"",
+    "deploy": "yarn build && cd build && now && now alias"
   },
   "dependencies": {
     "prettier": "^1.6.1",
@@ -26,5 +27,6 @@
     "redux": "^3.7.2",
     "redux-form": "^7.0.4",
     "styled-components": "^2.1.2"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

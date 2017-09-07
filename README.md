@@ -1,2 +1,2 @@
-# paste
+# Pastey
 Simple and elegant blogging

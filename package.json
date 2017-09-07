@@ -1,12 +1,18 @@
 {
-  "name": "paste",
+  "name": "pastey",
   "version": "0.0.1",
   "description": "Simple and elegant blogging",
-  "repository": "https://github.com/knipferrc/paste.git",
+  "repository": "https://github.com/knipferrc/pastey.git",
   "author": "knipferrc <knipferrc@gmail.com>",
   "license": "GPL-3.0",
+  "scripts": {
+    "start": "concurrently \"cd server && yarn dev\" \"cd client && yarn start\"",
+    "deploy": "concurrently \"cd server && yarn deploy\" \"cd client && yarn deploy\"",
+    "format": "concurrently \"cd server && yarn format\" \"cd client && yarn format\""
+  },
   "dependencies": {
     "babel-eslint": "^7.2.3",
+    "concurrently": "^3.5.0",
     "eslint": "^4.6.1",
     "eslint-plugin-react": "^7.3.0"
   }
