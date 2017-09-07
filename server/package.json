@@ -1,0 +1,18 @@
+{
+  "name": "paste-server",
+  "version": "0.0.1",
+  "description": "Server for paste",
+  "main": "index.js",
+  "repository": "https://github.com/knipferrc/paste",
+  "author": "knipferrc@gmail.com (Tyler Knipfer)",
+  "license": "GPL-3.0",
+  "scripts": {
+    "dev": "backpack",
+    "build": "backpack build",
+    "start": "NODE_ENV=production node build/main.js"
+  },
+  "dependencies": {
+    "backpack-core": "^0.4.2",
+    "koa": "^2.3.0"
+  }
+}
