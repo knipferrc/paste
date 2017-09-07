@@ -1,0 +1,14 @@
+{
+  "name": "paste",
+  "version": "0.0.1",
+  "description": "Simple and elegant blogging",
+  "main": "index.js",
+  "repository": "https://github.com/knipferrc/paste.git",
+  "author": "knipferrc <knipferrc@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.6.1",
+    "eslint-plugin-react": "^7.3.0"
+  }
+}

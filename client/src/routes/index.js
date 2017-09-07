@@ -3,10 +3,15 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './Home'
 import React from 'react'
 
-export default () => (
+const Router = () => {
+  return (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home} />
     </Switch>
   </BrowserRouter>
-)
+  )
+}
+
+export default Router
+
