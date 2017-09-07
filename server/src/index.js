@@ -18,6 +18,10 @@ router.get('/api', graphqlKoa({ schema }))
 
 router.get('/graphiql', graphiqlKoa({ endpointURL: '/api' }))
 
+app.use(ctx => {
+  ctx.body = 'Welcome to the paste-server';
+});
+
 app.use(router.routes())
 app.use(router.allowedMethods())
 
