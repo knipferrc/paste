@@ -1,5 +1,6 @@
 import { gql, graphql } from 'react-apollo'
 
+import DefaultLayout from 'layouts/DefaultLayout'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -14,9 +15,9 @@ const HomeView = ({ loading, version }) => {
   }
 
   return (
-    <div>
+    <DefaultLayout>
       <h1>{version}</h1>
-    </div>
+    </DefaultLayout>
   )
 }
 
