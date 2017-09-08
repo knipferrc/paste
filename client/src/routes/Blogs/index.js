@@ -1,3 +1,3 @@
-import BlogsView from './components/BlogsView'
+import loadable from 'loadable-components'
 
-export default BlogsView
+export default loadable(() => import('./components/BlogsView'))
