@@ -3,30 +3,44 @@ import { fromJS } from 'immutable'
 
 // Constants
 export const constants = {
-  OPEN_DRAWER: 'DefaultLayout/OPEN_DRAWER',
-  CLOSE_DRAWER: 'DefaultLayout/CLOSE_DRAWER',
+  SET_ACTIVE_ITEM: 'DefaultLayout/SET_ACTIVE_ITEM',
+  OPEN_SIDEBAR: 'DefaultLayout/OPEN_SIDEBAR',
+  CLOSE_SIDEBAR: 'DefaultLayout/CLOSE_SIDEBAR',
 }
 
 // Action Creators
 export const actions = {
-  openDrawer() {
-    return { type: constants.OPEN_DRAWER }
+  setActiveItem(activeItem) {
+    return {
+      type: constants.SET_ACTIVE_ITEM,
+      activeItem,
+    }
   },
-  closeDrawer() {
-    return { type: constants.CLOSE_DRAWER }
+  openSidebar() {
+    return {
+      type: constants.OPEN_SIDEBAR,
+    }
+  },
+  closeSidebar() {
+    return {
+      type: constants.CLOSE_SIDEBAR,
+    }
   },
 }
 
 // Reducer
 export const initialState = fromJS({
+  activeItem: 'home',
   open: false,
 })
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case constants.OPEN_DRAWER:
+    case constants.SET_ACTIVE_ITEM:
+      return state.set('activeItem', action.activeItem)
+    case constants.OPEN_SIDEBAR:
       return state.set('open', true)
-    case constants.CLOSE_DRAWER:
+    case constants.CLOSE_SIDEBAR:
       return state.set('open', false)
     default:
       return state
@@ -37,5 +51,6 @@ export default function(state = initialState, action) {
 const getState = state => state.defaultLayout
 
 export const selectors = {
+  activeItem: createSelector(getState, state => state.get('activeItem')),
   open: createSelector(getState, state => state.get('open')),
 }

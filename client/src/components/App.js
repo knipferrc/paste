@@ -1,6 +1,5 @@
 import { ApolloProvider } from 'react-apollo'
 import PropTypes from 'prop-types'
-import { Provider } from 'rebass'
 import React from 'react'
 import client from 'store/client'
 import { injectGlobal } from 'styled-components'
@@ -16,12 +15,13 @@ injectGlobal`
   }
   body {
     margin: 0;
+    background: #F5F5F5;
   }
 `
 
 const App = ({ children }) => (
   <ApolloProvider client={client} store={store}>
-    <Provider>{children}</Provider>
+    {children}
   </ApolloProvider>
 )
 
