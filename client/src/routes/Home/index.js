@@ -1,3 +1,1 @@
-import HomeView from './components/HomeView'
-
-export default HomeView
+import Loadable from 'react-loadable'
