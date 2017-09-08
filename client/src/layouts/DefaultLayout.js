@@ -19,7 +19,14 @@ class DefaultLayout extends PureComponent {
   }
 
   render() {
-    const { children, activeItem, openSidebar, closeSidebar, open, setActiveItem } = this.props
+    const {
+      children,
+      activeItem,
+      openSidebar,
+      closeSidebar,
+      open,
+      setActiveItem,
+    } = this.props
     return (
       <div>
         <Navbar
