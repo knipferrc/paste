@@ -7,15 +7,34 @@ const propTypes = {
   icon: PropTypes.string,
   iconPosition: PropTypes.string,
   placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  label: PropTypes.bool,
+  meta: PropTypes.object,
+  input: PropTypes.object,
 }
 
-const Input = ({ fluid, icon, iconPosition, placeholder }) => {
+const Input = ({
+  input,
+  meta: { error, touched },
+  fluid,
+  icon,
+  iconPosition,
+  placeholder,
+  required,
+  label,
+  type,
+}) => {
   return (
     <Form.Input
       fluid={fluid}
+      type={type}
+      error={touched && error}
       icon={icon}
+      label={label}
+      required={required}
       iconPosition={iconPosition}
       placeholder={placeholder}
+      {...input}
     />
   )
 }
