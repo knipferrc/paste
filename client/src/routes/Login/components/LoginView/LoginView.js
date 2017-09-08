@@ -1,16 +1,17 @@
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Grid, Header, Message } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom'
+import LoginForm from '../../forms/LoginForm'
 import React from 'react'
 
-const LoginForm = () => (
+const LoginView = () => (
   <div>
     <style>{`
       body > div,
       body > div > div,
       body > div > div > div.login-form {
         height: 100%;
-        background: #2185d0;
+        background: #00b5ad;
       }
     `}</style>
     <Grid
@@ -22,26 +23,7 @@ const LoginForm = () => (
         <Header as="h1" inverted textAlign="center">
           Log-in to your account
         </Header>
-        <Form size="large">
-          <Segment stacked>
-            <Form.Input
-              fluid
-              icon="user"
-              iconPosition="left"
-              placeholder="E-mail address"
-            />
-            <Form.Input
-              fluid
-              icon="lock"
-              iconPosition="left"
-              placeholder="Password"
-              type="password"
-            />
-            <Button color="teal" fluid size="large">
-              Login
-            </Button>
-          </Segment>
-        </Form>
+        <LoginForm />
         <Message>
           New to #pastey!? <Link to="/signup">Sign Up</Link>
         </Message>
@@ -50,4 +32,4 @@ const LoginForm = () => (
   </div>
 )
 
-export default LoginForm
+export default LoginView
