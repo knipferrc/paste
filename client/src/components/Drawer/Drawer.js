@@ -19,9 +19,7 @@ export default class Drawer extends PureComponent {
         width="thin"
         visible={open}
         icon="labeled"
-        color="grey"
         vertical
-        inverted
       >
         <Menu.Item name="home" as={Link} to="/" onClick={closeSidebar}>
           <Icon name="home" />

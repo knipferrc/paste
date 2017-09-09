@@ -28,6 +28,7 @@ const HamburgerMenu = styled.div`
     align-items: center;
     margin-right: 10px;
     margin-left: auto;
+    color: white;
   }
 `
 
@@ -43,7 +44,7 @@ export default class Navbar extends PureComponent {
   render() {
     const { open, openSidebar, closeSidebar } = this.props
     return (
-      <Menu size="large" style={{ margin: 0 }}>
+      <Menu inverted fixed="top" size="large" style={{ height: 62 }}>
         <Menu.Item header>#Pastey!</Menu.Item>
         <DesktopMenuLeft>
           <Menu.Item

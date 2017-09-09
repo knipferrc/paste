@@ -1,10 +1,11 @@
 import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
+import TopStories from '../TopStories'
 
 const BlogsView = () => {
   return (
     <DefaultLayout>
-      <div>Blog</div>
+      <TopStories />
     </DefaultLayout>
   )
 }

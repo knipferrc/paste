@@ -7,6 +7,11 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { actions as layoutActions } from 'store/modules/DefaultLayout'
 import { selectors as layoutSelectors } from 'store/modules/DefaultLayout'
+import styled from 'styled-components'
+
+const Content = styled.div`
+  padding-top: 62px;
+`
 
 class DefaultLayout extends PureComponent {
   static propTypes = {
@@ -31,7 +36,9 @@ class DefaultLayout extends PureComponent {
           closeSidebar={closeSidebar}
         />
         <Drawer closeSidebar={closeSidebar} open={open} />
+        <Content>
         {children}
+        </Content>
       </div>
     )
   }
