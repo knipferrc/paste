@@ -21,7 +21,7 @@ const Hero = () => {
             fontSize: '4em',
             fontWeight: 'normal',
             marginBottom: 0,
-            marginTop: '3em',
+            marginTop: '3em'
           }}
         />
         <Header

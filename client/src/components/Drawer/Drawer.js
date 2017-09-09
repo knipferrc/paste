@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 export default class Drawer extends PureComponent {
   static propTypes = {
     closeSidebar: PropTypes.func,
-    open: PropTypes.bool,
+    open: PropTypes.bool
   }
 
   render() {

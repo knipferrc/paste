@@ -1,26 +1,26 @@
-import { graphiqlKoa, graphqlKoa } from 'apollo-server-koa'
-
 import Koa from 'koa'
-import bodyParser from 'koa-bodyparser'
-import compression from 'koa-compress'
-import cors from 'kcors'
-import koaRouter from 'koa-router'
-import schema from './api/schema'
+import { MongoClient } from 'mongodb'
+import dotenv from 'dotenv'
+import middleware from './middleware'
+import routes from './routes'
 
 const app = new Koa()
-const router = new koaRouter()
 const PORT = 5000
 
-app.use(bodyParser())
-app.use(compression())
-app.use(cors())
+dotenv.config()
 
-router.post('/api', graphqlKoa({ schema }))
-router.get('/api', graphqlKoa({ schema }))
+app.use(async (ctx, next) => {
+  try {
+    ctx.db = await MongoClient.connect(`${process.env.MONGO_URI}`)
+    await next()
+  } catch (err) {
+    ctx.status = err.status || 500
+    ctx.body = err.message
+    ctx.app.emit('error', err, ctx)
+  }
+})
 
-router.get('/graphiql', graphiqlKoa({ endpointURL: '/api' }))
-
-app.use(router.routes())
-app.use(router.allowedMethods())
+app.use(middleware())
+app.use(routes())
 
 app.listen(PORT)

@@ -10,7 +10,7 @@ const propTypes = {
   required: PropTypes.bool,
   label: PropTypes.bool,
   meta: PropTypes.object,
-  input: PropTypes.object,
+  input: PropTypes.object
 }
 
 const Input = ({
@@ -22,7 +22,7 @@ const Input = ({
   placeholder,
   required,
   label,
-  type,
+  type
 }) => {
   return (
     <Form.Input

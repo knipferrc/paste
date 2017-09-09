@@ -9,19 +9,23 @@
     "dev": "backpack",
     "build": "backpack build",
     "start": "NODE_ENV=production node build/main.js",
-    "format": "prettier --single-quote --no-semi --trailing-comma es5 --write \"src/**/*.js\"",
+    "format": "prettier --single-quote --no-semi --trailing-comma none --write \"src/**/*.js\"",
     "deploy": "now && now alias"
   },
   "dependencies": {
     "apollo-server-koa": "^1.1.2",
     "backpack-core": "^0.4.2",
+    "dotenv": "^4.0.0",
     "graphql": "^0.11.3",
     "graphql-tools": "^1.2.2",
     "kcors": "^2.2.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
+    "koa-compose": "^4.0.0",
     "koa-compress": "^2.0.0",
+    "koa-helmet": "^3.2.0",
     "koa-router": "^7.2.1",
+    "mongodb": "^2.2.31",
     "prettier": "^1.6.1"
   },
   "now": {

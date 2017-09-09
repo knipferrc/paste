@@ -4,7 +4,7 @@ import typeDefs from './typeDefs'
 
 const schema = makeExecutableSchema({
   typeDefs,
-  resolvers,
+  resolvers
 })
 
 export default schema

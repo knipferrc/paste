@@ -7,7 +7,7 @@ import React from 'react'
 import { required } from 'lib/validations'
 
 const propTypes = {
-  handleSubmit: PropTypes.func,
+  handleSubmit: PropTypes.func
 }
 
 const login = values => {
@@ -49,5 +49,5 @@ const LoginForm = ({ handleSubmit }) => {
 LoginForm.propTypes = propTypes
 
 export default reduxForm({
-  form: 'login',
+  form: 'login'
 })(LoginForm)

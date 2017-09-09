@@ -6,7 +6,7 @@ import { injectGlobal } from 'styled-components'
 import store from 'store/store'
 
 const propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
 injectGlobal`

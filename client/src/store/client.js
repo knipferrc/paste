@@ -7,13 +7,13 @@ const networkInterface = createNetworkInterface({
       : 'http://localhost:5000/api',
   opts: {
     headers: {
-      credentials: 'include',
-    },
-  },
+      credentials: 'include'
+    }
+  }
 })
 
 const client = new ApolloClient({
-  networkInterface: networkInterface,
+  networkInterface: networkInterface
 })
 
 export default client

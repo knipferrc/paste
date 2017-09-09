@@ -6,5 +6,5 @@ import { reducer as form } from 'redux-form'
 export default combineReducers({
   defaultLayout,
   form,
-  apollo: client.reducer(),
+  apollo: client.reducer()
 })

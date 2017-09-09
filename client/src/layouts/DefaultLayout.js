@@ -15,7 +15,7 @@ class DefaultLayout extends PureComponent {
     setActiveItem: PropTypes.func,
     openSidebar: PropTypes.func,
     closeSidebar: PropTypes.func,
-    open: PropTypes.bool,
+    open: PropTypes.bool
   }
 
   render() {
@@ -25,7 +25,7 @@ class DefaultLayout extends PureComponent {
       openSidebar,
       closeSidebar,
       open,
-      setActiveItem,
+      setActiveItem
     } = this.props
     return (
       <div>
@@ -45,7 +45,7 @@ class DefaultLayout extends PureComponent {
 
 const mapStateToProps = state => ({
   activeItem: layoutSelectors.activeItem(state),
-  open: layoutSelectors.open(state),
+  open: layoutSelectors.open(state)
 })
 
 const mapDispatchToProps = dispatch => {
@@ -53,7 +53,7 @@ const mapDispatchToProps = dispatch => {
     {
       setActiveItem: layoutActions.setActiveItem,
       openSidebar: layoutActions.openSidebar,
-      closeSidebar: layoutActions.closeSidebar,
+      closeSidebar: layoutActions.closeSidebar
     },
     dispatch
   )

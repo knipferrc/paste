@@ -7,7 +7,7 @@ import React from 'react'
 import { required } from 'lib/validations'
 
 const propTypes = {
-  handleSubmit: PropTypes.func,
+  handleSubmit: PropTypes.func
 }
 
 const signUp = values => {
@@ -69,5 +69,5 @@ const SignUpForm = ({ handleSubmit }) => {
 SignUpForm.propTypes = propTypes
 
 export default reduxForm({
-  form: 'signUp',
+  form: 'signUp'
 })(SignUpForm)

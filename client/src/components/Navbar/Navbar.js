@@ -37,7 +37,7 @@ export default class Navbar extends PureComponent {
     open: PropTypes.bool,
     openSidebar: PropTypes.func,
     closeSidebar: PropTypes.func,
-    setActiveItem: PropTypes.func,
+    setActiveItem: PropTypes.func
   }
 
   handleItemClick = (e, { name }) => this.props.setActiveItem(name)
