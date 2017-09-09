@@ -58,8 +58,8 @@ const SignUpForm = ({ handleSubmit }) => {
           component={Input}
           fluid
         />
-        <Button type="submit" color="blue" fluid size="large">
-          Register
+        <Button type="submit" color="grey" fluid size="large">
+          SignUp
         </Button>
       </Segment>
     </Form>

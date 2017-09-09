@@ -11,8 +11,6 @@ import { selectors as layoutSelectors } from 'store/modules/DefaultLayout'
 class DefaultLayout extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
-    activeItem: PropTypes.string,
-    setActiveItem: PropTypes.func,
     openSidebar: PropTypes.func,
     closeSidebar: PropTypes.func,
     open: PropTypes.bool
@@ -21,20 +19,16 @@ class DefaultLayout extends PureComponent {
   render() {
     const {
       children,
-      activeItem,
       openSidebar,
       closeSidebar,
       open,
-      setActiveItem
     } = this.props
     return (
       <div>
         <Navbar
-          activeItem={activeItem}
           open={open}
           openSidebar={openSidebar}
           closeSidebar={closeSidebar}
-          setActiveItem={setActiveItem}
         />
         <Drawer closeSidebar={closeSidebar} open={open} />
         {children}
@@ -44,14 +38,12 @@ class DefaultLayout extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  activeItem: layoutSelectors.activeItem(state),
   open: layoutSelectors.open(state)
 })
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      setActiveItem: layoutActions.setActiveItem,
       openSidebar: layoutActions.openSidebar,
       closeSidebar: layoutActions.closeSidebar
     },

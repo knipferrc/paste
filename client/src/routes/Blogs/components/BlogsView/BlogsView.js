@@ -4,7 +4,7 @@ import React from 'react'
 const BlogsView = () => {
   return (
     <DefaultLayout>
-      <h1>Blogs View</h1>
+      <div>Blog</div>
     </DefaultLayout>
   )
 }

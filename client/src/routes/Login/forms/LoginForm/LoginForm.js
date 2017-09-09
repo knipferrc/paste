@@ -38,7 +38,7 @@ const LoginForm = ({ handleSubmit }) => {
           component={Input}
           fluid
         />
-        <Button type="submit" color="blue" fluid size="large">
+        <Button type="submit" color="grey" fluid size="large">
           Login
         </Button>
       </Segment>

@@ -40,29 +40,21 @@ export default class Navbar extends PureComponent {
     setActiveItem: PropTypes.func
   }
 
-  handleItemClick = (e, { name }) => this.props.setActiveItem(name)
-
   render() {
-    const { activeItem, open, openSidebar, closeSidebar } = this.props
+    const { open, openSidebar, closeSidebar } = this.props
     return (
-      <Menu secondary size="large" style={{ margin: 0 }}>
+      <Menu size="large" style={{ margin: 0 }}>
         <Menu.Item header>#Pastey!</Menu.Item>
         <DesktopMenuLeft>
           <Menu.Item
-            name="home"
             as={Link}
             to="/"
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
           >
             Home
           </Menu.Item>
           <Menu.Item
-            name="blogs"
             as={Link}
             to="/blogs"
-            active={activeItem === 'blogs'}
-            onClick={this.handleItemClick}
           >
             Blogs
           </Menu.Item>

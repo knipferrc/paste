@@ -1,4 +1,4 @@
-import { Grid, Header, Message } from 'semantic-ui-react'
+import { Grid, Header, Message, Segment } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom'
 import React from 'react'
@@ -20,6 +20,7 @@ const SignUpView = () => (
       verticalAlign="middle"
     >
       <Grid.Column style={{ maxWidth: 450 }}>
+        <Segment inverted color="blue">
         <Header as="h1" inverted textAlign="center">
           Register for an account today
         </Header>
@@ -27,6 +28,7 @@ const SignUpView = () => (
         <Message>
           Already A Member? <Link to="/login">Login</Link>
         </Message>
+        </Segment>
       </Grid.Column>
     </Grid>
   </div>

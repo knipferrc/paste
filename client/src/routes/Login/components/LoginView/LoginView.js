@@ -1,4 +1,4 @@
-import { Grid, Header, Message } from 'semantic-ui-react'
+import { Grid, Header, Message, Segment } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom'
 import LoginForm from '../../forms/LoginForm'
@@ -20,6 +20,7 @@ const LoginView = () => (
       verticalAlign="middle"
     >
       <Grid.Column style={{ maxWidth: 450 }}>
+        <Segment inverted color="blue">
         <Header as="h1" inverted textAlign="center">
           Log-in to your account
         </Header>
@@ -27,6 +28,7 @@ const LoginView = () => (
         <Message>
           New to #pastey!? <Link to="/signup">Sign Up</Link>
         </Message>
+        </Segment>
       </Grid.Column>
     </Grid>
   </div>
