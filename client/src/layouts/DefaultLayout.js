@@ -9,9 +9,7 @@ import { actions as layoutActions } from 'store/modules/DefaultLayout'
 import { selectors as layoutSelectors } from 'store/modules/DefaultLayout'
 import styled from 'styled-components'
 
-const Content = styled.div`
-  padding-top: 62px;
-`
+const Content = styled.div`padding-top: 62px;`
 
 class DefaultLayout extends PureComponent {
   static propTypes = {
@@ -22,12 +20,7 @@ class DefaultLayout extends PureComponent {
   }
 
   render() {
-    const {
-      children,
-      openSidebar,
-      closeSidebar,
-      open,
-    } = this.props
+    const { children, openSidebar, closeSidebar, open } = this.props
     return (
       <div>
         <Navbar
@@ -36,9 +29,7 @@ class DefaultLayout extends PureComponent {
           closeSidebar={closeSidebar}
         />
         <Drawer closeSidebar={closeSidebar} open={open} />
-        <Content>
-        {children}
-        </Content>
+        <Content>{children}</Content>
       </div>
     )
   }

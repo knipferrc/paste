@@ -47,27 +47,29 @@ export default class Navbar extends PureComponent {
       <Menu inverted fixed="top" size="large" style={{ height: 62 }}>
         <Menu.Item header>#Pastey!</Menu.Item>
         <DesktopMenuLeft>
-          <Menu.Item
-            as={Link}
-            to="/"
-          >
+          <Menu.Item as={Link} to="/">
+            <Icon name="home" />
             Home
           </Menu.Item>
-          <Menu.Item
-            as={Link}
-            to="/blogs"
-          >
+          <Menu.Item as={Link} to="/blogs">
+            <Icon name="columns" />
             Blogs
+          </Menu.Item>
+          <Menu.Item as={Link} to="/create">
+            <Icon name="lab" />
+            Create
           </Menu.Item>
         </DesktopMenuLeft>
         <DesktopMenuRight>
           <Menu.Item position="right">
             <Button.Group size="small">
               <Button as={Link} to="/login" color="blue">
+                <Icon name="vcard outline" />
                 Login
               </Button>
               <Button.Or />
               <Button as={Link} to="signup">
+                <Icon name="plus square" />
                 SignUp
               </Button>
             </Button.Group>

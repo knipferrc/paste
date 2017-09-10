@@ -21,13 +21,13 @@ const LoginView = () => (
     >
       <Grid.Column style={{ maxWidth: 450 }}>
         <Segment inverted color="blue">
-        <Header as="h1" inverted textAlign="center">
-          Log-in to your account
-        </Header>
-        <LoginForm />
-        <Message>
-          New to #pastey!? <Link to="/signup">Sign Up</Link>
-        </Message>
+          <Header as="h1" inverted textAlign="center">
+            Log-in to your account
+          </Header>
+          <LoginForm />
+          <Message>
+            New to #pastey!? <Link to="/signup">Sign Up</Link>
+          </Message>
         </Segment>
       </Grid.Column>
     </Grid>

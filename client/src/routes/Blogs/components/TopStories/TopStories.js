@@ -1,4 +1,4 @@
-import { Button, Card, Header, Segment } from 'semantic-ui-react'
+import { Button, Card, Icon } from 'semantic-ui-react'
 
 import React from 'react'
 import styled from 'styled-components'
@@ -10,35 +10,39 @@ const Container = styled.div`
   padding-top: 10px;
 `
 
-const items = [
-  {
-    header: 'Project Report - April',
-    description: 'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
-    meta: 'ROI: 30%',
-    extra: <Button fluid color="green">Read More</Button>
-  },
-  {
-    header: 'Project Report - May',
-    description: 'Bring to the table win-win survival strategies to ensure proactive domination.',
-    meta: 'ROI: 34%',
-    extra: <Button fluid color="green">Read More</Button>
-  },
-  {
-    header: 'Project Report - June',
-    description: 'Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.',
-    meta: 'ROI: 27%',
-    extra: <Button fluid color="green">Read More</Button>
-  },
-]
+const ExtraContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const description = [
+  'Amy is a violinist with 2 years experience in the wedding industry.',
+  'She enjoys the outdoors and currently resides in upstate New York.'
+].join(' ')
 
 const TopStories = () => {
   return (
     <Container>
-      <Segment>
-      <Header textAlign="center" as="h1">Top Stories</Header>
-      <Card.Group itemsPerRow={3} stackable doubling items={items} />
-    </Segment>
-  </Container>
+      <Card.Group itemsPerRow={4} stackable>
+        {[1, 2, 3, 4, 5, 6].map((item, index) => (
+          <Card key={index}>
+            <Card.Content header="About Amy" />
+            <Card.Content description={description} />
+            <Card.Content extra>
+              <ExtraContent>
+                <div>
+                  <Icon name="user" />
+                  4 views
+                </div>
+                <Button>Read More</Button>
+              </ExtraContent>
+            </Card.Content>
+          </Card>
+        ))}
+      </Card.Group>
+    </Container>
   )
 }
 

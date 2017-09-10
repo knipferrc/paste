@@ -37,6 +37,10 @@ export default class Drawer extends PureComponent {
           <Icon name="columns" />
           Blogs
         </Menu.Item>
+        <Menu.Item name="create" as={Link} to="/create" onClick={closeSidebar}>
+          <Icon name="lab" />
+          Create
+        </Menu.Item>
       </Sidebar>
     )
   }
