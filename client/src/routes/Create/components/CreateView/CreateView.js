@@ -1,5 +1,3 @@
-import 'draft-js/dist/Draft.css'
-
 import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
 import TextEditor from '../TextEditor'
