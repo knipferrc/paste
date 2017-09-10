@@ -15,9 +15,9 @@
     "deploy": "yarn build && cd build && now && now alias"
   },
   "dependencies": {
-    "draft-js": "^0.10.1",
     "immutable": "^3.8.1",
     "loadable-components": "^0.2.1",
+    "ory-editor": "^0.2.24",
     "prettier": "^1.6.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -26,6 +26,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.2",
     "redux-form": "^7.0.4",
     "reselect": "^3.0.1",
