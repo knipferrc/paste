@@ -1,21 +1,11 @@
 import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
 import TextEditor from '../TextEditor'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  margin: 5px;
-  width: auto;
-  padding: 15px;
-  background: white;
-`
 
 const CreateView = () => {
   return (
     <DefaultLayout>
-      <Container>
-        <TextEditor />
-      </Container>
+      <TextEditor />
     </DefaultLayout>
   )
 }

@@ -1,6 +1,15 @@
 import { Editor, State } from 'slate'
 import React, { PureComponent } from 'react'
 
+import EditorControls from './EditorControls'
+import styled from 'styled-components'
+
+const EditorContainer = styled.div`
+  margin: 10px;
+  background: white;
+  padding: 10px;
+`
+
 const initialState = State.fromJSON({
   document: {
     nodes: [
@@ -22,7 +31,7 @@ const initialState = State.fromJSON({
   }
 })
 
-class TextEditor extends PureComponent{
+class TextEditor extends PureComponent {
   state = {
     state: initialState
   }
@@ -33,10 +42,12 @@ class TextEditor extends PureComponent{
 
   render() {
     return (
-      <Editor
-        state={this.state.state}
-        onChange={this.onChange}
-      />
+      <div>
+        <EditorControls />
+        <EditorContainer>
+          <Editor state={this.state.state} onChange={this.onChange} />
+        </EditorContainer>
+      </div>
     )
   }
 }
