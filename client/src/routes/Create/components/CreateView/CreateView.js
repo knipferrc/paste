@@ -4,8 +4,8 @@ import TextEditor from '../TextEditor'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  margin: 20px;
-  height: 100%;
+  margin: 5px;
+  width: auto;
   padding: 15px;
   background: white;
 `
