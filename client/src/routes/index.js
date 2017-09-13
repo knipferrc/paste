@@ -7,6 +7,12 @@ import Login from './Login'
 import React from 'react'
 import SignUp from './SignUp'
 
+Home.load()
+Blogs.load()
+Login.load()
+SignUp.load()
+Create.load()
+
 const Router = () => {
   return (
     <BrowserRouter>

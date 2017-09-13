@@ -1,3 +1,4 @@
-import HomeView from './components/HomeView'
 
-export default HomeView
+import loadable from 'loadable-components'
+
+export default loadable(() => import('./components/HomeView'))
