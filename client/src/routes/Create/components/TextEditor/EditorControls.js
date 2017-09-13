@@ -13,7 +13,7 @@ export default class EditorControls extends PureComponent {
   render() {
     return (
       <ButtonContainer>
-        <Button.Group size="small" primary>
+        <Button.Group size="small" color="teal">
           <Button icon="bold" />
           <Button icon="italic" />
           <Button icon="align left" />

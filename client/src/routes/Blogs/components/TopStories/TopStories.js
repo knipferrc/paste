@@ -36,7 +36,7 @@ const TopStories = () => {
                   <Icon name="user" />
                   4 views
                 </div>
-                <Button>Read More</Button>
+                <Button color="teal">Read More</Button>
               </ExtraContent>
             </Card.Content>
           </Card>

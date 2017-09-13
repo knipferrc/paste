@@ -10,7 +10,8 @@
   "rules": {
     "prop-types": [
       0
-    ]
+    ],
+    "react/display-name": [0]
   },
   "extends": [
     "eslint:recommended",

@@ -10,7 +10,8 @@ const propTypes = {
   required: PropTypes.bool,
   label: PropTypes.bool,
   meta: PropTypes.object,
-  input: PropTypes.object
+  input: PropTypes.object,
+  type: PropTypes.string
 }
 
 const Input = ({
