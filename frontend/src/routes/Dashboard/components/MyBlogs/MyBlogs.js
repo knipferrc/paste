@@ -8,13 +8,13 @@ const Container = styled.div`
   padding-right: 10px;
   padding-left: 10px;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 20px;
 `
 
 const MyBlogs = () => {
   return (
     <Container>
-      <Card.Group itemsPerRow={4} stackable>
+      <Card.Group itemsPerRow={4} stackable doubling>
         {[1, 2, 3, 4, 5, 6].map((item, index) => (
           <Card key={index}>
             <Card.Content>
