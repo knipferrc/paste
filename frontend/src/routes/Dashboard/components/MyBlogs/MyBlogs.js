@@ -27,7 +27,7 @@ const MyBlogs = () => {
             </Card.Content>
             <Card.Content extra>
               <div className="ui two buttons">
-                <Button as={Link} to={`edit-blog/${index}`} primary>
+                <Button as={Link} to={`edit-blog/${index}`} color="teal">
                   Edit
                 </Button>
                 <Button>Publish</Button>
