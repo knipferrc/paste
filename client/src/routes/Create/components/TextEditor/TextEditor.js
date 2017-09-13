@@ -1,7 +1,8 @@
-import { Editor, State } from 'slate'
 import React, { PureComponent } from 'react'
 
+import { Editor } from 'slate-react'
 import EditorControls from './EditorControls'
+import { State } from 'slate'
 import styled from 'styled-components'
 
 const EditorContainer = styled.div`
