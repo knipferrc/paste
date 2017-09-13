@@ -1,7 +1,14 @@
 import { Button, Card, Icon } from 'semantic-ui-react'
+import { gql, graphql } from 'react-apollo'
 
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+
+const propTypes = {
+  loading: PropTypes.bool,
+  version: PropTypes.string
+}
 
 const Container = styled.div`
   padding-right: 10px;
@@ -22,7 +29,7 @@ const description = [
   'She enjoys the outdoors and currently resides in upstate New York.'
 ].join(' ')
 
-const TopStories = () => {
+const TopStories = ({ loading, version }) => {
   return (
     <Container>
       <Card.Group itemsPerRow={4} stackable>
@@ -34,7 +41,7 @@ const TopStories = () => {
               <ExtraContent>
                 <div>
                   <Icon name="user" />
-                  4 views
+                  {loading ? 'loading...' : `${version} views`}
                 </div>
                 <Button color="teal">Read More</Button>
               </ExtraContent>
@@ -46,4 +53,16 @@ const TopStories = () => {
   )
 }
 
-export default TopStories
+TopStories.propTypes = propTypes
+
+const StoryQuery = gql`
+  query {
+    version
+  }
+`
+
+export default graphql(StoryQuery, {
+  props: ({ data: { loading, version } }) => ({
+    loading, version
+  })
+})(TopStories)

@@ -37,7 +37,8 @@
     "styled-components": "^2.1.2"
   },
   "now": {
-    "alias": "pastey"
+    "alias": "pastey",
+    "name": "pastey"
   },
   "proxy": "http://localhost:5000"
 }

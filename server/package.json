@@ -29,6 +29,8 @@
     "prettier": "^1.6.1"
   },
   "now": {
-    "alias": "pastey-server"
+    "alias": "pastey-server",
+    "name": "pastey-server",
+    "dotenv": true
   }
 }
