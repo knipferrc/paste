@@ -12,12 +12,14 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier --single-quote --no-semi --trailing-comma none --write \"src/**/*.js\"",
-    "deploy": "yarn build && serve -s build && now alias"
+    "deploy": "now && now alias",
+    "now-start": "pushstate-server build"
   },
   "dependencies": {
     "immutable": "^3.8.1",
     "prettier": "^1.6.1",
     "prop-types": "^15.5.10",
+    "pushstate-server": "^3.0.1",
     "react": "^15.6.1",
     "react-apollo": "^1.4.15",
     "react-dom": "^15.6.1",
@@ -29,7 +31,6 @@
     "redux-form": "^7.0.4",
     "reselect": "^3.0.1",
     "semantic-ui-react": "^0.73.0",
-    "serve": "^6.0.6",
     "slate": "^0.24.0",
     "slate-react": "^0.1.0",
     "styled-components": "^2.1.2"
