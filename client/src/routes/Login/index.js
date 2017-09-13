@@ -1,3 +1,3 @@
-import loadable from 'loadable-components'
+import LoginView from './components/LoginView'
 
-export default loadable(() => import('./components/LoginView'))
+export default LoginView

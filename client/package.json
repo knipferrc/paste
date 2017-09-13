@@ -8,15 +8,14 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && react-snapshot",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier --single-quote --no-semi --trailing-comma none --write \"src/**/*.js\"",
-    "deploy": "yarn build && cd build && now && now alias"
+    "deploy": "yarn build && serve -s build && now alias"
   },
   "dependencies": {
     "immutable": "^3.8.1",
-    "loadable-components": "^0.2.1",
     "prettier": "^1.6.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -25,13 +24,27 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
+    "react-snapshot": "^1.2.0",
     "redux": "^3.7.2",
     "redux-form": "^7.0.4",
     "reselect": "^3.0.1",
     "semantic-ui-react": "^0.73.0",
+    "serve": "^6.0.6",
     "slate": "^0.24.0",
     "slate-react": "^0.1.0",
     "styled-components": "^2.1.2"
+  },
+  "now": {
+    "alias": "pastey"
+  },
+  "reactSnapshot": {
+    "include": [
+      "/",
+      "/login",
+      "/signup",
+      "/blogs",
+      "/create"
+    ]
   },
   "proxy": "http://localhost:5000"
 }

@@ -2,7 +2,7 @@ import App from 'components/App'
 import React from 'react'
 import Router from './routes'
 import registerServiceWorker from 'lib/registerServiceWorker'
-import { render } from 'react-dom'
+import { render } from 'react-snapshot'
 
 render(
   <App>

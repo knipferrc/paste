@@ -1,3 +1,3 @@
-import loadable from 'loadable-components'
+import SignUpView from './components/SignUpView'
 
-export default loadable(() => import('./components/SignUpView'))
+export default SignUpView

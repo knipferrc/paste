@@ -5,22 +5,12 @@ import LoginForm from '../../forms/LoginForm'
 import React from 'react'
 
 const LoginView = () => (
-  <div>
-    <style>{`
-      body > div,
-      body > div > div,
-      body > div > div > div.login-form {
-        height: 100%;
-        background: #00b5ad;
-      }
-    `}</style>
     <Grid
       textAlign="center"
-      style={{ height: '100%', margin: 0 }}
-      verticalAlign="middle"
+      padded
     >
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h1" inverted textAlign="center">
+        <Header as="h1" textAlign="center">
           Log-in to your account
         </Header>
         <LoginForm />
@@ -29,7 +19,6 @@ const LoginView = () => (
         </Message>
       </Grid.Column>
     </Grid>
-  </div>
 )
 
 export default LoginView

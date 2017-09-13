@@ -1,3 +1,3 @@
-import loadable from 'loadable-components'
+import CreateView from './components/CreateView'
 
-export default loadable(() => import('./components/CreateView'))
+export default CreateView
