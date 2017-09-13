@@ -1,14 +1,14 @@
 import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
 import { Tab } from 'semantic-ui-react'
-import TopStories from '../TopStories'
+import TopBlogs from '../TopBlogs'
 
 const panes = [
   {
     menuItem: 'Top Blogs',
     render: () => (
       <Tab.Pane>
-        <TopStories />
+        <TopBlogs />
       </Tab.Pane>
     )
   },
@@ -16,7 +16,7 @@ const panes = [
     menuItem: 'Recently Posted',
     render: () => (
       <Tab.Pane>
-        <TopStories />
+        <h1>Recent Posted Blogs here</h1>
       </Tab.Pane>
     )
   },
@@ -24,13 +24,13 @@ const panes = [
     menuItem: 'Tech',
     render: () => (
       <Tab.Pane>
-        <TopStories />
+        <h1>Tech blogs here</h1>
       </Tab.Pane>
     )
   }
 ]
 
-const BlogsView = () => {
+const PublicBlogsView = () => {
   return (
     <DefaultLayout>
       <Tab panes={panes} />
@@ -38,4 +38,4 @@ const BlogsView = () => {
   )
 }
 
-export default BlogsView
+export default PublicBlogsView

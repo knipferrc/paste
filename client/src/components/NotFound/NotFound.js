@@ -12,21 +12,19 @@ const Container = styled.div`
 
 const NotFound = () => {
   return (
-
     <DefaultLayout>
       <Container>
-      <Grid centered padded>
-      <Message
-      style={{ maxWidth: 400 }}
-      icon='warning'
-      header='404 Page Not Found!!!'
-      content='Sorry, but the page you are looking for does not exist'
-      error
-    />
-      </Grid>
+        <Grid centered padded>
+          <Message
+            style={{ maxWidth: 400 }}
+            icon="warning"
+            header="404 Page Not Found!!!"
+            content="Sorry, but the page you are looking for does not exist"
+            error
+          />
+        </Grid>
       </Container>
     </DefaultLayout>
-
   )
 }
 

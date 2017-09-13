@@ -1,7 +1,14 @@
-const app = require('./app');
+const Koa = require('koa')
+const serve = require('koa-static')
+const send = require('koa-send')
+const path = require('path')
 
-const PORT = process.env.PORT || 9000;
+const app = new Koa()
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
-});
+app.use(serve(path.resolve(__dirname, '..', 'build')))
+
+app.use(async ctx => {
+  await send(ctx, 'build/index.html')
+})
+
+app.listen(9000)

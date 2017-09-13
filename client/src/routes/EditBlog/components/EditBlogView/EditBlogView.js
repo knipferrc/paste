@@ -2,7 +2,7 @@ import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
 import TextEditor from '../TextEditor'
 
-const CreateView = () => {
+const EditBlogView = () => {
   return (
     <DefaultLayout>
       <TextEditor />
@@ -10,4 +10,4 @@ const CreateView = () => {
   )
 }
 
-export default CreateView
+export default EditBlogView

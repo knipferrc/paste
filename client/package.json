@@ -16,10 +16,11 @@
     "deploy": "now --docker && now alias"
   },
   "dependencies": {
-    "express": "^4.15.4",
     "immutable": "^3.8.1",
+    "koa": "^2.3.0",
+    "koa-send": "^4.1.0",
+    "koa-static": "^4.0.1",
     "loadable-components": "^0.2.1",
-    "morgan": "^1.8.2",
     "prettier": "^1.6.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
