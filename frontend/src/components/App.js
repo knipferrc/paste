@@ -1,3 +1,5 @@
+import 'semantic-ui-css/semantic.min.css'
+
 import { ApolloProvider } from 'react-apollo'
 import PropTypes from 'prop-types'
 import React from 'react'
