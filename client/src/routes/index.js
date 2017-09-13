@@ -4,6 +4,7 @@ import Blogs from './Blogs'
 import Create from './Create'
 import Home from './Home'
 import Login from './Login'
+import NotFound from 'components/NotFound'
 import React from 'react'
 import SignUp from './SignUp'
 
@@ -22,6 +23,7 @@ const Router = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/create" component={Create} />
+        <Route exact path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   )
