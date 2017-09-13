@@ -7,9 +7,9 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "concurrently \"cd server && yarn dev\" \"cd client && yarn start\"",
-    "deploy": "concurrently \"cd server && yarn deploy\" \"cd client && yarn deploy\"",
-    "format": "concurrently \"cd server && yarn format\" \"cd client && yarn format\"",
-    "install:deps": "concurrently \"cd server && yarn\" \"cd client && yarn\""
+    "deploy": "cd client && yarn deploy && cd .. && cd server && yarn deploy",
+    "format": "cd client && yarn format && cd .. && cd server && yarn format",
+    "install:deps": "cd client && yarn && cd .. && cd server && yarn"
   },
   "dependencies": {
     "babel-eslint": "^8.0.0",
