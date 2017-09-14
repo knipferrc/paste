@@ -27,10 +27,10 @@ const MyBlogs = () => {
             </Card.Content>
             <Card.Content extra>
               <div className="ui two buttons">
-                <Button as={Link} to={`edit-blog/${index}`} color="teal">
+                <Button as={Link} to={`/dashboard/edit/${index}`} color="teal">
                   Edit
                 </Button>
-                <Button>Publish</Button>
+                <Button as={Link} to={`/dashboard/publish/${index}`}>Publish</Button>
               </div>
             </Card.Content>
           </Card>

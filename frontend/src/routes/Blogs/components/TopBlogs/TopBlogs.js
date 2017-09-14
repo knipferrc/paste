@@ -1,6 +1,7 @@
 import { Button, Card } from 'semantic-ui-react'
 import { gql, graphql } from 'react-apollo'
 
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
@@ -35,7 +36,7 @@ const TopBlogs = ({ loading, version }) => {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <Button color="teal" fluid>
+              <Button as={Link} to={`/blogs/${index}`} color="teal" fluid>
                 Read More
               </Button>
             </Card.Content>
