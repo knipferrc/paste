@@ -36,7 +36,7 @@ export default class Drawer extends PureComponent {
         <Menu.Item
           name="blogs"
           as={Link}
-          to="/public-blogs"
+          to="/blogs"
           onClick={closeSidebar}
         >
           <Icon name="columns" />

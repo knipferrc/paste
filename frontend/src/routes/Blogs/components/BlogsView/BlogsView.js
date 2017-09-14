@@ -30,7 +30,7 @@ const panes = [
   }
 ]
 
-const PublicBlogsView = () => {
+const BlogsView = () => {
   return (
     <DefaultLayout>
       <Tab panes={panes} />
@@ -38,4 +38,4 @@ const PublicBlogsView = () => {
   )
 }
 
-export default PublicBlogsView
+export default BlogsView
