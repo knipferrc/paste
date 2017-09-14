@@ -2,7 +2,7 @@ import { graphiqlKoa, graphqlKoa } from 'apollo-server-koa'
 
 import Router from 'koa-router'
 import compose from 'koa-compose'
-import schema from '../api/schema'
+import schema from '../api'
 
 export default function routes() {
   const router = new Router()
