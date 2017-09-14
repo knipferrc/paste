@@ -32,7 +32,7 @@ const panes = [
 
 const BlogsView = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="#Pastey! - Blogs">
       <Tab panes={panes} />
     </DefaultLayout>
   )

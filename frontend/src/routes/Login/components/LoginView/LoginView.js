@@ -7,7 +7,7 @@ import React from 'react'
 
 const LoginView = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="#Pastey! - Login">
       <Grid textAlign="center" padded>
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h1" textAlign="center">

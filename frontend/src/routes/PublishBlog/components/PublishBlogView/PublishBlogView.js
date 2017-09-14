@@ -3,7 +3,7 @@ import React from 'react'
 
 const PublishBlogView = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="#Pastey! - Publish Blog">
       <h1>Publish Blog</h1>
     </DefaultLayout>
   )

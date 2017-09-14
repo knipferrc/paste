@@ -3,7 +3,7 @@ import React from 'react'
 
 const BlogDetailsView = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="#Pastey! - Blog Details">
       <h1>Blog Details</h1>
     </DefaultLayout>
   )

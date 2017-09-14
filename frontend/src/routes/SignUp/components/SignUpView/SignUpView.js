@@ -7,7 +7,7 @@ import SignUpForm from '../../forms/SignUpForm'
 
 const SignUpView = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="#Pastey! - Sign Up">
       <Grid textAlign="center" padded>
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h1" textAlign="center">

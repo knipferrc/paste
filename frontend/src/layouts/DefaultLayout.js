@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 
 import Drawer from 'components/Drawer'
+import { Helmet } from 'react-helmet'
 import Navbar from 'components/Navbar'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
@@ -14,15 +15,17 @@ const Content = styled.div`padding-top: 62px;`
 class DefaultLayout extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
+    title: PropTypes.string,
     openSidebar: PropTypes.func,
     closeSidebar: PropTypes.func,
     open: PropTypes.bool
   }
 
   render() {
-    const { children, openSidebar, closeSidebar, open } = this.props
+    const { children, title, openSidebar, closeSidebar, open } = this.props
     return (
       <div>
+        <Helmet title={title} />
         <Navbar
           open={open}
           openSidebar={openSidebar}

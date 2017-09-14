@@ -8,7 +8,7 @@ import RecentBlogs from '../RecentBlogs'
 
 const HomeView = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="#Pastey! - Home">
       <Hero />
       <LearnMore />
       <CallOut />

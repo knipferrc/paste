@@ -4,7 +4,7 @@ import React from 'react'
 
 const DashboardView = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="#Pastey! - Dashboard">
       <MyBlogs />
     </DefaultLayout>
   )
