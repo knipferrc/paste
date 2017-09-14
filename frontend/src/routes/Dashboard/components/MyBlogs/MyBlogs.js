@@ -30,7 +30,9 @@ const MyBlogs = () => {
                 <Button as={Link} to={`/dashboard/edit/${index}`} color="teal">
                   Edit
                 </Button>
-                <Button as={Link} to={`/dashboard/publish/${index}`}>Publish</Button>
+                <Button as={Link} to={`/dashboard/publish/${index}`}>
+                  Publish
+                </Button>
               </div>
             </Card.Content>
           </Card>

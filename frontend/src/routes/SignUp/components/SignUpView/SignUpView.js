@@ -8,19 +8,19 @@ import SignUpForm from '../../forms/SignUpForm'
 const SignUpView = () => {
   return (
     <DefaultLayout>
-  <Grid textAlign="center" padded>
-    <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as="h1" textAlign="center">
-        Register for an account today
-      </Header>
-      <SignUpForm />
-      <Message>
-        Already A Member? <Link to="/login">Login</Link>
-      </Message>
-    </Grid.Column>
-  </Grid>
-  </DefaultLayout>
-)
+      <Grid textAlign="center" padded>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as="h1" textAlign="center">
+            Register for an account today
+          </Header>
+          <SignUpForm />
+          <Message>
+            Already A Member? <Link to="/login">Login</Link>
+          </Message>
+        </Grid.Column>
+      </Grid>
+    </DefaultLayout>
+  )
 }
 
 export default SignUpView
