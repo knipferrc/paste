@@ -1,4 +1,4 @@
-export default`
+export default `
 type Query {
   version: String
 }
