@@ -7,16 +7,16 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json /usr/src/app/
-COPY package-lock.json /usr/src/app/
-RUN npm install
+COPY yarn.lock /usr/src/app/
+RUN yarn
 
 # Bundle app source
 COPY . /usr/src/app
 
 # Build and optimize react app
-RUN npm run build
+RUN yarn build
 
 EXPOSE 9000
 
 # defined in package.json
-CMD [ "npm", "run", "start:server" ]
+CMD [ "yarn", "run", "start:server" ]
