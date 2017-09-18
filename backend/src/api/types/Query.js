@@ -1,5 +1,5 @@
 export default `
 type Query {
-  version: String
+  userProfile: String
 }
 `
