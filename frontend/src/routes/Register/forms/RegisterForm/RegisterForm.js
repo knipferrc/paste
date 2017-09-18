@@ -13,23 +13,40 @@ class RegisterForm extends PureComponent {
     register: PropTypes.func
   }
 
+  state = {
+    hasError: ''
+  }
+
   submit = async values => {
-    await this.props.register(
-      values.firstName,
-      values.lastName,
-      values.email,
-      values.password
-    )
+    try {
+      const token = await this.props.register(
+        values.firstName,
+        values.lastName,
+        values.email,
+        values.password
+      )
+      localStorage.setItem('accessToken', token.data.register)
+    } catch (e) {
+      this.setState({
+        errorMessage: e.graphQLErrors[0].message
+      })
+    }
   }
 
   render() {
     const { handleSubmit } = this.props
+    const { errorMessage } = this.state
     return (
       <Form size="large" onSubmit={handleSubmit(this.submit)}>
         <Segment stacked>
           <Header as="h1" textAlign="center">
             Register for an account today
           </Header>
+          {errorMessage && (
+            <Message negative>
+              <Message.Header>{errorMessage}</Message.Header>
+            </Message>
+          )}
           <Field
             type="text"
             name="firstName"
