@@ -6,10 +6,10 @@
   "author": "knipferrc <knipferrc@gmail.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "start": "concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\"",
-    "deploy": "cd frontend && yarn deploy && cd .. && cd backend && yarn deploy",
-    "format": "cd frontend && yarn format && cd .. && cd backend && yarn format",
-    "install:deps": "cd frontend && yarn && cd .. && cd backend && yarn"
+    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "deploy": "cd frontend && npm run deploy && cd .. && cd backend && npm run deploy",
+    "format": "cd frontend && npm run format && cd .. && cd backend && npm run format",
+    "install:deps": "cd frontend && npm install && cd .. && cd backend && npm install"
   },
   "dependencies": {
     "babel-eslint": "^8.0.0",

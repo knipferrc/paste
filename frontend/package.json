@@ -21,7 +21,6 @@
     "koa": "^2.3.0",
     "koa-send": "^4.1.0",
     "koa-static": "^4.0.1",
-    "loadable-components": "^0.2.1",
     "prettier": "^1.7.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -37,8 +36,6 @@
     "reselect": "^3.0.1",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.73.1",
-    "slate": "^0.24.1",
-    "slate-react": "^0.1.1",
     "source-map-explorer": "^1.4.0",
     "styled-components": "^2.1.2"
   },
