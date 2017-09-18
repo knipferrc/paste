@@ -9,12 +9,12 @@ import Login from './Login'
 import NotFound from 'components/NotFound'
 import PublishBlog from './PublishBlog'
 import React from 'react'
-import SignUp from './SignUp'
+import Register from './Register'
 
 Home.load()
 Blogs.load()
 Login.load()
-SignUp.load()
+Register.load()
 EditBlog.load()
 Dashboard.load()
 BlogDetails.load()
@@ -26,7 +26,7 @@ const Router = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/register" component={Register} />
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/blogs/:id" component={BlogDetails} />
         <Route exact path="/dashboard/edit/:id" component={EditBlog} />

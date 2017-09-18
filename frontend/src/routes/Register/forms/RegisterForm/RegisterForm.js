@@ -15,7 +15,7 @@ const signUp = values => {
   alert(JSON.stringify(values))
 }
 
-const SignUpForm = ({ handleSubmit }) => {
+const RegisterForm = ({ handleSubmit }) => {
   return (
     <Form size="large" onSubmit={handleSubmit(signUp)}>
       <Segment stacked>
@@ -73,8 +73,8 @@ const SignUpForm = ({ handleSubmit }) => {
   )
 }
 
-SignUpForm.propTypes = propTypes
+RegisterForm.propTypes = propTypes
 
 export default reduxForm({
   form: 'signUp'
-})(SignUpForm)
+})(RegisterForm)

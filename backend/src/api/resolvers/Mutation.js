@@ -1,4 +1,4 @@
-import register from '../mutations/Register'
+import register from '../mutations/register'
 
 export default {
   register

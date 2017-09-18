@@ -1,18 +1,18 @@
 import DefaultLayout from 'layouts/DefaultLayout'
 import { Grid } from 'semantic-ui-react'
 import React from 'react'
-import SignUpForm from '../../forms/SignUpForm'
+import RegisterForm from '../../forms/RegisterForm'
 
-const SignUpView = () => {
+const RegisterView = () => {
   return (
     <DefaultLayout title="#Pastey! - Sign Up">
       <Grid textAlign="center" padded>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <SignUpForm />
+          <RegisterForm />
         </Grid.Column>
       </Grid>
     </DefaultLayout>
   )
 }
 
-export default SignUpView
+export default RegisterView

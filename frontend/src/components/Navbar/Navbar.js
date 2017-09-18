@@ -68,9 +68,9 @@ export default class Navbar extends PureComponent {
                 Login
               </Button>
               <Button.Or />
-              <Button as={Link} to="signup">
+              <Button as={Link} to="/register">
                 <Icon name="plus square" />
-                SignUp
+                Register
               </Button>
             </Button.Group>
           </Menu.Item>
