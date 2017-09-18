@@ -1,5 +1,5 @@
 export default `
 type Mutation {
-  version: String
+  register: String
 }
 `

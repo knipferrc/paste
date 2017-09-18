@@ -1,5 +1,5 @@
-import version from './Version'
+import register from '../mutations/Register'
 
 export default {
-  version
+  register
 }
