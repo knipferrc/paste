@@ -11,7 +11,7 @@ dotenv.config()
 
 app.use(async (ctx, next) => {
   try {
-    ctx.db = await MongoClient.connect(`${process.env.MONGO_URI}`)
+    ctx.app.db = await MongoClient.connect(`${process.env.MONGO_URI}`)
     await next()
   } catch (err) {
     ctx.status = err.status || 500
