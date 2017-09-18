@@ -1,3 +1,4 @@
+import { Editor, EditorState } from 'draft-js'
 import React, { PureComponent } from 'react'
 
 import EditorControls from './EditorControls'
@@ -10,12 +11,23 @@ const EditorContainer = styled.div`
 `
 
 export default class TextEditor extends PureComponent {
+  state = {
+    editorState: EditorState.createEmpty()
+  }
+
+  onChange = editorState => {
+    this.setState({
+      editorState
+    })
+  }
+
   render() {
+    const { editorState } = this.state
     return (
       <div>
         <EditorControls />
         <EditorContainer>
-          Edit here
+          <Editor editorState={editorState} onChange={this.onChange} />
         </EditorContainer>
       </div>
     )
