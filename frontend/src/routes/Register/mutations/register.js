@@ -12,8 +12,6 @@ export default gql`
       lastName: $lastName
       email: $email
       password: $password
-    ) {
-      token
-    }
+    )
   }
 `

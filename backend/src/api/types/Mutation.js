@@ -1,5 +1,5 @@
 export default `
 type Mutation {
-  register: String
+  register(firstName: String, lastName: String, email: String, password: String): String
 }
 `
