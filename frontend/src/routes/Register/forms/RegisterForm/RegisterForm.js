@@ -88,7 +88,7 @@ class RegisterForm extends PureComponent {
             fluid
           />
           <Button type="submit" color="teal" fluid size="large">
-            SignUp
+            Register
           </Button>
           <Message>
             Already A Member? <Link to="/login">Login</Link>

@@ -29,9 +29,9 @@ export default class Drawer extends PureComponent {
           <Icon name="vcard outline" />
           Login
         </Menu.Item>
-        <Menu.Item name="home" as={Link} to="/signup" onClick={closeSidebar}>
+        <Menu.Item name="home" as={Link} to="/register" onClick={closeSidebar}>
           <Icon name="plus square" />
-          SignUp
+          Register
         </Menu.Item>
         <Menu.Item name="blogs" as={Link} to="/blogs" onClick={closeSidebar}>
           <Icon name="columns" />
