@@ -1,15 +1,12 @@
 import 'semantic-ui-css/semantic.min.css'
 
+import React, { PureComponent } from 'react'
+
 import { ApolloProvider } from 'react-apollo'
 import PropTypes from 'prop-types'
-import React from 'react'
 import client from 'store/client'
 import { injectGlobal } from 'styled-components'
 import store from 'store/store'
-
-const propTypes = {
-  children: PropTypes.node
-}
 
 injectGlobal`
   * {
@@ -21,12 +18,17 @@ injectGlobal`
   }
 `
 
-const App = ({ children }) => (
-  <ApolloProvider client={client} store={store}>
-    {children}
-  </ApolloProvider>
-)
+export default class App extends PureComponent {
+  static propTypes = {
+    children: PropTypes.node
+  }
 
-App.propTypes = propTypes
-
-export default App
+  render() {
+    const { children } = this.props
+    return (
+      <ApolloProvider client={client} store={store}>
+        {children}
+      </ApolloProvider>
+    )
+  }
+}
