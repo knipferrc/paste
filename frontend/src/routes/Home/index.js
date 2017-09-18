@@ -1,3 +1,9 @@
-import loadable from 'loadable-components'
+import Loadable from 'react-loadable'
+import PageLoader from 'components/PageLoader'
 
-export default loadable(() => import('./components/HomeView'))
+const LoadableHome = Loadable({
+  loader: () => import('./components/HomeView'),
+  loading: PageLoader
+})
+
+export default LoadableHome

@@ -1,3 +1,9 @@
-import loadable from 'loadable-components'
+import Loadable from 'react-loadable'
+import PageLoader from 'components/PageLoader'
 
-export default loadable(() => import('./components/EditBlogView'))
+const LoadableEditBlog = Loadable({
+  loader: () => import('./components/EditBlogView'),
+  loading: PageLoader
+})
+
+export default LoadableEditBlog

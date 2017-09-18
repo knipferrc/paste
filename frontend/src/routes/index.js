@@ -11,15 +11,6 @@ import PublishBlog from './PublishBlog'
 import React from 'react'
 import Register from './Register'
 
-Home.load()
-Blogs.load()
-Login.load()
-Register.load()
-EditBlog.load()
-Dashboard.load()
-BlogDetails.load()
-PublishBlog.load()
-
 const Router = () => {
   return (
     <BrowserRouter>

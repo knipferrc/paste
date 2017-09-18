@@ -1,3 +1,9 @@
-import loadable from 'loadable-components'
+import Loadable from 'react-loadable'
+import PageLoader from 'components/PageLoader'
 
-export default loadable(() => import('./components/PublishBlogView'))
+const LoadablePublishBlog = Loadable({
+  loader: () => import('./components/PublishBlogView'),
+  loading: PageLoader
+})
+
+export default LoadablePublishBlog
