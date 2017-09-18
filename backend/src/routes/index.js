@@ -7,8 +7,14 @@ import schema from '../api'
 export default function routes() {
   const router = new Router()
 
-  router.post('/api', graphqlKoa(ctx => ({ schema, context: { db: ctx.app.db } })))
-  router.get('/api', graphqlKoa(ctx => ({ schema, context: { db: ctx.app.db } })))
+  router.post(
+    '/api',
+    graphqlKoa(ctx => ({ schema, context: { db: ctx.app.db } }))
+  )
+  router.get(
+    '/api',
+    graphqlKoa(ctx => ({ schema, context: { db: ctx.app.db } }))
+  )
 
   router.get('/graphiql', graphiqlKoa({ endpointURL: '/api' }))
 

@@ -19,9 +19,7 @@ const TopBlogs = () => {
           <Card key={index}>
             <Card.Content>
               <Card.Header>FrontEnd Frameworks 2017</Card.Header>
-              <Card.Meta>
-                Total Views: 1
-              </Card.Meta>
+              <Card.Meta>Total Views: 1</Card.Meta>
               <Card.Description>
                 Deciding on what frontend framework to use today can be a
                 daunting task. Betwee React, Vue, Angular, Preact and More, it
