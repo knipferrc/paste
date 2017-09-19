@@ -38,7 +38,7 @@ class LoginForm extends PureComponent {
     const { handleSubmit } = this.props
     const { errorMessage, loading } = this.state
     return (
-      <Form size="large" onSubmit={handleSubmit(this.submit)}>
+      <Form loading={loading} size="large" onSubmit={handleSubmit(this.submit)}>
         <Segment stacked>
           <Header as="h1" textAlign="center">
             Log In to your account
@@ -69,7 +69,6 @@ class LoginForm extends PureComponent {
             fluid
           />
           <Button
-            loading={loading}
             type="submit"
             color="teal"
             fluid
