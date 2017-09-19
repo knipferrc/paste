@@ -1,6 +1,11 @@
 import { Redirect, Route } from 'react-router-dom'
 
+import PropTypes from 'prop-types'
 import React from 'react'
+
+const propTypes = {
+  component: PropTypes.func
+}
 
 const AuthorizedRoute = ({ component: Component, ...rest }) => {
   return (
@@ -15,5 +20,7 @@ const AuthorizedRoute = ({ component: Component, ...rest }) => {
     />
   )
 }
+
+AuthorizedRoute.propTypes = propTypes
 
 export default AuthorizedRoute
