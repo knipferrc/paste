@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
+import { compose, gql, graphql } from 'react-apollo'
 
 import Drawer from 'components/Drawer'
 import { Helmet } from 'react-helmet'
+import { Loader } from 'semantic-ui-react'
 import Navbar from 'components/Navbar'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
@@ -18,11 +20,26 @@ class DefaultLayout extends PureComponent {
     title: PropTypes.string,
     openSidebar: PropTypes.func,
     closeSidebar: PropTypes.func,
-    open: PropTypes.bool
+    open: PropTypes.bool,
+    loading: PropTypes.bool,
+    userProfile: PropTypes.object
   }
 
   render() {
-    const { children, title, openSidebar, closeSidebar, open } = this.props
+    const {
+      children,
+      title,
+      openSidebar,
+      closeSidebar,
+      open,
+      loading,
+      userProfile
+    } = this.props
+
+    if (loading) {
+      return <Loader active />
+    }
+
     return (
       <div>
         <Helmet title={title} />
@@ -30,8 +47,9 @@ class DefaultLayout extends PureComponent {
           open={open}
           openSidebar={openSidebar}
           closeSidebar={closeSidebar}
+          user={userProfile}
         />
-        <Drawer closeSidebar={closeSidebar} open={open} />
+        <Drawer user={userProfile} closeSidebar={closeSidebar} open={open} />
         <Content>{children}</Content>
       </div>
     )
@@ -52,4 +70,28 @@ const mapDispatchToProps = dispatch => {
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout)
+const UserProfileQuery = gql`
+  query userProfile($accessToken: String!) {
+    userProfile(accessToken: $accessToken) {
+      firstName
+      lastName
+      email
+    }
+  }
+`
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  graphql(UserProfileQuery, {
+    skip: () => !localStorage.getItem('accessToken'),
+    props: ({ data: { loading, userProfile } }) => ({
+      loading,
+      userProfile
+    }),
+    options: () => ({
+      variables: {
+        accessToken: localStorage.getItem('accessToken')
+      }
+    })
+  })
+)(DefaultLayout)

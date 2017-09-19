@@ -1,5 +1,5 @@
 export default `
 type Query {
-  userProfile: String
+  userProfile(accessToken: String!): User
 }
 `

@@ -7,17 +7,19 @@ const networkInterface = createNetworkInterface({
       : 'http://localhost:5000/api'
 })
 
-networkInterface.use([{
-  applyMiddleware(req, next) {
-    if (!req.options.headers) {
-      req.options.headers = {};  // Create the header object if needed.
+networkInterface.use([
+  {
+    applyMiddleware(req, next) {
+      if (!req.options.headers) {
+        req.options.headers = {} // Create the header object if needed.
+      }
+      // get the authentication token from local storage if it exists
+      const token = localStorage.getItem('accessToken')
+      req.options.headers.authorization = token ? token : null
+      next()
     }
-    // get the authentication token from local storage if it exists
-    const token = localStorage.getItem('accessToken');
-    req.options.headers.authorization = token ? token : null;
-    next();
   }
-}]);
+])
 
 const client = new ApolloClient({
   networkInterface: networkInterface

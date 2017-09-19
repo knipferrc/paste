@@ -1,4 +1,4 @@
-import { Button, Icon, Menu } from 'semantic-ui-react'
+import { Button, Dropdown, Icon, Menu } from 'semantic-ui-react'
 import React, { PureComponent } from 'react'
 
 import { Link } from 'react-router-dom'
@@ -38,11 +38,17 @@ export default class Navbar extends PureComponent {
     open: PropTypes.bool,
     openSidebar: PropTypes.func,
     closeSidebar: PropTypes.func,
-    setActiveItem: PropTypes.func
+    setActiveItem: PropTypes.func,
+    user: PropTypes.object
+  }
+
+  logout = () => {
+    localStorage.removeItem('accessToken')
+    window.location.href = '/'
   }
 
   render() {
-    const { open, openSidebar, closeSidebar } = this.props
+    const { open, openSidebar, closeSidebar, user } = this.props
     return (
       <Menu inverted fixed="top" size="large" style={{ height: 62 }}>
         <Menu.Item header>#Pastey!</Menu.Item>
@@ -51,28 +57,52 @@ export default class Navbar extends PureComponent {
             <Icon name="home" />
             Home
           </Menu.Item>
-          <Menu.Item as={Link} to="/blogs">
-            <Icon name="columns" />
-            Blogs
-          </Menu.Item>
-          <Menu.Item as={Link} to="/dashboard">
-            <Icon name="cubes" />
-            Dashboard
-          </Menu.Item>
+          {user && (
+            <Menu.Item as={Link} to="/blogs">
+              <Icon name="columns" />
+              Blogs
+            </Menu.Item>
+          )}
+          {user && (
+            <Menu.Item as={Link} to="/dashboard">
+              <Icon name="cubes" />
+              Dashboard
+            </Menu.Item>
+          )}
         </DesktopMenuLeft>
         <DesktopMenuRight>
           <Menu.Item position="right">
-            <Button.Group size="small">
-              <Button as={Link} to="/login" color="blue">
-                <Icon name="vcard outline" />
-                Login
-              </Button>
-              <Button.Or />
-              <Button as={Link} to="/register">
-                <Icon name="plus square" />
-                Register
-              </Button>
-            </Button.Group>
+            {!user ? (
+              <Button.Group size="small">
+                <Button as={Link} to="/login" color="blue">
+                  <Icon name="sign in" />
+                  Login
+                </Button>
+                <Button.Or />
+                <Button as={Link} to="/register">
+                  <Icon name="signup" />
+                  Register
+                </Button>
+              </Button.Group>
+            ) : (
+              <Dropdown
+                text={user.email}
+                floating
+                labeled
+                pointing
+                button
+                icon="user"
+                className="icon"
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Header content="My Account" />
+                  <Dropdown.Divider />
+                  <Dropdown.Item text="Profile" />
+                  <Dropdown.Item text="Settings" />
+                  <Dropdown.Item onClick={this.logout} text="Logout" />
+                </Dropdown.Menu>
+              </Dropdown>
+            )}
           </Menu.Item>
         </DesktopMenuRight>
         <HamburgerMenu>

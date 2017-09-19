@@ -9,11 +9,17 @@ export default function routes() {
 
   router.post(
     '/api',
-    graphqlKoa(ctx => ({ schema, context: { db: ctx.app.db } }))
+    graphqlKoa(ctx => ({
+      schema,
+      context: { db: ctx.app.db }
+    }))
   )
   router.get(
     '/api',
-    graphqlKoa(ctx => ({ schema, context: { db: ctx.app.db } }))
+    graphqlKoa(ctx => ({
+      schema,
+      context: { db: ctx.app.db }
+    }))
   )
 
   router.get('/graphiql', graphiqlKoa({ endpointURL: '/api' }))
