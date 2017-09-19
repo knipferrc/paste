@@ -17,7 +17,7 @@
     "deploy": "now --docker && now alias"
   },
   "dependencies": {
-    "draft-js": "^0.10.1",
+    "draft-js": "^0.10.2",
     "immutable": "^3.8.1",
     "koa": "^2.3.0",
     "koa-send": "^4.1.0",
