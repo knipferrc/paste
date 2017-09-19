@@ -15,7 +15,8 @@ class RegisterForm extends PureComponent {
   }
 
   state = {
-    hasError: ''
+    hasError: '',
+    loading: false
   }
 
   submit = async values => {
@@ -92,7 +93,13 @@ class RegisterForm extends PureComponent {
             component={Input}
             fluid
           />
-          <Button loading={loading} type="submit" color="teal" fluid size="large">
+          <Button
+            loading={loading}
+            type="submit"
+            color="teal"
+            fluid
+            size="large"
+          >
             Register
           </Button>
           <Message>
@@ -105,5 +112,5 @@ class RegisterForm extends PureComponent {
 }
 
 export default reduxForm({
-  form: 'signUp',
+  form: 'signUp'
 })(RegisterForm)

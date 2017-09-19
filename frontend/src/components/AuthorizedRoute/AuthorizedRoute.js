@@ -5,11 +5,14 @@ import React from 'react'
 const AuthorizedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
-    {...rest}
-    render={(props) => localStorage.getItem('accessToken')
-      ? <Component {...props} />
-      : <Redirect to={{pathname: '/login'}} />}
-  />
+      {...rest}
+      render={props =>
+        localStorage.getItem('accessToken') ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: '/login' }} />
+        )}
+    />
   )
 }
 

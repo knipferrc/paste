@@ -9,21 +9,45 @@ import { required } from 'lib/validations'
 
 class LoginForm extends PureComponent {
   static propTypes = {
-    handleSubmit: PropTypes.func
+    handleSubmit: PropTypes.func,
+    login: PropTypes.func,
+    history: PropTypes.object
   }
 
-  submit = values => {
-    console.log(values)
+  state = {
+    loading: false,
+    hasError: ''
+  }
+
+  submit = async values => {
+    try {
+      this.setState({ loading: true, hasError: '' })
+      const token = await this.props.login(values.email, values.password)
+      localStorage.setItem('accessToken', token.data.login)
+      this.setState({ loading: false })
+      this.props.history.push('/')
+    } catch (e) {
+      this.setState({
+        errorMessage: e.graphQLErrors[0].message,
+        loading: false
+      })
+    }
   }
 
   render() {
     const { handleSubmit } = this.props
+    const { errorMessage, loading } = this.state
     return (
       <Form size="large" onSubmit={handleSubmit(this.submit)}>
         <Segment stacked>
           <Header as="h1" textAlign="center">
             Log In to your account
           </Header>
+          {errorMessage && (
+            <Message negative>
+              <Message.Header>{errorMessage}</Message.Header>
+            </Message>
+          )}
           <Field
             type="email"
             name="email"
@@ -44,7 +68,13 @@ class LoginForm extends PureComponent {
             component={Input}
             fluid
           />
-          <Button type="submit" color="teal" fluid size="large">
+          <Button
+            loading={loading}
+            type="submit"
+            color="teal"
+            fluid
+            size="large"
+          >
             Login
           </Button>
           <Message>

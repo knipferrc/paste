@@ -21,8 +21,16 @@ const Router = () => {
         <Route exact path="/register" component={Register} />
         <AuthorizedRoute exact path="/blogs" component={Blogs} />
         <AuthorizedRoute exact path="/blogs/:id" component={BlogDetails} />
-        <AuthorizedRoute exact path="/dashboard/edit/:id" component={EditBlog} />
-        <AuthorizedRoute exact path="/dashboard/publish/:id" component={PublishBlog} />
+        <AuthorizedRoute
+          exact
+          path="/dashboard/edit/:id"
+          component={EditBlog}
+        />
+        <AuthorizedRoute
+          exact
+          path="/dashboard/publish/:id"
+          component={PublishBlog}
+        />
         <AuthorizedRoute exact path="/dashboard" component={Dashboard} />
         <Route exact path="*" component={NotFound} />
       </Switch>
