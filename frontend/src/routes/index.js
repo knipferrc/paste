@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import AuthorizedRoute from 'components/AuthorizedRoute'
 import BlogDetails from './BlogDetails'
 import Blogs from './Blogs'
 import Dashboard from './Dashboard'
@@ -18,11 +19,11 @@ const Router = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/blogs" component={Blogs} />
-        <Route exact path="/blogs/:id" component={BlogDetails} />
-        <Route exact path="/dashboard/edit/:id" component={EditBlog} />
-        <Route exact path="/dashboard/publish/:id" component={PublishBlog} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <AuthorizedRoute exact path="/blogs" component={Blogs} />
+        <AuthorizedRoute exact path="/blogs/:id" component={BlogDetails} />
+        <AuthorizedRoute exact path="/dashboard/edit/:id" component={EditBlog} />
+        <AuthorizedRoute exact path="/dashboard/publish/:id" component={PublishBlog} />
+        <AuthorizedRoute exact path="/dashboard" component={Dashboard} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>

@@ -10,7 +10,8 @@ import { required } from 'lib/validations'
 class RegisterForm extends PureComponent {
   static propTypes = {
     handleSubmit: PropTypes.func,
-    register: PropTypes.func
+    register: PropTypes.func,
+    history: PropTypes.object
   }
 
   state = {
@@ -19,6 +20,7 @@ class RegisterForm extends PureComponent {
 
   submit = async values => {
     try {
+      this.setState({ loading: true, hasError: '' })
       const token = await this.props.register(
         values.firstName,
         values.lastName,
@@ -26,16 +28,19 @@ class RegisterForm extends PureComponent {
         values.password
       )
       localStorage.setItem('accessToken', token.data.register)
+      this.setState({ loading: false })
+      this.props.history.push('/')
     } catch (e) {
       this.setState({
-        errorMessage: e.graphQLErrors[0].message
+        errorMessage: e.graphQLErrors[0].message,
+        loading: false
       })
     }
   }
 
   render() {
     const { handleSubmit } = this.props
-    const { errorMessage } = this.state
+    const { errorMessage, loading } = this.state
     return (
       <Form size="large" onSubmit={handleSubmit(this.submit)}>
         <Segment stacked>
@@ -87,7 +92,7 @@ class RegisterForm extends PureComponent {
             component={Input}
             fluid
           />
-          <Button type="submit" color="teal" fluid size="large">
+          <Button loading={loading} type="submit" color="teal" fluid size="large">
             Register
           </Button>
           <Message>
@@ -100,5 +105,5 @@ class RegisterForm extends PureComponent {
 }
 
 export default reduxForm({
-  form: 'signUp'
+  form: 'signUp',
 })(RegisterForm)
