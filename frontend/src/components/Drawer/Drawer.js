@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 export default class Drawer extends PureComponent {
   static propTypes = {
-    closeSidebar: PropTypes.func,
+    closeDrawer: PropTypes.func,
     open: PropTypes.bool,
     user: PropTypes.object
   }
@@ -17,7 +17,7 @@ export default class Drawer extends PureComponent {
   }
 
   render() {
-    const { closeSidebar, open, user } = this.props
+    const { closeDrawer, open, user } = this.props
     return (
       <Sidebar
         as={Menu}
@@ -27,29 +27,24 @@ export default class Drawer extends PureComponent {
         icon="labeled"
         vertical
       >
-        <Menu.Item name="home" as={Link} to="/" onClick={closeSidebar}>
+        <Menu.Item name="home" as={Link} to="/" onClick={closeDrawer}>
           <Icon name="home" />
           Home
         </Menu.Item>
         {!user && (
-          <Menu.Item name="login" as={Link} to="/login" onClick={closeSidebar}>
+          <Menu.Item name="login" as={Link} to="/login" onClick={closeDrawer}>
             <Icon name="sign in" />
             Login
           </Menu.Item>
         )}
         {!user && (
-          <Menu.Item
-            name="home"
-            as={Link}
-            to="/register"
-            onClick={closeSidebar}
-          >
+          <Menu.Item name="home" as={Link} to="/register" onClick={closeDrawer}>
             <Icon name="signup" />
             Register
           </Menu.Item>
         )}
         {user && (
-          <Menu.Item name="blogs" as={Link} to="/blogs" onClick={closeSidebar}>
+          <Menu.Item name="blogs" as={Link} to="/blogs" onClick={closeDrawer}>
             <Icon name="columns" />
             Blogs
           </Menu.Item>
@@ -59,7 +54,7 @@ export default class Drawer extends PureComponent {
             name="blogs"
             as={Link}
             to="/dashboard"
-            onClick={closeSidebar}
+            onClick={closeDrawer}
           >
             <Icon name="cubes" />
             Dashboard

@@ -4,9 +4,8 @@ import React, { PureComponent } from 'react'
 
 import { ApolloProvider } from 'react-apollo'
 import PropTypes from 'prop-types'
-import client from 'store/client'
+import apolloClient from 'lib/apolloClient'
 import { injectGlobal } from 'styled-components'
-import store from 'store/store'
 
 injectGlobal`
   * {
@@ -25,10 +24,6 @@ export default class App extends PureComponent {
 
   render() {
     const { children } = this.props
-    return (
-      <ApolloProvider client={client} store={store}>
-        {children}
-      </ApolloProvider>
-    )
+    return <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
   }
 }

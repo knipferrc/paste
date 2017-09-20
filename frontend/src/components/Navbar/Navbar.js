@@ -34,11 +34,9 @@ const HamburgerMenu = styled.div`
 
 export default class Navbar extends PureComponent {
   static propTypes = {
-    activeItem: PropTypes.string,
     open: PropTypes.bool,
-    openSidebar: PropTypes.func,
-    closeSidebar: PropTypes.func,
-    setActiveItem: PropTypes.func,
+    openDrawer: PropTypes.func,
+    closeDrawer: PropTypes.func,
     user: PropTypes.object
   }
 
@@ -48,7 +46,7 @@ export default class Navbar extends PureComponent {
   }
 
   render() {
-    const { open, openSidebar, closeSidebar, user } = this.props
+    const { open, openDrawer, closeDrawer, user } = this.props
     return (
       <Menu inverted fixed="top" size="large" style={{ height: 62 }}>
         <Menu.Item header>#Pastey!</Menu.Item>
@@ -107,7 +105,7 @@ export default class Navbar extends PureComponent {
         </DesktopMenuRight>
         <HamburgerMenu>
           <Icon
-            onClick={open ? closeSidebar : openSidebar}
+            onClick={open ? closeDrawer : openDrawer}
             size="large"
             name={open ? 'close' : 'sidebar'}
           />
