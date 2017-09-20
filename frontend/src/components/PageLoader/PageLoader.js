@@ -10,6 +10,7 @@ export default class PageLoader extends PureComponent {
     pastDelay: PropTypes.bool,
     error: PropTypes.bool
   }
+
   render() {
     const { isLoading, timedOut, pastDelay, error } = this.props
     if (isLoading) {
