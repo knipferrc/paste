@@ -28,8 +28,7 @@
     "koa-helmet": "^3.2.0",
     "koa-router": "^7.2.1",
     "mongodb": "^2.2.31",
-    "prettier": "^1.7.0",
-    "uuid": "^3.1.0"
+    "prettier": "^1.7.0"
   },
   "now": {
     "alias": "pastey-server",

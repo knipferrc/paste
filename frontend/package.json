@@ -13,13 +13,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier --single-quote --no-semi --trailing-comma none --write \"src/**/*.js\"",
-    "analyze": "source-map-explorer build/static/js/main.*",
     "deploy": "now --docker && now alias"
   },
   "dependencies": {
     "draft-js": "^0.10.2",
     "formik": "^0.9.0",
-    "immutable": "^3.8.1",
     "koa": "^2.3.0",
     "koa-send": "^4.1.0",
     "koa-static": "^4.0.1",
@@ -34,7 +32,6 @@
     "react-scripts": "1.0.13",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.73.1",
-    "source-map-explorer": "^1.4.0",
     "styled-components": "^2.1.2"
   },
   "now": {
