@@ -1,6 +1,7 @@
-import { ApolloClient, createNetworkInterface } from 'react-apollo'
+import { ApolloClient, createBatchingNetworkInterface } from 'react-apollo'
 
-const networkInterface = createNetworkInterface({
+const networkInterface = createBatchingNetworkInterface({
+  batchInterval: 10,
   uri:
     process.env.NODE_ENV === 'production'
       ? 'https://pastey-server.now.sh/api'
