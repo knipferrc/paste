@@ -5,6 +5,7 @@ import BlogDetails from './BlogDetails'
 import Blogs from './Blogs'
 import CreateBlog from './CreateBlog'
 import Dashboard from './Dashboard'
+import Documentation from './Documentation'
 import EditBlog from './EditBlog'
 import Home from './Home'
 import Login from './Login'
@@ -20,7 +21,12 @@ const Router = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <AuthorizedRoute exact path="/blogs" component={Blogs} />
+        <Route exact path="/blogs" component={Blogs} />
+        <AuthorizedRoute
+          exact
+          path="/documentation"
+          component={Documentation}
+        />
         <AuthorizedRoute exact path="/blogs/:id" component={BlogDetails} />
         <AuthorizedRoute exact path="/create-blog" component={CreateBlog} />
         <AuthorizedRoute

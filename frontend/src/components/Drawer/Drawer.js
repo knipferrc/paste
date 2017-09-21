@@ -39,6 +39,10 @@ export default class Drawer extends PureComponent {
             Home
           </Menu.Item>
         )}
+        <Menu.Item name="blogs" as={Link} to="/blogs" onClick={closeDrawer}>
+          <Icon name="columns" />
+          Blogs
+        </Menu.Item>
         {!user && (
           <Menu.Item name="login" as={Link} to="/login" onClick={closeDrawer}>
             <Icon name="sign in" />
@@ -54,12 +58,6 @@ export default class Drawer extends PureComponent {
           >
             <Icon name="signup" />
             Register
-          </Menu.Item>
-        )}
-        {user && (
-          <Menu.Item name="blogs" as={Link} to="/blogs" onClick={closeDrawer}>
-            <Icon name="columns" />
-            Blogs
           </Menu.Item>
         )}
         {user && (
