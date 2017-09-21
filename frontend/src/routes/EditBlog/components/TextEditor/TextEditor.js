@@ -1,7 +1,7 @@
-import { Editor, EditorState } from 'draft-js'
+import { Form, TextArea } from 'semantic-ui-react'
 import React, { PureComponent } from 'react'
 
-import EditorControls from './EditorControls'
+import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 
 const EditorContainer = styled.div`
@@ -12,22 +12,27 @@ const EditorContainer = styled.div`
 
 export default class TextEditor extends PureComponent {
   state = {
-    editorState: EditorState.createEmpty()
+    editorContent: ''
   }
 
-  onChange = editorState => {
+  handleChange = (event, data) => {
     this.setState({
-      editorState
+      editorContent: data.value
     })
   }
-
   render() {
-    const { editorState } = this.state
     return (
       <div>
-        <EditorControls />
         <EditorContainer>
-          <Editor editorState={editorState} onChange={this.onChange} />
+          <Form>
+            <TextArea
+              onChange={(event, data) => this.handleChange(event, data)}
+              value={this.state.editorContent}
+              placeholder="Create your blog here"
+              style={{ minHeight: 250 }}
+            />
+          </Form>
+          <ReactMarkdown source={this.state.editorContent} />
         </EditorContainer>
       </div>
     )

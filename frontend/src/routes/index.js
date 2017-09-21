@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AuthorizedRoute from 'components/AuthorizedRoute'
 import BlogDetails from './BlogDetails'
 import Blogs from './Blogs'
+import CreateBlog from './CreateBlog'
 import Dashboard from './Dashboard'
 import EditBlog from './EditBlog'
 import Home from './Home'
@@ -21,6 +22,11 @@ const Router = () => {
         <Route exact path="/register" component={Register} />
         <AuthorizedRoute exact path="/blogs" component={Blogs} />
         <AuthorizedRoute exact path="/blogs/:id" component={BlogDetails} />
+        <AuthorizedRoute
+          exact
+          path="/create-blog"
+          component={CreateBlog}
+        />
         <AuthorizedRoute
           exact
           path="/dashboard/edit/:id"

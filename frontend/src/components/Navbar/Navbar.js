@@ -93,7 +93,7 @@ export default class Navbar extends PureComponent {
                 className="icon"
               >
                 <Dropdown.Menu>
-                <Dropdown.Header content="Help" />
+                  <Dropdown.Header content="Help" />
                   <Dropdown.Divider />
                   <Dropdown.Item text="Documentation" />
                   <Dropdown.Divider />
