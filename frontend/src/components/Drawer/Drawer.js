@@ -22,7 +22,7 @@ export default class Drawer extends PureComponent {
       <Sidebar
         as={Menu}
         animation="overlay"
-        width="thin"
+        style={{ width: 200 }}
         visible={open}
         icon="labeled"
         vertical
@@ -58,6 +58,12 @@ export default class Drawer extends PureComponent {
           >
             <Icon name="cubes" />
             Dashboard
+          </Menu.Item>
+        )}
+        {user && (
+          <Menu.Item name="account">
+            <Icon name="user" />
+            {user.email}
           </Menu.Item>
         )}
         {user && (

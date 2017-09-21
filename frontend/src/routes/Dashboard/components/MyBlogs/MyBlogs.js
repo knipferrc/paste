@@ -9,7 +9,7 @@ const Container = styled.div`
   padding-left: 10px;
   height: 100%;
   padding-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 40px;
 `
 
 const MyBlogs = () => {

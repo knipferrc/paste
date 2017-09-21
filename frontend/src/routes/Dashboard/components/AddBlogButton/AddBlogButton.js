@@ -4,9 +4,9 @@ import { Button } from 'semantic-ui-react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  position: fixed;
   width: 100%;
-  bottom: 0;
+  position: fixed;
+  z-index: 100;
 `
 
 export default class AddBlogButton extends PureComponent {

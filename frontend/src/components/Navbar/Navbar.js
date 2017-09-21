@@ -93,9 +93,11 @@ export default class Navbar extends PureComponent {
                 className="icon"
               >
                 <Dropdown.Menu>
-                  <Dropdown.Header content="My Account" />
+                <Dropdown.Header content="Help" />
                   <Dropdown.Divider />
-                  <Dropdown.Item text="Profile" />
+                  <Dropdown.Item text="Documentation" />
+                  <Dropdown.Divider />
+                  <Dropdown.Header content="My Account" />
                   <Dropdown.Item text="Settings" />
                   <Dropdown.Item onClick={this.logout} text="Logout" />
                 </Dropdown.Menu>
