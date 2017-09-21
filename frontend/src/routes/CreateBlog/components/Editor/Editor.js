@@ -1,7 +1,6 @@
-import { Form, TextArea } from 'semantic-ui-react'
-
 import PropTypes from 'prop-types'
 import React from 'react'
+import { TextArea } from 'semantic-ui-react'
 
 const propTypes = {
   editorContent: PropTypes.string,
@@ -10,15 +9,14 @@ const propTypes = {
 
 const Editor = ({ editorContent, updateEditorContent }) => {
   return (
-    <Form>
-      <TextArea
-        value={editorContent}
-        onChange={(event, data) => updateEditorContent(event, data)}
-        placeholder="Create your blog here"
-        style={{ minHeight: 400 }}
-        autoHeight
-      />
-    </Form>
+    <TextArea
+      name="editorContent"
+      value={editorContent}
+      onChange={(event, data) => updateEditorContent(event, data)}
+      placeholder="Create your blog here"
+      style={{ minHeight: 400 }}
+      autoHeight
+    />
   )
 }
 
