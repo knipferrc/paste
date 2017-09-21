@@ -22,11 +22,7 @@ const Router = () => {
         <Route exact path="/register" component={Register} />
         <AuthorizedRoute exact path="/blogs" component={Blogs} />
         <AuthorizedRoute exact path="/blogs/:id" component={BlogDetails} />
-        <AuthorizedRoute
-          exact
-          path="/create-blog"
-          component={CreateBlog}
-        />
+        <AuthorizedRoute exact path="/create-blog" component={CreateBlog} />
         <AuthorizedRoute
           exact
           path="/dashboard/edit/:id"

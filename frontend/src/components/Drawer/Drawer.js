@@ -27,10 +27,18 @@ export default class Drawer extends PureComponent {
         icon="labeled"
         vertical
       >
-        <Menu.Item name="home" as={Link} to="/" onClick={closeDrawer}>
-          <Icon name="home" />
-          Home
-        </Menu.Item>
+        {user && (
+          <Menu.Item name="account" as={Link} to="/" onClick={closeDrawer}>
+            <Icon name="user" />
+            {user.email}
+          </Menu.Item>
+        )}
+        {!user && (
+          <Menu.Item name="home" as={Link} to="/" onClick={closeDrawer}>
+            <Icon name="home" />
+            Home
+          </Menu.Item>
+        )}
         {!user && (
           <Menu.Item name="login" as={Link} to="/login" onClick={closeDrawer}>
             <Icon name="sign in" />
@@ -38,7 +46,12 @@ export default class Drawer extends PureComponent {
           </Menu.Item>
         )}
         {!user && (
-          <Menu.Item name="home" as={Link} to="/register" onClick={closeDrawer}>
+          <Menu.Item
+            name="register"
+            as={Link}
+            to="/register"
+            onClick={closeDrawer}
+          >
             <Icon name="signup" />
             Register
           </Menu.Item>
@@ -51,7 +64,7 @@ export default class Drawer extends PureComponent {
         )}
         {user && (
           <Menu.Item
-            name="blogs"
+            name="dashboard"
             as={Link}
             to="/dashboard"
             onClick={closeDrawer}
@@ -61,9 +74,14 @@ export default class Drawer extends PureComponent {
           </Menu.Item>
         )}
         {user && (
-          <Menu.Item name="account">
-            <Icon name="user" />
-            {user.email}
+          <Menu.Item
+            name="documentation"
+            as={Link}
+            to="/documentation"
+            onClick={closeDrawer}
+          >
+            <Icon name="file text outline" />
+            Documentation
           </Menu.Item>
         )}
         {user && (

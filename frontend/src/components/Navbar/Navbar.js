@@ -51,10 +51,12 @@ export default class Navbar extends PureComponent {
       <Menu inverted fixed="top" size="large" style={{ height: 62 }}>
         <Menu.Item header>#Pastey!</Menu.Item>
         <DesktopMenuLeft>
-          <Menu.Item as={Link} to="/">
-            <Icon name="home" />
-            Home
-          </Menu.Item>
+          {!user && (
+            <Menu.Item as={Link} to="/">
+              <Icon name="home" />
+              Home
+            </Menu.Item>
+          )}
           {user && (
             <Menu.Item as={Link} to="/blogs">
               <Icon name="columns" />
@@ -95,7 +97,11 @@ export default class Navbar extends PureComponent {
                 <Dropdown.Menu>
                   <Dropdown.Header content="Help" />
                   <Dropdown.Divider />
-                  <Dropdown.Item text="Documentation" />
+                  <Dropdown.Item
+                    text="Documentation"
+                    as={Link}
+                    to="/documentation"
+                  />
                   <Dropdown.Divider />
                   <Dropdown.Header content="My Account" />
                   <Dropdown.Item text="Settings" />

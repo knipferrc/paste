@@ -16,7 +16,7 @@ export default class AddBlogButton extends PureComponent {
       <Container>
         <Button
           as={Link}
-          to='/create-blog'
+          to="/create-blog"
           style={{ borderRadius: 0 }}
           primary
           fluid
