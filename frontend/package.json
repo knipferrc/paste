@@ -16,7 +16,6 @@
     "deploy": "now --docker && now alias"
   },
   "dependencies": {
-    "draft-js": "^0.10.2",
     "formik": "^0.9.1",
     "koa": "^2.3.0",
     "koa-send": "^4.1.0",
@@ -28,6 +27,7 @@
     "react-dom": "^15.6.1",
     "react-helmet": "^5.2.0",
     "react-loadable": "^4.0.5",
+    "react-markdown": "^2.5.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
     "semantic-ui-css": "^2.2.12",
