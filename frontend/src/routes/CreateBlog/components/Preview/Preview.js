@@ -1,3 +1,4 @@
+import { Header } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
@@ -21,9 +22,12 @@ const Container = styled.div`
 
 const Preview = ({ editorContent }) => {
   return (
-    <Container>
-      <ReactMarkdown source={editorContent} />
-    </Container>
+    <div>
+      <Header textAlign="center">Blog Preview</Header>
+      <Container>
+        <ReactMarkdown source={editorContent} />
+      </Container>
+    </div>
   )
 }
 
