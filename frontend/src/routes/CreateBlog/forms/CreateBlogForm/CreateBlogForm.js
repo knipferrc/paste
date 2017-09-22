@@ -10,11 +10,11 @@ import SaveBlogButton from '../../components/SaveBlogButton'
 
 const propTypes = {
   addBlog: PropTypes.func,
-  user: PropTypes.object
+  user: PropTypes.object,
+  history: PropTypes.object
 }
 
-const CreateBlogForm = ({ addBlog, user }) => {
-  console.log(user)
+const CreateBlogForm = ({ addBlog, user, history }) => {
   return (
     <Formik
       initialValues={{
@@ -46,6 +46,7 @@ const CreateBlogForm = ({ addBlog, user }) => {
             values.editorContent,
             user._id
           )
+          history.push('/dashboard')
         } catch (e) {
           setSubmitting(false)
         }

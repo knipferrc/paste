@@ -6,5 +6,6 @@ type Blog {
   content: String
   createdBy: ID
   status: String
+  _id: String
 }
 `
