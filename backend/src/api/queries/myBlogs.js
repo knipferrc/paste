@@ -3,5 +3,9 @@ export default async (root, { userId }, { db }) => {
     .collection('blogs')
     .find({ createdBy: userId })
     .toArray()
-  return myBlogs
+  if (myBlogs) {
+    return myBlogs
+  } else {
+    throw new Error('Error fetching your blogs')
+  }
 }

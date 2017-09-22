@@ -29,11 +29,14 @@ const MyBlogs = ({ loading, myBlogs }) => {
         </Message>
       ) : (
         <Card.Group itemsPerRow={4} stackable doubling>
-          {myBlogs.map((blog, index) => (
-            <Card key={index}>
+          {myBlogs.map(blog => (
+            <Card
+              key={blog._id}
+              color={blog.status === 'unpublished' ? 'yellow' : 'green'}
+            >
               <Card.Content>
                 <Card.Header>{blog.title}</Card.Header>
-                <Card.Meta>{blog.status}</Card.Meta>
+                <Card.Meta>Status: {blog.status}</Card.Meta>
                 <Card.Description>{blog.description}</Card.Description>
               </Card.Content>
               <Card.Content extra>

@@ -7,7 +7,11 @@ export default async (root, { accessToken }, { db }) => {
     const user = await db
       .collection('users')
       .findOne({ _id: new ObjectId(verifiedJWT.userId) })
-    return user
+    if (user) {
+      return user
+    } else {
+      throw new Error('Error fetching profile')
+    }
   } else {
     throw new Error('Must be logged in')
   }

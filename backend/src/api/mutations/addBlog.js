@@ -3,7 +3,7 @@ export default async (
   { title, category, description, content, userId },
   { db }
 ) => {
-  const data = await db.collection('blogs').insertOne({
+  const newBlog = await db.collection('blogs').insertOne({
     title,
     category,
     description,
@@ -11,5 +11,9 @@ export default async (
     createdBy: userId,
     status: 'unpublished'
   })
-  return data.ops[0]
+  if (newBlog) {
+    return newBlog.ops[0]
+  } else {
+    throw new Error('Error adding new blog!!')
+  }
 }
