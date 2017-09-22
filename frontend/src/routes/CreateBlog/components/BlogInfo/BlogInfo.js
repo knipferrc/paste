@@ -8,7 +8,9 @@ const propTypes = {
   blogCategory: PropTypes.string,
   blogDescription: PropTypes.string,
   updateField: PropTypes.func,
-  setFieldValue: PropTypes.func
+  setFieldValue: PropTypes.func,
+  errors: PropTypes.object,
+  touched: PropTypes.object
 }
 
 const options = [
@@ -21,7 +23,9 @@ const BlogInfo = ({
   blogCategory,
   blogDescription,
   updateField,
-  setFieldValue
+  setFieldValue,
+  errors,
+  touched
 }) => {
   return (
     <Message>
@@ -29,6 +33,7 @@ const BlogInfo = ({
         <Form.Input
           value={blogTitle}
           onChange={updateField}
+          error={touched.blogTitle && errors.blogTitle ? true : false}
           name="blogTitle"
           label="Title"
           placeholder="Blog Title"
@@ -36,6 +41,7 @@ const BlogInfo = ({
         <Form.Select
           value={blogCategory}
           onChange={(e, { name, value }) => setFieldValue(name, value)}
+          error={touched.blogCategory && errors.blogCategory ? true : false}
           name="blogCategory"
           label="Category"
           options={options}
@@ -45,6 +51,7 @@ const BlogInfo = ({
       <Form.TextArea
         value={blogDescription}
         onChange={updateField}
+        error={touched.blogDescription && errors.blogDescription ? true : false}
         name="blogDescription"
         label="Description"
         placeholder="Describe Your Blog"

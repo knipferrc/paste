@@ -16,17 +16,30 @@ const CreateBlogForm = () => {
         blogCategory: '',
         blogDescription: ''
       }}
+      validate={values => {
+        let errors = {}
+        if (!values.blogTitle) {
+          errors.blogTitle = 'Required'
+        }
+        if (!values.blogCategory) {
+          errors.blogCategory = 'Required'
+        }
+        if (!values.blogDescription) {
+          errors.blogDescription = 'Required'
+        }
+        return errors
+      }}
       onSubmit={async (values, { setSubmitting }) => {
         try {
           setSubmitting(true)
-          console.log(values)
-          setSubmitting(false)
         } catch (e) {
           setSubmitting(false)
         }
       }}
       render={({
         values,
+        errors,
+        touched,
         handleChange,
         handleSubmit,
         isSubmitting,
@@ -43,6 +56,8 @@ const CreateBlogForm = () => {
                   blogDescription={values.blogDescription}
                   updateField={handleChange}
                   setFieldValue={setFieldValue}
+                  errors={errors}
+                  touched={touched}
                 />
               </Grid.Column>
             </Grid.Row>
