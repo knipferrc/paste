@@ -12,11 +12,13 @@ const propTypes = {
 const RegisterView = ({ register, history }) => {
   return (
     <DefaultLayout title="#Pastey! - Sign Up">
-      <Grid textAlign="center" padded>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <RegisterForm register={register} history={history} />
-        </Grid.Column>
-      </Grid>
+      {() => (
+        <Grid textAlign="center" padded>
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <RegisterForm register={register} history={history} />
+          </Grid.Column>
+        </Grid>
+      )}
     </DefaultLayout>
   )
 }

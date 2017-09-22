@@ -10,12 +10,14 @@ const Container = styled.div`margin: 5px;`
 const DashboardView = () => {
   return (
     <DefaultLayout title="#Pastey! - Dashboard">
-      <Container>
-        <Segment>
-          <AddBlogButton />
-          <MyBlogs />
-        </Segment>
-      </Container>
+      {() => (
+        <Container>
+          <Segment>
+            <AddBlogButton />
+            <MyBlogs />
+          </Segment>
+        </Container>
+      )}
     </DefaultLayout>
   )
 }

@@ -12,11 +12,13 @@ const propTypes = {
 const LoginView = ({ login, history }) => {
   return (
     <DefaultLayout title="#Pastey! - Login">
-      <Grid textAlign="center" padded>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <LoginForm login={login} history={history} />
-        </Grid.Column>
-      </Grid>
+      {() => (
+        <Grid textAlign="center" padded>
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <LoginForm login={login} history={history} />
+          </Grid.Column>
+        </Grid>
+      )}
     </DefaultLayout>
   )
 }

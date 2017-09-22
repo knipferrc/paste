@@ -5,7 +5,7 @@ import TextEditor from '../TextEditor'
 const EditBlogView = () => {
   return (
     <DefaultLayout title="#Pastey! - Edit Blog">
-      <TextEditor />
+      {() => <TextEditor />}
     </DefaultLayout>
   )
 }

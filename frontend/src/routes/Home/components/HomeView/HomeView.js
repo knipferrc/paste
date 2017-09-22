@@ -9,11 +9,15 @@ import RecentBlogs from '../RecentBlogs'
 const HomeView = () => {
   return (
     <DefaultLayout title="#Pastey! - Home">
-      <Hero />
-      <LearnMore />
-      <CallOut />
-      <RecentBlogs />
-      <Footer />
+      {() => (
+        <div>
+          <Hero />
+          <LearnMore />
+          <CallOut />
+          <RecentBlogs />
+          <Footer />
+        </div>
+      )}
     </DefaultLayout>
   )
 }

@@ -4,7 +4,7 @@ import React from 'react'
 const DocumentationView = () => {
   return (
     <DefaultLayout title="#Pastey! - Documentation">
-      <h1>Documentation</h1>
+      {() => <h1>Documentation</h1>}
     </DefaultLayout>
   )
 }

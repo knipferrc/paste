@@ -4,10 +4,17 @@ import BlogInfo from '../../components/BlogInfo'
 import Editor from '../../components/Editor'
 import { Formik } from 'formik'
 import Preview from '../../components/Preview'
+import PropTypes from 'prop-types'
 import React from 'react'
 import SaveBlogButton from '../../components/SaveBlogButton'
 
-const CreateBlogForm = () => {
+const propTypes = {
+  addBlog: PropTypes.func,
+  user: PropTypes.object
+}
+
+const CreateBlogForm = ({ addBlog, user }) => {
+  console.log(user)
   return (
     <Formik
       initialValues={{
@@ -32,6 +39,13 @@ const CreateBlogForm = () => {
       onSubmit={async (values, { setSubmitting }) => {
         try {
           setSubmitting(true)
+          await addBlog(
+            values.blogTitle,
+            values.blogCategory,
+            values.blogDescription,
+            values.editorContent,
+            user._id
+          )
         } catch (e) {
           setSubmitting(false)
         }
@@ -78,5 +92,7 @@ const CreateBlogForm = () => {
     />
   )
 }
+
+CreateBlogForm.propTypes = propTypes
 
 export default CreateBlogForm

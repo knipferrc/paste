@@ -12,7 +12,7 @@ const Content = styled.div`padding-top: 62px;`
 
 class DefaultLayout extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.func,
     title: PropTypes.string,
     loading: PropTypes.bool,
     userProfile: PropTypes.object
@@ -53,7 +53,7 @@ class DefaultLayout extends PureComponent {
           user={userProfile}
         />
         <Drawer user={userProfile} closeDrawer={this.closeDrawer} open={open} />
-        <Content>{children}</Content>
+        <Content>{children({ user: userProfile })}</Content>
       </div>
     )
   }
@@ -65,6 +65,7 @@ const UserProfileQuery = gql`
       firstName
       lastName
       email
+      _id
     }
   }
 `
