@@ -5,11 +5,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  padding-right: 10px;
-  padding-left: 10px;
   height: 100%;
-  padding-top: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
 `
 
 const MyBlogs = () => {
