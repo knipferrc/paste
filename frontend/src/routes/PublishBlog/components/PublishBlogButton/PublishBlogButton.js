@@ -19,7 +19,13 @@ const handleClick = (publishBlog, blogId, history) => {
 
 const PublishBlogButton = ({ publishBlog, blogId, history }) => {
   return (
-    <Button color="blue" onClick={() => handleClick(publishBlog, blogId, history)} fluid icon="external square" content="Publish Blog" />
+    <Button
+      color="blue"
+      onClick={() => handleClick(publishBlog, blogId, history)}
+      fluid
+      icon="external square"
+      content="Publish Blog"
+    />
   )
 }
 

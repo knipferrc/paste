@@ -15,7 +15,7 @@ const withPublishBlog = graphql(PublishBlogMutation, {
     refetchQueries: [
       {
         query: MyBlogsQuery,
-        variables: { userId: props.userId}
+        variables: { userId: props.userId }
       }
     ]
   })

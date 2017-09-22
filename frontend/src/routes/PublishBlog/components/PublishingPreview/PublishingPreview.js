@@ -8,10 +8,10 @@ const propTypes = {
   blogContent: PropTypes.string
 }
 
-const PublishingPreview = ({ loading, blogContent}) => {
+const PublishingPreview = ({ loading, blogContent }) => {
   return (
     <div>
-     {loading ? <Loader active /> : <ReactMarkdown source={blogContent}/> }
+      {loading ? <Loader active /> : <ReactMarkdown source={blogContent} />}
     </div>
   )
 }
