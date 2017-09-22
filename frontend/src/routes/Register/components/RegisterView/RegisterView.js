@@ -5,17 +5,16 @@ import React from 'react'
 import RegisterForm from '../../forms/RegisterForm'
 
 const propTypes = {
-  register: PropTypes.func,
   history: PropTypes.object
 }
 
-const RegisterView = ({ register, history }) => {
+const RegisterView = ({ history }) => {
   return (
     <DefaultLayout title="#Pastey! - Sign Up">
       {() => (
         <Grid textAlign="center" padded>
           <Grid.Column style={{ maxWidth: 450 }}>
-            <RegisterForm register={register} history={history} />
+            <RegisterForm history={history} />
           </Grid.Column>
         </Grid>
       )}

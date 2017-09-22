@@ -5,17 +5,16 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const propTypes = {
-  login: PropTypes.func,
   history: PropTypes.object
 }
 
-const LoginView = ({ login, history }) => {
+const LoginView = ({ history }) => {
   return (
     <DefaultLayout title="#Pastey! - Login">
       {() => (
         <Grid textAlign="center" padded>
           <Grid.Column style={{ maxWidth: 450 }}>
-            <LoginForm login={login} history={history} />
+            <LoginForm history={history} />
           </Grid.Column>
         </Grid>
       )}

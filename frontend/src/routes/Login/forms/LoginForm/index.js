@@ -1,3 +1,11 @@
 import LoginForm from './LoginForm'
+import LoginMutation from '../../mutations/login'
+import { graphql } from 'react-apollo'
 
-export default LoginForm
+const withLogin = graphql(LoginMutation, {
+  props: ({ mutate }) => ({
+    login: (email, password) => mutate({ variables: { email, password } })
+  })
+})
+
+export default withLogin(LoginForm)

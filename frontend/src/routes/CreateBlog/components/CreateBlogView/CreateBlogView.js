@@ -5,18 +5,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 const propTypes = {
-  addBlog: PropTypes.func,
   history: PropTypes.object
 }
 
 const Container = styled.div`margin: 5px;`
 
-const CreateBlogView = ({ addBlog, history }) => {
+const CreateBlogView = ({ history }) => {
   return (
     <DefaultLayout title="#Pastey! - Create Blog">
       {({ user }) => (
         <Container>
-          <CreateBlogForm addBlog={addBlog} user={user} history={history} />
+          <CreateBlogForm user={user} history={history} />
         </Container>
       )}
     </DefaultLayout>

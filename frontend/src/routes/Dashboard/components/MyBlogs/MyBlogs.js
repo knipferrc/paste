@@ -1,10 +1,8 @@
 import { Button, Card, Icon, Loader, Message } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom'
-import MyBlogsQuery from '../../queries/myBlogs'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { graphql } from 'react-apollo'
 import styled from 'styled-components'
 
 const propTypes = {
@@ -62,14 +60,4 @@ const MyBlogs = ({ loading, myBlogs }) => {
 
 MyBlogs.propTypes = propTypes
 
-export default graphql(MyBlogsQuery, {
-  props: ({ data: { loading, myBlogs } }) => ({
-    loading,
-    myBlogs
-  }),
-  options: props => ({
-    variables: {
-      userId: props.user._id
-    }
-  })
-})(MyBlogs)
+export default MyBlogs
