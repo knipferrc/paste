@@ -37,7 +37,6 @@ const CreatePasteForm = ({ addPaste, user, history }) => {
         return errors
       }}
       onSubmit={async (values, { setSubmitting }) => {
-        console.log(addPaste)
         try {
           setSubmitting(true)
           await addPaste(

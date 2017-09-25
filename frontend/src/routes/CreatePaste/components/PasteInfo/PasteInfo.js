@@ -51,7 +51,9 @@ const PasteInfo = ({
       <Form.TextArea
         value={pasteDescription}
         onChange={updateField}
-        error={touched.pasteDescription && errors.pasteDescription ? true : false}
+        error={
+          touched.pasteDescription && errors.pasteDescription ? true : false
+        }
         name="pasteDescription"
         label="Description"
         placeholder="Describe Your Paste"

@@ -5,13 +5,13 @@ import React from 'react'
 const AddPasteButton = () => {
   return (
     <Button
-    as={Link}
-    to="/create-paste"
-    primary
-    fluid
-    icon="plus"
-    content="Create New Paste"
-  />
+      as={Link}
+      to="/create-paste"
+      primary
+      fluid
+      icon="plus"
+      content="Create New Paste"
+    />
   )
 }
 
