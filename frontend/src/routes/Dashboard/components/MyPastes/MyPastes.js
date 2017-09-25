@@ -48,9 +48,13 @@ const MyPastes = ({ loading, myPastes }) => {
                   >
                     Edit
                   </Button>
-                  <Button as={Link} to={`/dashboard/publish/${paste._id}`}>
-                    Publish
-                  </Button>
+                  {paste.status === 'unpublished' ? (
+                    <Button as={Link} to={`/dashboard/publish/${paste._id}`}>
+                      Publish
+                    </Button>
+                  ) : (
+                    <Button>Unpublish</Button>
+                  )}
                 </div>
               </Card.Content>
             </Card>

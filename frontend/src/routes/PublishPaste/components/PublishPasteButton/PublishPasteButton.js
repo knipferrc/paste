@@ -3,25 +3,25 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const propTypes = {
-  publishPaste: PropTypes.func,
+  setPublishingStatus: PropTypes.func,
   pasteId: PropTypes.string,
   history: PropTypes.object
 }
 
-const handleClick = (publishPaste, pasteId, history) => {
+const handleClick = (setPublishingStatus, pasteId, history) => {
   try {
-    publishPaste(pasteId)
+    setPublishingStatus(pasteId, 'published')
     history.push('/dashboard')
   } catch (e) {
     return e
   }
 }
 
-const PublishPasteButton = ({ publishPaste, pasteId, history }) => {
+const PublishPasteButton = ({ setPublishingStatus, pasteId, history }) => {
   return (
     <Button
       color="blue"
-      onClick={() => handleClick(publishPaste, pasteId, history)}
+      onClick={() => handleClick(setPublishingStatus, pasteId, history)}
       fluid
       icon="external square"
       content="Publish Paste"

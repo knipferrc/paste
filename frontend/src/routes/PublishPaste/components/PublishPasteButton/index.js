@@ -1,13 +1,21 @@
 import MyPastesQuery from '../../queries/myPastes'
 import PublishPasteButton from './PublishPasteButton'
-import PublishPasteMutation from '../../mutations/publishPaste'
+import SetPublishingStatusMutation from '../../mutations/setPublishingStatus'
 import { graphql } from 'react-apollo'
 
-const withPublishPaste = graphql(PublishPasteMutation, {
+const withSetPublishingStatus = graphql(SetPublishingStatusMutation, {
   props: ({ mutate }) => ({
-    publishPaste: pasteId => {
+    setPublishingStatus: (pasteId, status) => {
       return mutate({
-        variables: { pasteId }
+        variables: { pasteId, status },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          setPublishingStatus: {
+            __typename: 'Paste',
+            pasteId,
+            status
+          }
+        }
       })
     }
   }),
@@ -21,4 +29,4 @@ const withPublishPaste = graphql(PublishPasteMutation, {
   })
 })
 
-export default withPublishPaste(PublishPasteButton)
+export default withSetPublishingStatus(PublishPasteButton)
