@@ -57,9 +57,9 @@ export default class Navbar extends PureComponent {
               Home
             </Menu.Item>
           )}
-          <Menu.Item as={Link} to="/blogs">
+          <Menu.Item as={Link} to="/pastes">
             <Icon name="columns" />
-            Blogs
+            Pastes
           </Menu.Item>
           {user && (
             <Menu.Item as={Link} to="/dashboard">

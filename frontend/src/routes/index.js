@@ -1,16 +1,16 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import AuthorizedRoute from 'components/AuthorizedRoute'
-import BlogDetails from './BlogDetails'
-import Blogs from './Blogs'
-import CreateBlog from './CreateBlog'
+import CreatePaste from './CreatePaste'
 import Dashboard from './Dashboard'
 import Documentation from './Documentation'
-import EditBlog from './EditBlog'
+import EditPaste from './EditPaste'
 import Home from './Home'
 import Login from './Login'
 import NotFound from 'components/NotFound'
-import PublishBlog from './PublishBlog'
+import PasteDetails from './PasteDetails'
+import Pastes from './Pastes'
+import PublishPaste from './PublishPaste'
 import React from 'react'
 import Register from './Register'
 
@@ -21,23 +21,23 @@ const Router = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/blogs" component={Blogs} />
+        <Route exact path="/pastes" component={Pastes} />
         <AuthorizedRoute
           exact
           path="/documentation"
           component={Documentation}
         />
-        <AuthorizedRoute exact path="/blogs/:id" component={BlogDetails} />
-        <AuthorizedRoute exact path="/create-blog" component={CreateBlog} />
+        <AuthorizedRoute exact path="/pastes/:id" component={PasteDetails} />
+        <AuthorizedRoute exact path="/create-paste" component={CreatePaste} />
         <AuthorizedRoute
           exact
           path="/dashboard/edit/:id"
-          component={EditBlog}
+          component={EditPaste}
         />
         <AuthorizedRoute
           exact
           path="/dashboard/publish/:id"
-          component={PublishBlog}
+          component={PublishPaste}
         />
         <AuthorizedRoute exact path="/dashboard" component={Dashboard} />
         <Route exact path="*" component={NotFound} />

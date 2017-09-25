@@ -39,9 +39,9 @@ export default class Drawer extends PureComponent {
             Home
           </Menu.Item>
         )}
-        <Menu.Item name="blogs" as={Link} to="/blogs" onClick={closeDrawer}>
+        <Menu.Item name="pastes" as={Link} to="/pastes" onClick={closeDrawer}>
           <Icon name="columns" />
-          Blogs
+          Pastes
         </Menu.Item>
         {!user && (
           <Menu.Item name="login" as={Link} to="/login" onClick={closeDrawer}>

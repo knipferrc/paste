@@ -1,6 +1,6 @@
-import AddBlogButton from '../AddBlogButton'
+import AddPasteButton from '../AddPasteButton'
 import DefaultLayout from 'layouts/DefaultLayout'
-import MyBlogs from '../MyBlogs'
+import MyPastes from '../MyPastes'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -11,8 +11,8 @@ const DashboardView = () => {
     <DefaultLayout title="#Pastey! - Dashboard">
       {({ user }) => (
         <Container>
-          <AddBlogButton />
-          <MyBlogs user={user} />
+          <AddPasteButton />
+          <MyPastes user={user} />
         </Container>
       )}
     </DefaultLayout>

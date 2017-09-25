@@ -1,2 +1,2 @@
 # Pastey
-Simple and elegant blogging
+Simple and elegant pasting

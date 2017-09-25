@@ -1,11 +1,11 @@
-import addBlog from '../mutations/addBlog'
+import addPaste from '../mutations/addPaste'
 import login from '../mutations/login'
-import publishBlog from '../mutations/publishBlog'
+import publishPaste from '../mutations/publishPaste'
 import register from '../mutations/register'
 
 export default {
   register,
   login,
-  addBlog,
-  publishBlog
+  addPaste,
+  publishPaste
 }

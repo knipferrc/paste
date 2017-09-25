@@ -1,9 +1,9 @@
-import blogContent from '../queries/blogContent'
-import myBlogs from '../queries/myBlogs'
+import myPastes from '../queries/myPastes'
+import pasteContent from '../queries/pasteContent'
 import userProfile from '../queries/userProfile'
 
 export default {
   userProfile,
-  myBlogs,
-  blogContent
+  pasteContent,
+  myPastes
 }
