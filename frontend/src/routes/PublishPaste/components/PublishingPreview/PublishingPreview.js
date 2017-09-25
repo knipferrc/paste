@@ -10,7 +10,11 @@ const propTypes = {
   pasteContent: PropTypes.string
 }
 
-const Container = styled.div`margin: 5px;`
+const Container = styled.div`
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+`
 
 const PublishingPreview = ({ loading, pasteContent }) => {
   return (
@@ -19,7 +23,7 @@ const PublishingPreview = ({ loading, pasteContent }) => {
         <Loader active />
       ) : (
         <Container>
-          <Segment piled padded>
+          <Segment padded>
             <ReactMarkdown source={pasteContent} />
           </Segment>
         </Container>
