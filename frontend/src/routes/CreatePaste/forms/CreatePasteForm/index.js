@@ -49,7 +49,7 @@ const withAddPaste = graphql(AddPasteMutation, {
     refetchQueries: [
       {
         query: MyPastesQuery,
-        variables: { userId: props.user._id },
+        variables: { userId: props.user._id }
       }
     ]
   })
