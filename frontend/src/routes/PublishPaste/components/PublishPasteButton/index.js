@@ -12,7 +12,7 @@ const withSetPublishingStatus = graphql(SetPublishingStatusMutation, {
           __typename: 'Mutation',
           setPublishingStatus: {
             __typename: 'Paste',
-            pasteId,
+            _id: pasteId,
             status
           }
         }

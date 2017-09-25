@@ -9,7 +9,8 @@ const networkInterface = createBatchingNetworkInterface({
 })
 
 const client = new ApolloClient({
-  networkInterface: networkInterface
+  networkInterface: networkInterface,
+  dataIdFromObject: o => o._id
 })
 
 export default client

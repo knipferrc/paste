@@ -6,30 +6,41 @@ import CreatePasteForm from './CreatePasteForm'
 const MyPastesQuery = gql`
   query myPastes($userId: ID!) {
     myPastes(userId: $userId) {
-      title
-      description
-      category
-      status
+      __typename
       _id
+      title
+      category
+      description
+      status
     }
   }
 `
 
 const withAddPaste = graphql(AddPasteMutation, {
   props: ({ mutate }) => ({
-    addPaste: (title, category, description, content, userId) => {
+    addPaste: (title, category, description, content, userId, status) => {
       return mutate({
-        variables: { title, category, description, content, userId },
+        variables: { title, category, description, content, userId, status },
         optimisticResponse: {
           __typename: 'Mutation',
           addPaste: {
             __typename: 'Paste',
+            _id: Math.round(Math.random() * -1000000),
             title,
             category,
             description,
             content,
-            userId
+            createdBy: userId,
+            status
           }
+        },
+        update: (store, { data: { addPaste } }) => {
+          const data = store.readQuery({
+            query: MyPastesQuery,
+            variables: { userId }
+          })
+          data.myPastes.push(addPaste)
+          store.writeQuery({ query: MyPastesQuery, data })
         }
       })
     }
@@ -38,7 +49,7 @@ const withAddPaste = graphql(AddPasteMutation, {
     refetchQueries: [
       {
         query: MyPastesQuery,
-        variables: { userId: props.user._id }
+        variables: { userId: props.user._id },
       }
     ]
   })

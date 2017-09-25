@@ -44,7 +44,8 @@ const CreatePasteForm = ({ addPaste, user, history }) => {
             values.pasteCategory,
             values.pasteDescription,
             values.pasteContent,
-            user._id
+            user._id,
+            'unpublished'
           )
           history.push('/dashboard')
         } catch (e) {

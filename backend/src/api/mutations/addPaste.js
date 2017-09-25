@@ -1,6 +1,6 @@
 export default async (
   root,
-  { title, category, description, content, userId },
+  { title, category, description, content, userId, status },
   { db }
 ) => {
   const newPaste = await db.collection('pastes').insertOne({
@@ -9,7 +9,7 @@ export default async (
     description,
     content,
     createdBy: userId,
-    status: 'unpublished'
+    status
   })
   if (newPaste) {
     return newPaste.ops[0]
