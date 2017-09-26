@@ -10,7 +10,8 @@ const SavePasteButton = () => {
       <Button
         color="blue"
         fluid
-        icon="external square"
+        type="submit"
+        icon="save"
         content="Save Changes"
       />
     </Container>
