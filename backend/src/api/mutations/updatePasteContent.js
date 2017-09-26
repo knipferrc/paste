@@ -8,5 +8,10 @@ export default async (root, { pasteId, pasteContent }, { db }) => {
       { $set: { content: pasteContent } },
       { returnOriginal: false }
     )
-  return updatedPaste
+
+  if (updatedPaste) {
+    return updatedPaste.value
+  } else {
+    throw new Error('Error updating paste content')
+  }
 }

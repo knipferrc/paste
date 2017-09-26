@@ -18,8 +18,27 @@ const withPasteContent = graphql(PasteContentQuery, {
 
 const withUpdatePasteContent = graphql(UpdatePasteContentMutation, {
   props: ({ mutate }) => ({
-    updatePasteContent: (pasteId, pasteContent) =>
-      mutate({ variables: { pasteId, pasteContent } })
+    updatePasteContent: (pasteId, pasteContent) => {
+      return mutate({
+        variables: { pasteId, pasteContent },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          updatePasteContent: {
+            __typename: 'Paste',
+            _id: pasteId,
+            content: pasteContent
+          }
+        }
+      })
+    }
+  }),
+  options: props => ({
+    refetchQueries: [
+      {
+        query: PasteContentQuery,
+        variables: { pasteId: props.pasteId }
+      }
+    ]
   })
 })
 

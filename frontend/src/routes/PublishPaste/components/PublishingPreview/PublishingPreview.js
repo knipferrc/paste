@@ -10,11 +10,7 @@ const propTypes = {
   pasteContent: PropTypes.string
 }
 
-const Container = styled.div`
-  margin-top: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-`
+const Container = styled.div`margin-top: 10px;`
 
 const PublishingPreview = ({ loading, pasteContent }) => {
   return (

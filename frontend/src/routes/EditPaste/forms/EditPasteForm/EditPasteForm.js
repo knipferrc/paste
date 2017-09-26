@@ -21,7 +21,7 @@ const EditPasteForm = ({
   updatePasteContent
 }) => {
   if (loading) {
-    return <Loader />
+    return <Loader active />
   }
 
   return (
