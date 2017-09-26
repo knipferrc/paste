@@ -8,7 +8,8 @@ import styled from 'styled-components'
 const propTypes = {
   user: PropTypes.object,
   loading: PropTypes.bool,
-  myPastes: PropTypes.array
+  myPastes: PropTypes.array,
+  setPublishingStatus: PropTypes.func
 }
 
 const Container = styled.div`
@@ -16,7 +17,7 @@ const Container = styled.div`
   margin-top: 20px;
 `
 
-const MyPastes = ({ loading, myPastes }) => {
+const MyPastes = ({ loading, myPastes, setPublishingStatus }) => {
   if (loading) {
     return <Loader active />
   }
@@ -53,7 +54,12 @@ const MyPastes = ({ loading, myPastes }) => {
                       Publish
                     </Button>
                   ) : (
-                    <Button>Unpublish</Button>
+                    <Button
+                      onClick={() =>
+                        setPublishingStatus(paste._id, 'unpublished')}
+                    >
+                      Unpublish
+                    </Button>
                   )}
                 </div>
               </Card.Content>
