@@ -1,4 +1,3 @@
-import MyPastesQuery from '../../queries/myPastes'
 import PublishPasteButton from './PublishPasteButton'
 import SetPublishingStatusMutation from '../../mutations/setPublishingStatus'
 import { graphql } from 'react-apollo'
@@ -18,14 +17,6 @@ const withSetPublishingStatus = graphql(SetPublishingStatusMutation, {
         }
       })
     }
-  }),
-  options: props => ({
-    refetchQueries: [
-      {
-        query: MyPastesQuery,
-        variables: { userId: props.userId }
-      }
-    ]
   })
 })
 

@@ -2,7 +2,7 @@ import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-const AddPasteButton = () => {
+const CreatePasteButton = () => {
   return (
     <Button
       as={Link}
@@ -15,4 +15,4 @@ const AddPasteButton = () => {
   )
 }
 
-export default AddPasteButton
+export default CreatePasteButton

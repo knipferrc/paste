@@ -1,4 +1,4 @@
-import { Form, Loader, Message, Segment, TextArea } from 'semantic-ui-react'
+import { Form, Loader, Message, TextArea } from 'semantic-ui-react'
 
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
@@ -48,7 +48,6 @@ const EditPasteForm = ({
       }) => (
         <Form loading={isSubmitting} size="large" onSubmit={handleSubmit}>
           <SavePasteButton />
-          <Segment>
             {errors.submitError && (
               <Message negative>
                 <Message.Header>{errors.submitError}</Message.Header>
@@ -62,7 +61,6 @@ const EditPasteForm = ({
               style={{ minHeight: 400 }}
               autoHeight
             />
-          </Segment>
         </Form>
       )}
     />

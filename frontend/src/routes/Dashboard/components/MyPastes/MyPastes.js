@@ -3,7 +3,6 @@ import { Button, Card, Icon, Loader, Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
 
 const propTypes = {
   user: PropTypes.object,
@@ -12,18 +11,13 @@ const propTypes = {
   setPublishingStatus: PropTypes.func
 }
 
-const Container = styled.div`
-  height: 100%;
-  margin-top: 20px;
-`
-
 const MyPastes = ({ loading, myPastes, setPublishingStatus }) => {
   if (loading) {
     return <Loader active />
   }
 
   return (
-    <Container>
+    <div>
       {myPastes.length === 0 ? (
         <Message icon info>
           <Icon name="info" />You have not created any pastes
@@ -67,7 +61,7 @@ const MyPastes = ({ loading, myPastes, setPublishingStatus }) => {
           ))}
         </Card.Group>
       )}
-    </Container>
+    </div>
   )
 }
 
