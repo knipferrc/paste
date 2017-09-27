@@ -1,4 +1,4 @@
-import { Form, Grid, Segment } from 'semantic-ui-react'
+import { Form, Grid } from 'semantic-ui-react'
 
 import { Formik } from 'formik'
 import PasteEditor from '../../components/PasteEditor'
@@ -62,10 +62,14 @@ const CreatePasteForm = ({ addPaste, user, history }) => {
         setFieldValue
       }) => (
         <Form loading={isSubmitting} size="large" onSubmit={handleSubmit}>
-          <Segment.Group as={Grid} stackable horizontal>
-            <Grid.Row columns={1}>
+          <Grid padded stackable doubling relaxed>
+            <Grid.Row>
               <Grid.Column>
                 <SavePasteButton />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+              <Grid.Column>
                 <PasteInfo
                   pasteTitle={values.pasteTitle}
                   pasteCategory={values.pasteCategory}
@@ -88,7 +92,7 @@ const CreatePasteForm = ({ addPaste, user, history }) => {
                 <PastePreview pasteContent={values.pasteContent} />
               </Grid.Column>
             </Grid.Row>
-          </Segment.Group>
+          </Grid>
         </Form>
       )}
     />

@@ -1,9 +1,16 @@
 import { Button, Dropdown, Icon, Menu } from 'semantic-ui-react'
-import React, { PureComponent } from 'react'
 
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
+
+const propTypes = {
+  open: PropTypes.bool,
+  openDrawer: PropTypes.func,
+  closeDrawer: PropTypes.func,
+  user: PropTypes.object
+}
 
 const DesktopMenuLeft = styled.div`
   display: flex;
@@ -32,91 +39,85 @@ const HamburgerMenu = styled.div`
   }
 `
 
-export default class Navbar extends PureComponent {
-  static propTypes = {
-    open: PropTypes.bool,
-    openDrawer: PropTypes.func,
-    closeDrawer: PropTypes.func,
-    user: PropTypes.object
-  }
-
-  logout = () => {
-    localStorage.removeItem('accessToken')
-    window.location.href = '/'
-  }
-
-  render() {
-    const { open, openDrawer, closeDrawer, user } = this.props
-    return (
-      <Menu inverted fixed="top" size="large" style={{ height: 62 }}>
-        <Menu.Item header>#Pastey!</Menu.Item>
-        <DesktopMenuLeft>
-          {!user && (
-            <Menu.Item as={Link} to="/">
-              <Icon name="home" />
-              Home
-            </Menu.Item>
-          )}
-          <Menu.Item as={Link} to="/pastes">
-            <Icon name="columns" />
-            Pastes
-          </Menu.Item>
-          {user && (
-            <Menu.Item as={Link} to="/dashboard">
-              <Icon name="cubes" />
-              Dashboard
-            </Menu.Item>
-          )}
-        </DesktopMenuLeft>
-        <DesktopMenuRight>
-          <Menu.Item position="right">
-            {!user ? (
-              <Button.Group size="small">
-                <Button as={Link} to="/login" color="blue">
-                  <Icon name="sign in" />
-                  Login
-                </Button>
-                <Button.Or />
-                <Button as={Link} to="/register">
-                  <Icon name="signup" />
-                  Register
-                </Button>
-              </Button.Group>
-            ) : (
-              <Dropdown
-                text={user.email}
-                floating
-                labeled
-                pointing
-                button
-                icon="user"
-                className="icon"
-              >
-                <Dropdown.Menu>
-                  <Dropdown.Header content="Help" />
-                  <Dropdown.Divider />
-                  <Dropdown.Item
-                    text="Documentation"
-                    as={Link}
-                    to="/documentation"
-                  />
-                  <Dropdown.Divider />
-                  <Dropdown.Header content="My Account" />
-                  <Dropdown.Item text="Settings" />
-                  <Dropdown.Item onClick={this.logout} text="Logout" />
-                </Dropdown.Menu>
-              </Dropdown>
-            )}
-          </Menu.Item>
-        </DesktopMenuRight>
-        <HamburgerMenu>
-          <Icon
-            onClick={open ? closeDrawer : openDrawer}
-            size="large"
-            name={open ? 'close' : 'sidebar'}
-          />
-        </HamburgerMenu>
-      </Menu>
-    )
-  }
+const logout = () => {
+  localStorage.removeItem('accessToken')
+  window.location.href = '/'
 }
+
+const Navbar = ({ open, openDrawer, closeDrawer, user }) => {
+  return (
+    <Menu inverted fixed="top" size="large" style={{ height: 62 }}>
+      <Menu.Item header>#Pastey!</Menu.Item>
+      <DesktopMenuLeft>
+        {!user && (
+          <Menu.Item as={Link} to="/">
+            <Icon name="home" />
+            Home
+          </Menu.Item>
+        )}
+        <Menu.Item as={Link} to="/pastes">
+          <Icon name="columns" />
+          Pastes
+        </Menu.Item>
+        {user && (
+          <Menu.Item as={Link} to="/dashboard">
+            <Icon name="cubes" />
+            Dashboard
+          </Menu.Item>
+        )}
+      </DesktopMenuLeft>
+      <DesktopMenuRight>
+        <Menu.Item position="right">
+          {!user ? (
+            <Button.Group size="small">
+              <Button as={Link} to="/login" color="blue">
+                <Icon name="sign in" />
+                Login
+              </Button>
+              <Button.Or />
+              <Button as={Link} to="/register">
+                <Icon name="signup" />
+                Register
+              </Button>
+            </Button.Group>
+          ) : (
+            <Dropdown
+              text={user.email}
+              floating
+              labeled
+              pointing
+              button
+              icon="user"
+              className="icon"
+            >
+              <Dropdown.Menu>
+                <Dropdown.Header content="Help" />
+                <Dropdown.Divider />
+                <Dropdown.Item
+                  text="Documentation"
+                  as={Link}
+                  to="/documentation"
+                />
+                <Dropdown.Divider />
+                <Dropdown.Header content="My Account" />
+                <Dropdown.Item text="Settings" />
+                <Dropdown.Item onClick={logout} text="Logout" />
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
+        </Menu.Item>
+      </DesktopMenuRight>
+      <HamburgerMenu>
+        <Icon
+          onClick={open ? closeDrawer : openDrawer}
+          size="large"
+          name={open ? 'close' : 'sidebar'}
+        />
+      </HamburgerMenu>
+    </Menu>
+  )
+}
+
+Navbar.propTypes = propTypes
+
+export default Navbar
