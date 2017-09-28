@@ -31,14 +31,6 @@ const withSetPublishingStatus = graphql(SetPublishingStatusMutation, {
         }
       })
     }
-  }),
-  options: props => ({
-    refetchQueries: [
-      {
-        query: MyPastesQuery,
-        variables: { userId: props.user._id }
-      }
-    ]
   })
 })
 

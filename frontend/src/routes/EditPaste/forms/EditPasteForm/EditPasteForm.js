@@ -1,18 +1,16 @@
 import {
   Form,
   Grid,
-  Header,
   Loader,
   Message,
-  TextArea
 } from 'semantic-ui-react'
 
 import { Formik } from 'formik'
+import PasteEditor from '../../components/PasteEditor'
+import PastePreview from '../../components/PastePreview'
 import PropTypes from 'prop-types'
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import SavePasteButton from '../../components/SavePasteButton'
-import styled from 'styled-components'
 
 const propTypes = {
   history: PropTypes.object,
@@ -22,17 +20,6 @@ const propTypes = {
   pasteId: PropTypes.string
 }
 
-const PreviewContainer = styled.div`
-  min-height: 400px;
-  height: 400px;
-  vertical-align: top;
-  background: #fff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.28571429rem;
-  color: rgba(0, 0, 0, 0.87);
-  transition: color 0.1s ease, border-color 0.1s ease;
-  padding: 0.78571429em 1em;
-`
 
 const EditPasteForm = ({
   history,
@@ -85,21 +72,10 @@ const EditPasteForm = ({
             )}
             <Grid.Row columns={2}>
               <Grid.Column>
-                <Header textAlign="center">Paste Editor</Header>
-                <TextArea
-                  name="pasteContent"
-                  value={values.pasteContent}
-                  onChange={handleChange}
-                  placeholder="Edit Paste"
-                  style={{ minHeight: 400 }}
-                  autoHeight
-                />
+                <PasteEditor pasteContent={values.pasteContent} handleChange={handleChange} />
               </Grid.Column>
               <Grid.Column>
-                <Header textAlign="center">Paste Preview</Header>
-                <PreviewContainer>
-                  <ReactMarkdown source={values.pasteContent} />
-                </PreviewContainer>
+                <PastePreview pasteContent={values.pasteContent} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
