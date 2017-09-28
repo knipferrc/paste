@@ -20,7 +20,7 @@
     "koa": "^2.3.0",
     "koa-send": "^4.1.1",
     "koa-static": "^4.0.1",
-    "prettier": "^1.7.1",
+    "prettier": "^1.7.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-apollo": "^1.4.16",
