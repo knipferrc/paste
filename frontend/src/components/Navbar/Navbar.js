@@ -1,8 +1,14 @@
 import { Button, Dropdown, Icon, Menu } from 'semantic-ui-react'
 
+import Dashboard from 'routes/Dashboard'
+import Documentation from 'routes/Documentation'
+import Home from 'routes/Home'
 import { Link } from 'react-router-dom'
+import Login from 'routes/Login'
+import Pastes from 'routes/Pastes'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Register from 'routes/Register'
 import styled from 'styled-components'
 
 const propTypes = {
@@ -50,17 +56,21 @@ const Navbar = ({ open, openDrawer, closeDrawer, user }) => {
       <Menu.Item header>#Pastey!</Menu.Item>
       <DesktopMenuLeft>
         {!user && (
-          <Menu.Item as={Link} to="/">
+          <Menu.Item as={Link} to="/" onMouseOver={() => Home.preload()}>
             <Icon name="home" />
             Home
           </Menu.Item>
         )}
-        <Menu.Item as={Link} to="/pastes">
+        <Menu.Item as={Link} to="/pastes" onMouseOver={() => Pastes.preload()}>
           <Icon name="columns" />
           Pastes
         </Menu.Item>
         {user && (
-          <Menu.Item as={Link} to="/dashboard">
+          <Menu.Item
+            as={Link}
+            to="/dashboard"
+            onMouseOver={() => Dashboard.preload()}
+          >
             <Icon name="cubes" />
             Dashboard
           </Menu.Item>
@@ -70,12 +80,21 @@ const Navbar = ({ open, openDrawer, closeDrawer, user }) => {
         <Menu.Item position="right">
           {!user ? (
             <Button.Group size="small">
-              <Button as={Link} to="/login" color="blue">
+              <Button
+                as={Link}
+                to="/login"
+                color="blue"
+                onMouseOver={() => Login.preload()}
+              >
                 <Icon name="sign in" />
                 Login
               </Button>
               <Button.Or />
-              <Button as={Link} to="/register">
+              <Button
+                as={Link}
+                to="/register"
+                onMouseOver={() => Register.preload()}
+              >
                 <Icon name="signup" />
                 Register
               </Button>
@@ -97,6 +116,7 @@ const Navbar = ({ open, openDrawer, closeDrawer, user }) => {
                   text="Documentation"
                   as={Link}
                   to="/documentation"
+                  onMouseOver={() => Documentation.preload()}
                 />
                 <Dropdown.Divider />
                 <Dropdown.Header content="My Account" />

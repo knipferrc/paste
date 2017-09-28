@@ -1,7 +1,9 @@
 import { Button, Card, Icon, Loader, Message } from 'semantic-ui-react'
 
+import EditPaste from 'routes/EditPaste'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import PublishPaste from 'routes/PublishPaste'
 import React from 'react'
 
 const propTypes = {
@@ -39,12 +41,17 @@ const MyPastes = ({ loading, myPastes, setPublishingStatus }) => {
                   <Button
                     as={Link}
                     to={`/dashboard/edit/${paste._id}`}
+                    onMouseOver={() => EditPaste.preload()}
                     color="teal"
                   >
                     Edit
                   </Button>
                   {paste.status === 'unpublished' ? (
-                    <Button as={Link} to={`/dashboard/publish/${paste._id}`}>
+                    <Button
+                      as={Link}
+                      to={`/dashboard/publish/${paste._id}`}
+                      onMouseOver={() => PublishPaste.preload()}
+                    >
                       Publish
                     </Button>
                   ) : (
