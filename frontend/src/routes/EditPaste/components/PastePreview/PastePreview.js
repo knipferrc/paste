@@ -9,15 +9,15 @@ const propTypes = {
 }
 
 const PreviewContainer = styled.div`
-min-height: 400px;
-height: 400px;
-vertical-align: top;
-background: #fff;
-border: 1px solid rgba(34, 36, 38, 0.15);
-border-radius: 0.28571429rem;
-color: rgba(0, 0, 0, 0.87);
-transition: color 0.1s ease, border-color 0.1s ease;
-padding: 0.78571429em 1em;
+  min-height: 400px;
+  height: 400px;
+  vertical-align: top;
+  background: #fff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
+  color: rgba(0, 0, 0, 0.87);
+  transition: color 0.1s ease, border-color 0.1s ease;
+  padding: 0.78571429em 1em;
 `
 
 const PastePreview = ({ pasteContent }) => {
@@ -27,7 +27,7 @@ const PastePreview = ({ pasteContent }) => {
       <PreviewContainer>
         <ReactMarkdown source={pasteContent} />
       </PreviewContainer>
-      </div>
+    </div>
   )
 }
 

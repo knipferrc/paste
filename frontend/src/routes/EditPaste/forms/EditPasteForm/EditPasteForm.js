@@ -1,9 +1,4 @@
-import {
-  Form,
-  Grid,
-  Loader,
-  Message,
-} from 'semantic-ui-react'
+import { Form, Grid, Loader, Message } from 'semantic-ui-react'
 
 import { Formik } from 'formik'
 import PasteEditor from '../../components/PasteEditor'
@@ -19,7 +14,6 @@ const propTypes = {
   updatePasteContent: PropTypes.func,
   pasteId: PropTypes.string
 }
-
 
 const EditPasteForm = ({
   history,
@@ -72,7 +66,10 @@ const EditPasteForm = ({
             )}
             <Grid.Row columns={2}>
               <Grid.Column>
-                <PasteEditor pasteContent={values.pasteContent} handleChange={handleChange} />
+                <PasteEditor
+                  pasteContent={values.pasteContent}
+                  handleChange={handleChange}
+                />
               </Grid.Column>
               <Grid.Column>
                 <PastePreview pasteContent={values.pasteContent} />

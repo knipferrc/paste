@@ -12,15 +12,15 @@ const PasteEditor = ({ pasteContent, handleChange }) => {
   return (
     <div>
       <Header textAlign="center">Paste Editor</Header>
-                <TextArea
-                  name="pasteContent"
-                  value={pasteContent}
-                  onChange={handleChange}
-                  placeholder="Edit Paste"
-                  style={{ minHeight: 400 }}
-                  autoHeight
-                />
-              </div>
+      <TextArea
+        name="pasteContent"
+        value={pasteContent}
+        onChange={handleChange}
+        placeholder="Edit Paste"
+        style={{ minHeight: 400 }}
+        autoHeight
+      />
+    </div>
   )
 }
 
