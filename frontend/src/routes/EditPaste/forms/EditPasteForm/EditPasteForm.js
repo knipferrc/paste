@@ -1,11 +1,11 @@
 import { Form, Grid, Loader, Message } from 'semantic-ui-react'
 
 import { Formik } from 'formik'
+import PasteActions from '../../components/PasteActions'
 import PasteEditor from '../../components/PasteEditor'
 import PastePreview from '../../components/PastePreview'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SavePasteButton from '../../components/SavePasteButton'
 
 const propTypes = {
   history: PropTypes.object,
@@ -52,7 +52,7 @@ const EditPasteForm = ({
           <Grid padded doubling relaxed stackable>
             <Grid.Row>
               <Grid.Column>
-                <SavePasteButton />
+                <PasteActions />
               </Grid.Column>
             </Grid.Row>
             {errors.submitError && (

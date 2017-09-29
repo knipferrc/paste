@@ -1,4 +1,4 @@
-import PublishPasteButton from './PublishPasteButton'
+import PasteActions from './PasteActions'
 import SetPublishingStatusMutation from '../../mutations/setPublishingStatus'
 import { graphql } from 'react-apollo'
 
@@ -20,4 +20,4 @@ const withSetPublishingStatus = graphql(SetPublishingStatusMutation, {
   })
 })
 
-export default withSetPublishingStatus(PublishPasteButton)
+export default withSetPublishingStatus(PasteActions)

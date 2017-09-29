@@ -1,7 +1,7 @@
 import DefaultLayout from 'layouts/DefaultLayout'
 import { Grid } from 'semantic-ui-react'
+import PasteActions from '../PasteActions'
 import PropTypes from 'prop-types'
-import PublishPasteButton from '../PublishPasteButton'
 import PublishingPreview from '../PublishingPreview'
 import React from 'react'
 
@@ -17,7 +17,7 @@ const PublishPasteView = ({ match, history }) => {
         <Grid padded doubling relaxed>
           <Grid.Row>
             <Grid.Column>
-              <PublishPasteButton
+              <PasteActions
                 userId={user._id}
                 pasteId={match.params.id}
                 history={history}

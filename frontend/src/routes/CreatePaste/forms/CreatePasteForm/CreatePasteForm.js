@@ -1,12 +1,12 @@
 import { Form, Grid } from 'semantic-ui-react'
 
 import { Formik } from 'formik'
+import PasteActions from '../../components/PasteActions'
 import PasteEditor from '../../components/PasteEditor'
 import PasteInfo from '../../components/PasteInfo'
 import PastePreview from '../../components/PastePreview'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SavePasteButton from '../../components/SavePasteButton'
 
 const propTypes = {
   addPaste: PropTypes.func,
@@ -65,7 +65,7 @@ const CreatePasteForm = ({ addPaste, user, history }) => {
           <Grid padded stackable doubling relaxed>
             <Grid.Row>
               <Grid.Column>
-                <SavePasteButton />
+                <PasteActions />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
