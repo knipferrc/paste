@@ -17,7 +17,7 @@
     "backpack-core": "^0.4.2",
     "bcrypt": "^1.0.3",
     "dotenv": "^4.0.0",
-    "graphql": "^0.11.6",
+    "graphql": "^0.11.7",
     "graphql-tools": "^1.2.3",
     "jsonwebtoken": "^8.0.1",
     "kcors": "^2.2.1",
@@ -28,7 +28,7 @@
     "koa-helmet": "^3.2.0",
     "koa-router": "^7.2.1",
     "mongodb": "^2.2.31",
-    "prettier": "^1.7.3"
+    "prettier": "^1.7.4"
   },
   "now": {
     "alias": "pastey-server",
