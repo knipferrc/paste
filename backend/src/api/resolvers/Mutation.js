@@ -1,4 +1,5 @@
 import addPaste from '../mutations/addPaste'
+import deletePaste from '../mutations/deletePaste'
 import login from '../mutations/login'
 import register from '../mutations/register'
 import setPublishingStatus from '../mutations/setPublishingStatus'
@@ -9,5 +10,6 @@ export default {
   login,
   addPaste,
   setPublishingStatus,
-  updatePasteContent
+  updatePasteContent,
+  deletePaste
 }

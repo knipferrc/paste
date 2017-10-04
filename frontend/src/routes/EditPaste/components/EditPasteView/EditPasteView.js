@@ -5,13 +5,20 @@ import React from 'react'
 
 const propTypes = {
   history: PropTypes.object,
-  match: PropTypes.object
+  match: PropTypes.object,
+  user: PropTypes.object
 }
 
 const EditPasteView = ({ history, match }) => {
   return (
     <DefaultLayout title="#Pastey! - Edit Paste">
-      {() => <EditPasteForm history={history} pasteId={match.params.id} />}
+      {({ user }) => (
+        <EditPasteForm
+          history={history}
+          pasteId={match.params.id}
+          user={user}
+        />
+      )}
     </DefaultLayout>
   )
 }

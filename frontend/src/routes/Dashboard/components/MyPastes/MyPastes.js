@@ -37,7 +37,7 @@ const MyPastes = ({ loading, myPastes, setPublishingStatus }) => {
                 <Card.Description>{paste.description}</Card.Description>
               </Card.Content>
               <Card.Content extra>
-                <div className="ui two buttons">
+                <div className="ui three buttons">
                   <Button
                     as={Link}
                     to={`/dashboard/edit/${paste._id}`}

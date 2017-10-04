@@ -1,5 +1,6 @@
 import { Form, Grid, Loader, Message } from 'semantic-ui-react'
 
+import DeletePasteButton from '../../components/DeletePasteButton'
 import { Formik } from 'formik'
 import PasteActions from '../../components/PasteActions'
 import PasteEditor from '../../components/PasteEditor'
@@ -12,7 +13,8 @@ const propTypes = {
   pasteContent: PropTypes.string,
   loading: PropTypes.bool,
   updatePasteContent: PropTypes.func,
-  pasteId: PropTypes.string
+  pasteId: PropTypes.string,
+  user: PropTypes.object
 }
 
 const EditPasteForm = ({
@@ -20,7 +22,8 @@ const EditPasteForm = ({
   loading,
   pasteContent,
   pasteId,
-  updatePasteContent
+  updatePasteContent,
+  user
 }) => {
   if (loading) {
     return <Loader active />
@@ -53,6 +56,15 @@ const EditPasteForm = ({
             <Grid.Row>
               <Grid.Column>
                 <PasteActions />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <DeletePasteButton
+                  pasteId={pasteId}
+                  history={history}
+                  userId={user._id}
+                />
               </Grid.Column>
             </Grid.Row>
             {errors.submitError && (

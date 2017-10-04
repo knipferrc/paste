@@ -8,7 +8,9 @@ import Navbar from 'components/Navbar'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Content = styled.div`padding-top: 62px;`
+const Content = styled.div`
+  padding-top: 62px;
+`
 
 class DefaultLayout extends PureComponent {
   static propTypes = {
