@@ -10,7 +10,10 @@ const networkInterface = createBatchingNetworkInterface({
 
 const client = new ApolloClient({
   networkInterface: networkInterface,
-  dataIdFromObject: o => o._id
+  queryDeduplication: true,
+  ssrMode: !process.browser,
+  dataIdFromObject: o => o._id,
+  connectToDevTools: process.browser
 })
 
 export default client

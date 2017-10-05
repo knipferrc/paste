@@ -25,10 +25,10 @@ const setupDB = async (req, res, next) => {
 
 server
   .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .use(helmet())
   .use(compression())
   .use(setupDB)
+  .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .use(
     '/api',
     bodyParser.json(),
@@ -47,12 +47,8 @@ server
         </App>
       )
     )
-
-    if (context.url) {
-      res.redirect(context.url)
-    } else {
-      res.status(200).send(
-        `<!doctype html>
+    res.status(200).send(
+      `<!doctype html>
          <html lang="">
           <head>
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -70,8 +66,7 @@ server
             <div id="root">${markup}</div>
           </body>
         </html>`
-      )
-    }
+    )
   })
 
 export default server
