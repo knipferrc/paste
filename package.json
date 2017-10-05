@@ -12,7 +12,7 @@
     "test": "razzle test --env=jsdom",
     "start:prod": "NODE_ENV=production node build/server.js",
     "format": "prettier --single-quote --no-semi --trailing-comma none --write \"src/**/*.js\"",
-    "deploy": "now --docker"
+    "deploy": "now --docker && now alias"
   },
   "dependencies": {
     "apollo-server-express": "^1.1.3",
