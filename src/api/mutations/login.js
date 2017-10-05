@@ -8,7 +8,7 @@ export default async (root, { email, password }, { db }) => {
     if (passwordsMatch) {
       const token = await jwt.sign(
         { userId: user._id, iss: 'https://pastey.now.sh' },
-        process.env.JWT_SECRET
+        process.env.RAZZLE_JWT_SECRET
       )
       return token
     } else {

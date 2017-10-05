@@ -1,17 +1,36 @@
+import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
+
 import App from './components/App'
+import { MongoClient } from 'mongodb'
 import React from 'react'
 import Routes from './routes'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
+import bodyParser from 'body-parser'
+import compression from 'compression'
 import express from 'express'
+import helmet from 'helmet'
 import { renderToString } from 'react-dom/server'
+import schema from './api'
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 
 const server = express()
+
+const setupDB = async (req, res, next) => {
+  const db = await MongoClient.connect(process.env.RAZZLE_MONGO_URI)
+  server.locals.db = db
+  next()
+}
+
 server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+  .use(helmet())
+  .use(compression())
+  .use(setupDB)
+  .use('/api', bodyParser.json(), graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } })))
+  .get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
   .get('/*', (req, res) => {
     const context = {}
     const sheet = new ServerStyleSheet()

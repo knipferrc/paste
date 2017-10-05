@@ -4,8 +4,8 @@ const networkInterface = createBatchingNetworkInterface({
   batchInterval: 10,
   uri:
     process.env.NODE_ENV === 'production'
-      ? 'https://pastey-server.now.sh/api'
-      : 'http://localhost:5000/api'
+      ? 'https://pastey.now.sh/api'
+      : 'http://localhost:3000/api'
 })
 
 const client = new ApolloClient({

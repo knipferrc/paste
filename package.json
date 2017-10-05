@@ -1,20 +1,46 @@
 {
   "name": "pastey",
   "version": "0.0.1",
-  "description": "Simple and elegant pasting",
+  "private": true,
+  "description": "Simple and elegant pasting app",
   "repository": "https://github.com/knipferrc/pastey.git",
-  "author": "knipferrc <knipferrc@gmail.com>",
+  "author": "knipferrc@gmail.com (Tyler Knipfer)",
   "license": "GPL-3.0",
   "scripts": {
-    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
-    "deploy": "cd frontend && npm run deploy && cd .. && cd backend && npm run deploy",
-    "format": "cd frontend && npm run format && cd .. && cd backend && npm run format",
-    "install:deps": "cd frontend && npm install && cd .. && cd backend && npm install"
+    "start": "razzle start",
+    "build": "razzle build",
+    "test": "razzle test --env=jsdom",
+    "start:prod": "NODE_ENV=production node build/server.js",
+    "format": "prettier --single-quote --no-semi --trailing-comma none --write \"src/**/*.js\"",
+    "deploy": "now --docker"
   },
   "dependencies": {
-    "babel-eslint": "^8.0.1",
-    "concurrently": "^3.5.0",
-    "eslint": "^4.8.0",
-    "eslint-plugin-react": "^7.4.0"
+    "apollo-server-express": "^1.1.3",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "express": "^4.16.1",
+    "formik": "^0.9.3",
+    "graphql-tools": "^2.2.1",
+    "helmet": "^3.8.2",
+    "js-cookie": "^2.1.4",
+    "jsonwebtoken": "^8.0.1",
+    "mongodb": "^2.2.31",
+    "prettier": "^1.7.4",
+    "razzle": "^0.8.4",
+    "react": "^16.0.0",
+    "react-apollo": "^1.4.16",
+    "react-dom": "^16.0.0",
+    "react-helmet": "^5.2.0",
+    "react-loadable": "^4.0.5",
+    "react-markdown": "^2.5.0",
+    "react-router-dom": "^4.2.2",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.74.2",
+    "styled-components": "^2.2.1"
+  },
+  "now": {
+    "alias": "pastey",
+    "dotenv": ".env.production.local"
   }
 }

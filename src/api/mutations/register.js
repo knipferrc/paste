@@ -19,7 +19,7 @@ export default async (
     const newUser = await db.collection('users').insertOne(userData)
     const token = await jwt.sign(
       { userId: newUser.insertedId, iss: 'https://pastey.now.sh' },
-      process.env.JWT_SECRET
+      process.env.RAZZLE_JWT_SECRET
     )
     return token
   } else {
