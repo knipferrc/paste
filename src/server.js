@@ -29,18 +29,24 @@ server
   .use(helmet())
   .use(compression())
   .use(setupDB)
-  .use('/api', bodyParser.json(), graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } })))
+  .use(
+    '/api',
+    bodyParser.json(),
+    graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } }))
+  )
   .get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
   .get('/*', (req, res) => {
     const context = {}
     const sheet = new ServerStyleSheet()
-    const markup = renderToString(sheet.collectStyles(
-      <App>
-        <StaticRouter context={context} location={req.url}>
-          <Routes />
-        </StaticRouter>
-      </App>
-    ))
+    const markup = renderToString(
+      sheet.collectStyles(
+        <App>
+          <StaticRouter context={context} location={req.url}>
+            <Routes />
+          </StaticRouter>
+        </App>
+      )
+    )
 
     if (context.url) {
       res.redirect(context.url)
