@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { gql, graphql } from 'react-apollo'
 
+import Cookies from 'js-cookie'
 import Drawer from 'components/Drawer'
 import { Helmet } from 'react-helmet'
 import { Loader } from 'semantic-ui-react'
@@ -73,14 +74,14 @@ const UserProfileQuery = gql`
 `
 
 export default graphql(UserProfileQuery, {
-  skip: () => !localStorage.getItem('accessToken'),
+  skip: () => !Cookies.get('accesstoken'),
   props: ({ data: { loading, userProfile } }) => ({
     loading,
     userProfile
   }),
   options: () => ({
     variables: {
-      accessToken: localStorage.getItem('accessToken')
+      accessToken: Cookies.get('accesstoken')
     }
   })
 })(DefaultLayout)

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import AuthorizedRoute from 'components/AuthorizedRoute'
 import CreatePaste from './CreatePaste'
@@ -16,33 +16,23 @@ import Register from './Register'
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/pastes" component={Pastes} />
-        <AuthorizedRoute
-          exact
-          path="/documentation"
-          component={Documentation}
-        />
-        <AuthorizedRoute exact path="/pastes/:id" component={PasteDetails} />
-        <AuthorizedRoute exact path="/create-paste" component={CreatePaste} />
-        <AuthorizedRoute
-          exact
-          path="/dashboard/edit/:id"
-          component={EditPaste}
-        />
-        <AuthorizedRoute
-          exact
-          path="/dashboard/publish/:id"
-          component={PublishPaste}
-        />
-        <AuthorizedRoute exact path="/dashboard" component={Dashboard} />
-        <Route exact path="*" component={NotFound} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/pastes" component={Pastes} />
+      <AuthorizedRoute exact path="/documentation" component={Documentation} />
+      <AuthorizedRoute exact path="/pastes/:id" component={PasteDetails} />
+      <AuthorizedRoute exact path="/create-paste" component={CreatePaste} />
+      <AuthorizedRoute exact path="/dashboard/edit/:id" component={EditPaste} />
+      <AuthorizedRoute
+        exact
+        path="/dashboard/publish/:id"
+        component={PublishPaste}
+      />
+      <AuthorizedRoute exact path="/dashboard" component={Dashboard} />
+      <Route exact path="*" component={NotFound} />
+    </Switch>
   )
 }
 

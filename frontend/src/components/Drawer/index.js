@@ -1,5 +1,6 @@
 import { Icon, Menu, Sidebar } from 'semantic-ui-react'
 
+import Cookies from 'js-cookie'
 import Dashboard from 'routes/Dashboard'
 import Documentation from 'routes/Documentation'
 import Home from 'routes/Home'
@@ -17,7 +18,7 @@ const propTypes = {
 }
 
 const logout = () => {
-  localStorage.removeItem('accessToken')
+  Cookies.remove('accesstoken')
   window.location.href = '/'
 }
 

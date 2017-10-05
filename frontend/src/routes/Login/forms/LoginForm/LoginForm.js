@@ -1,5 +1,6 @@
 import { Button, Form, Header, Message, Segment } from 'semantic-ui-react'
 
+import Cookies from 'js-cookie'
 import { Formik } from 'formik'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -34,7 +35,7 @@ const LoginForm = ({ login, history }) => {
         try {
           setSubmitting(true)
           const token = await login(values.email, values.password)
-          localStorage.setItem('accessToken', token.data.login)
+          Cookies.set('accesstoken', token.data.login, { path: '/' })
           history.push('/')
         } catch (e) {
           setSubmitting(false)

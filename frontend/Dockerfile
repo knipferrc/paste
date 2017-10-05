@@ -16,7 +16,7 @@ COPY . /usr/src/app
 # Build and optimize react app
 RUN npm run build
 
-EXPOSE 9000
+EXPOSE 5000
 
 # defined in package.json
-CMD [ "npm", "run", "start:server" ]
+CMD [ "npm", "run", "start:prod" ]

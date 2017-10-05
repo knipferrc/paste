@@ -1,5 +1,6 @@
 import { Button, Form, Header, Message, Segment } from 'semantic-ui-react'
 
+import Cookies from 'js-cookie'
 import { Formik } from 'formik'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -47,7 +48,7 @@ const RegisterForm = ({ register, history }) => {
             values.email,
             values.password
           )
-          localStorage.setItem('accessToken', token.data.register)
+          Cookies.set('accesstoken', token.data.register, { path: '/' })
           history.push('/')
         } catch (e) {
           setSubmitting(false)

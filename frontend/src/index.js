@@ -1,25 +1,20 @@
-import App from 'components/App'
-import React from 'react'
-import Router from './routes'
-import registerServiceWorker from 'lib/registerServiceWorker'
-import { render } from 'react-dom'
+import app from './server'
+import http from 'http'
 
-render(
-  <App>
-    <Router />
-  </App>,
-  document.getElementById('root')
-)
+const server = http.createServer(app)
+
+let currentApp = app
+
+server.listen(process.env.PORT || 3000)
 
 if (module.hot) {
-  module.hot.accept('./routes', () => {
-    render(
-      <App>
-        <Router />
-      </App>,
-      document.getElementById('root')
-    )
+  console.log('✅  Server-side HMR Enabled!')
+
+  module.hot.accept('./server', () => {
+    console.log('🔁  HMR Reloading `./server`...')
+    server.removeListener('request', currentApp)
+    const newApp = require('./server').default
+    server.on('request', newApp)
+    currentApp = newApp
   })
 }
-
-registerServiceWorker()

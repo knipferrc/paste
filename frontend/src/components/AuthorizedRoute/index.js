@@ -1,5 +1,6 @@
 import { Redirect, Route } from 'react-router-dom'
 
+import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -12,7 +13,7 @@ const AuthorizedRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
-        localStorage.getItem('accessToken') ? (
+        Cookies.get('accesstoken') ? (
           <Component {...props} />
         ) : (
           <Redirect to={{ pathname: '/login' }} />
