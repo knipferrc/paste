@@ -40,7 +40,6 @@
     "styled-components": "^2.2.1"
   },
   "now": {
-    "alias": "pastey",
-    "dotenv": ".env.production.local"
+    "alias": "pastey"
   }
 }
