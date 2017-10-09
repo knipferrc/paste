@@ -37,5 +37,8 @@
     "recompose": "^0.26.0",
     "sequelize": "^4.13.8",
     "spectre.css": "^0.4.3"
+  },
+  "now": {
+    "alias": "pastey"
   }
 }
