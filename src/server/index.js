@@ -50,7 +50,7 @@ server
               <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
               <meta charSet='utf-8' />
               <title>#Pastey!</title>
-              <meta name="user-scalable=0, initial-scale=1, minimum-scale=1, width=device-width, height=device-height">
+              <meta name="viewport" content="user-scalable=0, initial-scale=1, minimum-scale=1, width=device-width, height=device-height">
               ${assets.client.css
                 ? `<link rel="stylesheet" href="${assets.client.css}">`
                 : ''}

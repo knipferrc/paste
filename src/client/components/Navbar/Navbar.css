@@ -1,0 +1,13 @@
+.navbar-container {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+}
+
+.brand-text {
+  font-size: 2em;
+  margin-left: auto;
+  padding-right: 10px;
+}
