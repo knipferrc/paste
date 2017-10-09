@@ -1,9 +1,15 @@
+import {
+  ApolloClient,
+  ApolloProvider,
+  createNetworkInterface,
+  renderToStringWithData
+} from 'react-apollo'
+
 import App from 'client/routes'
 import React from 'react'
 import { StaticRouter } from 'react-router-dom'
 import express from 'express'
 import middleware from './middleware'
-import { renderToString } from 'react-dom/server'
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 
@@ -12,13 +18,28 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .use(middleware())
-  .get('/*', (req, res) => {
+  .get('/*', async (req, res) => {
+    const apolloClient = new ApolloClient({
+      ssrMode: true,
+      networkInterface: createNetworkInterface({
+        uri:
+          process.env.NODE_ENV === 'production'
+            ? 'https://pastey.now.sh/api'
+            : 'http://localhost:3000/api'
+      })
+    })
+
     const context = {}
-    const markup = renderToString(
-      <StaticRouter context={context} location={req.url}>
-        <App />
-      </StaticRouter>
+    const markup = await renderToStringWithData(
+      <ApolloProvider client={apolloClient}>
+        <StaticRouter context={context} location={req.url}>
+          <App />
+        </StaticRouter>
+      </ApolloProvider>
     )
+
+    const initialState = apolloClient.store.getState()
+
     if (context.url) {
       res.redirect(context.url)
     } else {
@@ -35,7 +56,13 @@ server
                 : ''}
               ${process.env.NODE_ENV === 'production'
                 ? `<script src="${assets.client.js}" defer></script>`
-                : `<script src="${assets.client.js}" defer crossorigin></script>`}
+                : `<script src="${assets.client
+                    .js}" defer crossorigin></script>`}
+              <script>
+                window.__APOLLO_STATE__ = ${JSON.stringify(
+                  initialState
+                ).replace(/</g, '\\u003c')}
+              </script>
             </head>
             <body>
               <div id="root">${markup}</div>

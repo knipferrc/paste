@@ -23,6 +23,8 @@
     "graphql-tools": "^2.2.1",
     "helmet": "^3.8.2",
     "jsonwebtoken": "^8.1.0",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
     "prettier": "^1.7.4",
     "raf": "^3.4.0",
     "razzle": "^0.8.4",
