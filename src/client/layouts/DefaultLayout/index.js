@@ -14,7 +14,7 @@ const DefaultLayout = ({ children }) => {
         hidden
       />
       <label
-        className="off-canvas-toggle btn btn-lg"
+        className="off-canvas-toggle btn btn-primary btn-lg"
         htmlFor="sidebar-checkbox"
       >
         <i className="icon icon-menu" />

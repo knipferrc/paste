@@ -8,7 +8,6 @@ export default async () => {
   })
   try {
     await sequelize.authenticate()
-    console.log('connected')
   } catch (err) {
     console.error(err)
   }

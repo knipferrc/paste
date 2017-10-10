@@ -1,33 +1,34 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 const MainMenu = () => {
   return [
     <ul key="mainmenu" className="nav">
       <li className="nav-item">
-        <a href="#!">Elements</a>
+        <Link to="/">Home</Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/pastes">Pastes</Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/login">Login</Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/register">Register</Link>
       </li>
       <li className="nav-item active">
-        <a href="#!">Layout</a>
+        <a href="#!">Account</a>
         <ul className="nav">
           <li className="nav-item">
-            <a href="#!">Flexbox grid</a>
+            <a href="#!">Profile</a>
           </li>
           <li className="nav-item">
-            <a href="#!">Responsive</a>
+            <a href="#!">Settings</a>
           </li>
           <li className="nav-item">
-            <a href="#!">Navbar</a>
-          </li>
-          <li className="nav-item">
-            <a href="#!">Empty states</a>
+            <a href="#!">Logout</a>
           </li>
         </ul>
-      </li>
-      <li className="nav-item">
-        <a href="#!">Components</a>
-      </li>
-      <li className="nav-item">
-        <a href="#!">Utilities</a>
       </li>
     </ul>
   ]

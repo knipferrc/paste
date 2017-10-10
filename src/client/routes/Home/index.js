@@ -1,12 +1,3 @@
-import DefaultLayout from 'client/layouts/DefaultLayout'
-import React from 'react'
+import HomeView from './components/HomeView'
 
-const Home = () => {
-  return [
-    <DefaultLayout key="layoutcontainer">
-      <h1 style={{ height: 1000 }}>Home</h1>
-    </DefaultLayout>
-  ]
-}
-
-export default Home
+export default HomeView

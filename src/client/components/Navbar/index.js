@@ -1,12 +1,24 @@
-import './Navbar.css'
-
 import React from 'react'
+import styled from 'styled-components'
+
+const NavbarContainer = styled.div`
+  display: flex;
+  height: 65px;
+  align-items: center;
+  width: 100%;
+`
+
+const BrandText = styled.div`
+  font-size: 2em;
+  margin-left: auto;
+  padding-right: 10px;
+`
 
 const Navbar = () => {
   return [
-    <div key="navbar" className="navbar-container bg-dark text-light">
-      <div className="brand-text">Pastey</div>
-    </div>
+    <NavbarContainer key="navbar" className="bg-dark text-light">
+      <BrandText>Pastey</BrandText>
+    </NavbarContainer>
   ]
 }
 

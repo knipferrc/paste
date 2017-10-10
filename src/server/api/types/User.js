@@ -3,6 +3,6 @@ export default `
     firstName: String
     lastName: String
     email: String
-    _id: String
+    id: String
   }
 `
