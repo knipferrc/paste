@@ -17,10 +17,10 @@
     "apollo-server-express": "^1.1.6",
     "bcrypt": "^1.0.3",
     "compression": "^1.7.1",
-    "express": "^4.16.1",
+    "express": "^4.16.2",
     "formik": "^0.9.4",
     "graphql": "^0.11.7",
-    "graphql-tools": "^2.2.1",
+    "graphql-tools": "^2.3.0",
     "helmet": "^3.8.2",
     "jsonwebtoken": "^8.1.0",
     "pg": "^7.3.0",
@@ -36,7 +36,7 @@
     "react-router-dom": "^4.2.2",
     "recompose": "^0.26.0",
     "sequelize": "^4.13.8",
-    "spectre.css": "^0.4.3"
+    "spectre.css": "^0.4.4"
   },
   "now": {
     "alias": "pastey"
