@@ -32,7 +32,6 @@
     "react-apollo": "^1.4.16",
     "react-dom": "^16.0.0",
     "react-helmet": "^5.2.0",
-    "react-loadable": "^5.1.0",
     "react-router-dom": "^4.2.2",
     "recompose": "^0.26.0",
     "sequelize": "^4.13.8",
