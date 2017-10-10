@@ -4,21 +4,46 @@ import {
   createNetworkInterface,
   renderToStringWithData
 } from 'react-apollo'
+import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 
 import App from 'client/routes'
 import React from 'react'
+import Sequelize from 'sequelize'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
 import express from 'express'
 import middleware from './middleware'
+import schema from './api'
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 
 const server = express()
+
+const setupDB = async (req, res, next) => {
+  const Op = Sequelize.Op
+
+  const sequelize = new Sequelize(process.env.RAZZLE_POSTGRES_URL, {
+    dialect: 'postgres',
+    operatorAliases: Op
+  })
+
+  try {
+    await sequelize.authenticate()
+    server.locals.db = sequelize
+  } catch (err) {
+    console.log("Unable to connect to database:", err)
+  }
+  next()
+}
+
+
 server
   .disable('x-powered-by')
   .use(middleware())
+  .use(setupDB)
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+  .use('/api', express.json(), graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } })))
+  .get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
   .get('/*', async (req, res) => {
     const apolloClient = new ApolloClient({
       ssrMode: true,
