@@ -23,6 +23,7 @@
     "graphql": "^0.11.7",
     "graphql-tools": "^2.3.0",
     "helmet": "^3.8.2",
+    "hpp": "^0.2.2",
     "jsonwebtoken": "^8.1.0",
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
@@ -37,7 +38,8 @@
     "recompose": "^0.26.0",
     "sequelize": "^4.13.8",
     "spectre.css": "^0.4.4",
-    "styled-components": "^2.2.1"
+    "styled-components": "^2.2.1",
+    "sw-precache-webpack-plugin": "^0.11.4"
   },
   "now": {
     "alias": "pastey"
