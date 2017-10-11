@@ -1,3 +1,3 @@
-export default (root, args, { db }) => {
-  console.log(db)
+export default (root, args, context) => {
+  return console.log('register')
 }

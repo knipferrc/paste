@@ -1,3 +1,3 @@
 export default async (root, args, context) => {
-  console.log('user profile')
+  return console.log('user profile')
 }
