@@ -1,10 +1,11 @@
 import DefaultLayout from 'client/layouts/DefaultLayout'
+import LoginForm from '../../forms/LoginForm'
 import React from 'react'
 
-const Home = () =>
+const LoginView = () =>
   <DefaultLayout>
-    <h1>Home</h1>
+    <LoginForm />
   </DefaultLayout>
 
 
-export default Home
+export default LoginView

@@ -10,6 +10,7 @@ import App from 'client/routes'
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
+import db from './utils/db'
 import express from 'express'
 import middleware from './middleware'
 import schema from './api'
@@ -20,9 +21,17 @@ const server = express()
 
 server
   .disable('x-powered-by')
+  .use((req, res, next) => {
+    server.locals.db = db
+    next()
+  })
   .use(middleware())
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .use('/api', express.json(), graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } })))
+  .use(
+    '/api',
+    express.json(),
+    graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } }))
+  )
   .get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
   .get('/*', async (req, res) => {
     const apolloClient = new ApolloClient({

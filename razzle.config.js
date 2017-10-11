@@ -4,7 +4,6 @@ const path = require('path')
 module.exports = {
   modify(config, { target, dev }, webpack) {
     const appConfig = config
-
     if (target === 'web' && !dev) {
       appConfig.plugins.push(
         new SWPrecacheWebpackPlugin({
@@ -34,13 +33,6 @@ module.exports = {
         })
       )
     }
-
-    appConfig.module.rules.push({
-      test: /\.(graphql|gql)$/,
-      exclude: /node_modules/,
-      loader: 'graphql-tag/loader'
-    })
-
     return appConfig
   }
 }
