@@ -8,7 +8,7 @@ const SubmitButton = styled.button`
   width: 100%;
 `
 
-const LoginForm = ({ login }) => (
+const LoginForm = ({ login, history }) => (
   <Formik
     key="login-form"
     initialValues={{
@@ -29,7 +29,8 @@ const LoginForm = ({ login }) => (
       try {
         setSubmitting(true)
         const token = await login(values.email, values.password)
-        Cookies.set('accessToken', token.data.login, { path: '/' })
+        Cookies.set('accesstoken', token.data.login, { path: '/' })
+        history.push('/')
       } catch (e) {
         setSubmitting(false)
         setErrors({ submitError: e.graphQLErrors[0].message })
@@ -44,6 +45,9 @@ const LoginForm = ({ login }) => (
       isSubmitting
     }) => (
       <form className="form-group" onSubmit={handleSubmit}>
+        {errors.submitError && (
+          <div className="toast toast-error">{errors.submitError}</div>
+        )}
         <label className="form-label label-lg">Email:</label>
         <input
           type="email"

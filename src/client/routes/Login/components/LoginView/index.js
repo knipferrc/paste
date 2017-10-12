@@ -10,7 +10,7 @@ const CenteredContainer = styled.div`
   margin-top: 20px;
 `
 
-const LoginView = () => (
+const LoginView = ({ history }) => (
   <DefaultLayout>
     <div className="container">
       <div className="row">
@@ -24,7 +24,7 @@ const LoginView = () => (
                 </div>
               </div>
               <div className="card-body">
-                <LoginForm />
+                <LoginForm history={history} />
               </div>
             </div>
           </div>
