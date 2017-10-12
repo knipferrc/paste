@@ -22,7 +22,7 @@ const DefaultLayout = ({ children }) => (
       <div className="off-canvas-sidebar">
         <MainMenu />
       </div>
-      <div className="off-canvas-content" style={{ marginTop: 64, padding: 0 }}>
+      <div className="off-canvas-content" style={{ marginTop: 68, padding: 0 }}>
         {children}
       </div>
     </div>

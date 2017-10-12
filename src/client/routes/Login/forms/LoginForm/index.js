@@ -1,6 +1,12 @@
+import Cookies from 'js-cookie'
 import { Formik } from 'formik'
 import React from 'react'
 import hoc from './hoc'
+import styled from 'styled-components'
+
+const SubmitButton = styled.button`
+  width: 100%;
+`
 
 const LoginForm = ({ login }) => (
   <Formik
@@ -20,7 +26,14 @@ const LoginForm = ({ login }) => (
       return errors
     }}
     onSubmit={async (values, { setSubmitting, setErrors }) => {
-      await login()
+      try {
+        setSubmitting(true)
+        const token = await login(values.email, values.password)
+        Cookies.set('accessToken', token.data.login, { path: '/' })
+      } catch (e) {
+        setSubmitting(false)
+        setErrors({ submitError: e.graphQLErrors[0].message })
+      }
     }}
     render={({
       values,
@@ -51,12 +64,13 @@ const LoginForm = ({ login }) => (
             errors.email &&
             'is-error'}`}
         />
-        <button
-          className={`btn btn-primary btn-large ${isSubmitting && 'loading'}`}
+        <SubmitButton
+          className={`btn btn-primary btn-large mt-2 ${isSubmitting &&
+            'loading'}`}
           type="submit"
         >
           Submit
-        </button>
+        </SubmitButton>
       </form>
     )}
   />
