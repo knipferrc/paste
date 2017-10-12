@@ -1,5 +1,8 @@
-import sqlite3 from 'sqlite3'
+import Database from 'better-sqlite3'
 
-const db = new sqlite3.Database('main.db')
+const db = new Database('dev.db')
+
+const usersTable = db.prepare('CREATE TABLE if not exists users(id text, firstName text, lastName text, email text, password text)')
+usersTable.run()
 
 export default db
