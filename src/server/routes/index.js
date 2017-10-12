@@ -1,8 +1,7 @@
 import {
   ApolloClient,
   ApolloProvider,
-  createNetworkInterface,
-  renderToStringWithData
+  getDataFromTree
 } from 'react-apollo'
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 
@@ -11,6 +10,9 @@ import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
 import express from 'express'
+import { graphql } from 'graphql'
+import { print } from 'graphql/language/printer';
+import { renderToString } from 'react-dom/server';
 import schema from '../api'
 
 const router = express.Router()
@@ -26,28 +28,28 @@ router.get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
 
 router.get('/*', async (req, res) => {
   const apolloClient = new ApolloClient({
-    ssrMode: true,
-    networkInterface: createNetworkInterface({
-      uri:
-        process.env.NODE_ENV === 'production'
-          ? 'https://pastey.now.sh/api'
-          : 'http://localhost:3000/api'
-    })
+    networkInterface: {
+      query: ({ query, variables, operationName }) =>
+        graphql(schema, print(query), {}, {}, variables, operationName),
+    },
+    ssrMode: true
   })
   const sheet = new ServerStyleSheet()
   const context = {}
-  const markup = await renderToStringWithData(
-    sheet.collectStyles(
-      <ApolloProvider client={apolloClient}>
-        <StaticRouter context={context} location={req.url}>
-          <App />
-        </StaticRouter>
-      </ApolloProvider>
-    )
+
+  const WrappedApp = (
+    <ApolloProvider client={apolloClient}>
+      <StaticRouter context={context} location={req.url}>
+        <App />
+      </StaticRouter>
+    </ApolloProvider>
   )
 
+  await getDataFromTree(WrappedApp)
+
+  const markup = renderToString(sheet.collectStyles(WrappedApp))
+
   const styleTags = sheet.getStyleTags()
-  const initialState = apolloClient.store.getState()
 
   if (context.url) {
     res.redirect(context.url)
@@ -86,7 +88,6 @@ router.get('/*', async (req, res) => {
             <meta property="og:type" content="website">
             <meta property="og:title" content="#Pastey!">
             <meta property="og:description" content="Simple and elegant pasting">
-
             ${styleTags}
             ${assets.client.css
               ? `<link rel="stylesheet" href="${assets.client.css}">`
@@ -95,10 +96,7 @@ router.get('/*', async (req, res) => {
               ? `<script src="${assets.client.js}" defer></script>`
               : `<script src="${assets.client.js}" defer crossorigin></script>`}
             <script>
-              window.__APOLLO_STATE__ = ${JSON.stringify(initialState).replace(
-                /</g,
-                '\\u003c'
-              )}
+              window.__APOLLO_STATE__ = ${JSON.stringify(apolloClient.getInitialState().data)}
             </script>
           </head>
           <body>

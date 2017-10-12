@@ -1,8 +1,9 @@
+import Auth from 'client/components/Auth'
 import MainMenu from 'client/components/MainMenu'
 import Navbar from 'client/components/Navbar'
 import React from 'react'
 
-const DefaultLayout = ({ children }) => (
+const DefaultLayout = ({ children, userProfile }) => (
   <div>
     <Navbar />
     <div className="off-canvas">
@@ -29,4 +30,4 @@ const DefaultLayout = ({ children }) => (
   </div>
 )
 
-export default DefaultLayout
+export default Auth(DefaultLayout)
