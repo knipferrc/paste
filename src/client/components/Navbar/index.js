@@ -14,10 +14,10 @@ const BrandText = styled.div`
   padding-right: 10px;
 `
 
-const Navbar = () =>
+const Navbar = () => (
   <NavbarContainer className="bg-dark text-light">
     <BrandText>Pastey</BrandText>
   </NavbarContainer>
-
+)
 
 export default Navbar

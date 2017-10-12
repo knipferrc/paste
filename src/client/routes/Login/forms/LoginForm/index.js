@@ -2,7 +2,7 @@ import { Formik } from 'formik'
 import React from 'react'
 import hoc from './hoc'
 
-const LoginForm = ({ login }) =>
+const LoginForm = ({ login }) => (
   <Formik
     key="login-form"
     initialValues={{
@@ -60,6 +60,6 @@ const LoginForm = ({ login }) =>
       </form>
     )}
   />
-
+)
 
 export default hoc(LoginForm)

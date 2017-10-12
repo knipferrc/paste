@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-const MainMenu = () =>
+const MainMenu = () => (
   <ul className="nav">
     <li className="nav-item">
       <Link to="/">Home</Link>
@@ -30,6 +30,6 @@ const MainMenu = () =>
       </ul>
     </li>
   </ul>
-
+)
 
 export default MainMenu
