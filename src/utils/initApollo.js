@@ -2,7 +2,7 @@ import { ApolloClient, createNetworkInterface } from 'react-apollo'
 
 let apolloClient = null
 
-function create(initialState) {
+const create = initialState => {
   return new ApolloClient({
     initialState,
     ssrMode: !process.browser,
@@ -18,12 +18,11 @@ function create(initialState) {
   })
 }
 
-export default function initApollo(initialState) {
+export default initialState => {
   if (!process.browser) {
     return create(initialState)
   }
 
-  // Reuse client on the client-side
   if (!apolloClient) {
     apolloClient = create(initialState)
   }

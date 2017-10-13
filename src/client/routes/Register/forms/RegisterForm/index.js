@@ -8,11 +8,13 @@ const SubmitButton = styled.button`
   width: 100%;
 `
 
-const LoginForm = ({ login, history }) => (
+const RegisterForm = ({ register, history }) => (
   <Formik
     initialValues={{
       email: '',
-      password: ''
+      password: '',
+      firstName: '',
+      lastName: ''
     }}
     validate={values => {
       let errors = {}
@@ -22,13 +24,24 @@ const LoginForm = ({ login, history }) => (
       if (!values.password) {
         errors.password = 'Required'
       }
+      if (!values.firstName) {
+        errors.firstName = 'Required'
+      }
+      if (!values.lastName) {
+        errors.lastName = 'Required'
+      }
       return errors
     }}
     onSubmit={async (values, { setSubmitting, setErrors }) => {
       try {
         setSubmitting(true)
-        const token = await login(values.email, values.password)
-        Cookies.set('accesstoken', token.data.login, { path: '/' })
+        const token = await register(
+          values.email,
+          values.password,
+          values.firstName,
+          values.lastName
+        )
+        Cookies.set('accesstoken', token.data.register, { path: '/' })
         history.push('/')
       } catch (e) {
         setSubmitting(false)
@@ -67,6 +80,26 @@ const LoginForm = ({ login, history }) => (
             errors.email &&
             'is-error'}`}
         />
+        <label className="form-label label-leg">First Name:</label>
+        <input
+          type="text"
+          name="firstName"
+          onChange={handleChange}
+          value={values.firstName}
+          className={`form-input input-lg ${touched.firstName &&
+            errors.firstName &&
+            'is-error'}`}
+        />
+        <label className="form-label label-leg">Last Name:</label>
+        <input
+          type="text"
+          name="lastName"
+          onChange={handleChange}
+          value={values.lastName}
+          className={`form-input input-lg ${touched.lastName &&
+            errors.lastName &&
+            'is-error'}`}
+        />
         <SubmitButton
           className={`btn btn-primary btn-large mt-2 ${isSubmitting &&
             'loading'}`}
@@ -79,4 +112,4 @@ const LoginForm = ({ login, history }) => (
   />
 )
 
-export default hoc(LoginForm)
+export default hoc(RegisterForm)
