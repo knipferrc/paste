@@ -14,6 +14,7 @@
     "deploy": "now --docker && now alias"
   },
   "dependencies": {
+    "apollo-local-query": "^0.3.0",
     "apollo-server-express": "^1.1.6",
     "babel-plugin-styled-components": "^1.2.1",
     "bcrypt": "^1.0.3",

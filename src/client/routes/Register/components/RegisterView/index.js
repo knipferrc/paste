@@ -15,7 +15,7 @@ const RegisterView = ({ history }) => (
     <div className="container">
       <div className="row">
         <CenteredContainer>
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
             <div className="card">
               <div className="card-header">
                 <div className="card-title">Register</div>
