@@ -31,13 +31,13 @@ router.get('/*', (req, res) => {
     ssrMode: true,
     networkInterface: createBatchingNetworkInterface({
       uri:
-      process.env.NODE_ENV === 'production'
-        ? 'https://pastey.now.sh/api'
-        : 'http://localhost:3000/api',
-    batchInterval: 10,
-    opts: {
-      credentials: 'include'
-    }
+        process.env.NODE_ENV === 'production'
+          ? 'https://pastey.now.sh/api'
+          : 'http://localhost:3000/api',
+      batchInterval: 10,
+      opts: {
+        credentials: 'include'
+      }
     })
   })
 
@@ -82,25 +82,14 @@ router.get('/*', (req, res) => {
               <meta name="viewport" content="user-scalable=0, initial-scale=1, minimum-scale=1, width=device-width, height=device-height">
               <meta name="description" content="Simple and elegant pasting">
               <meta name="keywords" content="react, paste, pastey, 2017, blog, blogging, facebook">
-
               <meta name="theme-color" content="#5755d9">
-
-              <!-- Web Application Manifest -->
               <link rel="manifest" href="/manifest.json">
-
-              <!-- Disable tap highlight on IE -->
               <meta name="msapplication-tap-highlight" content="no">
-
-              <!-- Add to homescreen for Chrome on Android -->
               <meta name="mobile-web-app-capable" content="yes">
               <meta name="application-name" content="#Pastey!">
-
-              <!-- Add to homescreen for Safari on iOS -->
               <meta name="apple-mobile-web-app-capable" content="yes">
               <meta name="apple-mobile-web-app-status-bar-style" content="black">
               <meta name="apple-mobile-web-app-title" content="#Pastey!">
-
-              <!-- Tile icon for Win8 (144x144 + tile color) -->
               <meta name="msapplication-TileColor" content="#5755d9">
               <meta property="og:url" content="https://pastey.now.sh">
               <meta property="og:type" content="website">
@@ -114,14 +103,15 @@ router.get('/*', (req, res) => {
                 ? `<script src="${assets.client.js}" defer></script>`
                 : `<script src="${assets.client
                     .js}" defer crossorigin></script>`}
-              <script charset="utf-8">
-                window.__APOLLO_STATE__ = ${JSON.stringify(
-                  initialState
-                ).replace(/</g, '\\u003c')}
-              </script>
             </head>
             <body>
               <div id="root">${content}</div>
+              <script charset="utf-8">
+              window.__APOLLO_STATE__ = ${JSON.stringify(initialState).replace(
+                /</g,
+                '\\u003c'
+              )}
+            </script>
             </body>
           </html>`,
           {

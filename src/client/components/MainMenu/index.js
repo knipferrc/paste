@@ -1,5 +1,20 @@
+import { branch, compose, pure, renderComponent } from 'recompose'
+import { gql, graphql } from 'react-apollo'
+
+import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom'
 import React from 'react'
+
+// Define a very basic loading state component - you could make this
+// a nice animation or something
+const Loading = () => <h1>Loading</h1>
+
+// Define an HoC that displays the Loading component instead of the
+// wrapped component when props.data.loading is true
+const displayLoadingState = branch(
+  props => props.loading,
+  renderComponent(Loading)
+)
 
 const MainMenu = () => (
   <ul className="nav">
@@ -32,4 +47,28 @@ const MainMenu = () => (
   </ul>
 )
 
-export default MainMenu
+const UserProfileQuery = gql`
+  query userProfile($accessToken: String!) {
+    userProfile(accessToken: $accessToken) {
+      firstName
+      lastName
+      email
+      id
+    }
+  }
+`
+
+const data = graphql(UserProfileQuery, {
+  skip: () => !Cookies.get('accesstoken'),
+  props: ({ data: { loading, userProfile } }) => ({
+    loading,
+    userProfile
+  }),
+  options: () => ({
+    variables: {
+      accessToken: Cookies.get('accesstoken')
+    }
+  })
+})
+
+export default compose(data, displayLoadingState, pure)(MainMenu)
