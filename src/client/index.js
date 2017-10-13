@@ -6,9 +6,11 @@ import { ApolloProvider } from 'react-apollo'
 import App from './routes'
 import BrowserRouter from 'react-router-dom/BrowserRouter'
 import React from 'react'
-import apolloClient from './utils/apolloClient'
 import { hydrate } from 'react-dom'
+import initApollo from 'utils/initApollo'
 import registerServiceWorker from './utils/registerServiceWorker'
+
+const apolloClient = initApollo(window.__APOLLO_STATE__)
 
 hydrate(
   <ApolloProvider client={apolloClient}>

@@ -1,8 +1,4 @@
-import {
-  ApolloClient,
-  ApolloProvider,
-  getDataFromTree
-} from 'react-apollo'
+import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 
 import App from 'client/routes'
@@ -10,9 +6,8 @@ import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
 import express from 'express'
-import { graphql } from 'graphql'
-import { print } from 'graphql/language/printer';
-import { renderToString } from 'react-dom/server';
+import initApollo from 'utils/initApollo'
+import { renderToString } from 'react-dom/server'
 import schema from '../api'
 
 const router = express.Router()
@@ -27,16 +22,9 @@ router.use(
 router.get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
 
 router.get('/*', async (req, res) => {
-  const apolloClient = new ApolloClient({
-    networkInterface: {
-      query: ({ query, variables, operationName }) =>
-        graphql(schema, print(query), {}, {}, variables, operationName),
-    },
-    ssrMode: true
-  })
   const sheet = new ServerStyleSheet()
   const context = {}
-
+  const apolloClient = initApollo()
   const WrappedApp = (
     <ApolloProvider client={apolloClient}>
       <StaticRouter context={context} location={req.url}>
@@ -95,8 +83,10 @@ router.get('/*', async (req, res) => {
             ${process.env.NODE_ENV === 'production'
               ? `<script src="${assets.client.js}" defer></script>`
               : `<script src="${assets.client.js}" defer crossorigin></script>`}
-            <script>
-              window.__APOLLO_STATE__ = ${JSON.stringify(apolloClient.getInitialState().data)}
+            <script charset="utf-8">
+              window.__APOLLO_STATE__ = ${JSON.stringify(
+                apolloClient.getInitialState().data
+              )}
             </script>
           </head>
           <body>
