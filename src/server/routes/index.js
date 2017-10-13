@@ -1,18 +1,18 @@
 import {
   ApolloClient,
   ApolloProvider,
+  createBatchingNetworkInterface,
   renderToStringWithData
 } from 'react-apollo'
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 
-import App from 'client/routes'
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
-import { createLocalInterface } from 'apollo-local-query'
 import express from 'express'
-import { graphql } from 'graphql'
 import { minify } from 'html-minifier'
+import { renderRoutes } from 'react-router-config'
+import routes from 'client/routes'
 import schema from '../api'
 
 const router = express.Router()
@@ -29,7 +29,16 @@ router.get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
 router.get('/*', (req, res) => {
   const apolloClient = new ApolloClient({
     ssrMode: true,
-    networkInterface: createLocalInterface(graphql, schema)
+    networkInterface: createBatchingNetworkInterface({
+      uri:
+      process.env.NODE_ENV === 'production'
+        ? 'https://pastey.now.sh/api'
+        : 'http://localhost:3000/api',
+    batchInterval: 10,
+    opts: {
+      credentials: 'include'
+    }
+    })
   })
 
   const context = {}
@@ -37,7 +46,7 @@ router.get('/*', (req, res) => {
   const frontend = (
     <ApolloProvider client={apolloClient}>
       <StaticRouter context={context} location={req.url}>
-        <App />
+        {renderRoutes(routes)}
       </StaticRouter>
     </ApolloProvider>
   )
@@ -50,11 +59,14 @@ router.get('/*', (req, res) => {
         res.redirect(301, context.url)
         return
       }
+
       const styleTags = sheet.getStyleTags()
+
+      const data = apolloClient.store.getState().apollo.data
 
       const initialState = {
         apollo: {
-          data: apolloClient.store.getState().apollo.data
+          data
         }
       }
 
