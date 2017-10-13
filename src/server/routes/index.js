@@ -12,6 +12,7 @@ import { StaticRouter } from 'react-router-dom'
 import { createLocalInterface } from 'apollo-local-query'
 import express from 'express'
 import { graphql } from 'graphql'
+import { minify } from 'html-minifier'
 import schema from '../api'
 
 const router = express.Router()
@@ -50,9 +51,17 @@ router.get('/*', (req, res) => {
         return
       }
       const styleTags = sheet.getStyleTags()
+
+      const initialState = {
+        apollo: {
+          data: apolloClient.store.getState().apollo.data
+        }
+      }
+
       res.status(200)
       res.send(
-        `<!doctype html>
+        minify(
+          `<!doctype html>
           <html lang="en">
             <head>
               <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -95,14 +104,20 @@ router.get('/*', (req, res) => {
                     .js}" defer crossorigin></script>`}
               <script charset="utf-8">
                 window.__APOLLO_STATE__ = ${JSON.stringify(
-                  apolloClient.getInitialState().data
-                )}
+                  initialState
+                ).replace(/</g, '\\u003c')}
               </script>
             </head>
             <body>
               <div id="root">${content}</div>
             </body>
-          </html>`
+          </html>`,
+          {
+            collapseWhitespace: true,
+            minifyCSS: true,
+            minifyJS: true
+          }
+        )
       )
       res.end()
     })

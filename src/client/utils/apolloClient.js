@@ -13,6 +13,6 @@ const networkInterface = createBatchingNetworkInterface({
 
 export default new ApolloClient({
   networkInterface,
-  initialState: window.__APOLLO_STATE__ && window.__APOLLO_STATE__,
+  initialState: window.__APOLLO_STATE__,
   ssrForceFetchDelay: 100
 })

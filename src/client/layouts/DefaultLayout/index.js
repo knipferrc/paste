@@ -6,10 +6,6 @@ import Navbar from 'client/components/Navbar'
 import React from 'react'
 
 const DefaultLayout = ({ children, loading, userProfile }) => {
-  if (userProfile === undefined) {
-    return <div className="loading loading-lg" />
-  }
-
   return (
     <div>
       <Navbar />
