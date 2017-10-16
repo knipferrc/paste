@@ -5,7 +5,11 @@ import React from 'react'
 
 const Home = () => (
   <DefaultLayout title="Home">
-    <Button><Link href="/login"><a>Home</a></Link></Button>
+    <Button>
+      <Link href="/login">
+        <a>Home</a>
+      </Link>
+    </Button>
   </DefaultLayout>
 )
 

@@ -26,7 +26,10 @@ const Meta = ({ title }) => (
     <meta property="og:type" content="website" />
     <meta property="og:title" content="#Pastey!" />
     <meta property="og:description" content="Simple and elegant pasting" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/2.13.6/antd.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/antd/2.13.6/antd.min.css"
+    />
   </Head>
 )
 
