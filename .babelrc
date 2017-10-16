@@ -1,13 +1,59 @@
 {
   "presets": [
-    "razzle/babel"
+    "next/babel"
   ],
-  "plugins": [
-    [
-      "babel-plugin-styled-components",
-      {
-        "ssr": true
-      }
-    ]
-  ]
+  "env": {
+    "development": {
+      "plugins": [
+        "inline-dotenv",
+        "babel-plugin-inline-import-graphql-ast",
+        [
+          "import",
+          {
+            "libraryName": "antd",
+            "style": false
+          }
+        ],
+        [
+          "module-resolver",
+          {
+            "root": [
+              "./"
+            ],
+            "alias": {
+              "components": "./components",
+              "lib": "./lib",
+              "layouts": "./layouts"
+            }
+          }
+        ]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-inline-environment-variables",
+        "babel-plugin-inline-import-graphql-ast",
+        [
+          "import",
+          {
+            "libraryName": "antd",
+            "style": false
+          }
+        ],
+        [
+          "module-resolver",
+          {
+            "root": [
+              "./"
+            ],
+            "alias": {
+              "components": "./components",
+              "lib": "./lib",
+              "layouts": "./layouts"
+            }
+          }
+        ]
+      ]
+    }
+  }
 }
