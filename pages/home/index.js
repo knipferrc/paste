@@ -5,7 +5,7 @@ import React from 'react'
 
 const Home = () => (
   <DefaultLayout title="Home">
-    <Button>
+    <Button type="primary">
       <Link href="/login">
         <a>Home</a>
       </Link>
