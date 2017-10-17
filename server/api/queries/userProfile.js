@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken')
 
 const userProfile = async (root, { accessToken }, { db }) => {
+  if (!accessToken) {
+    return {}
+  }
   const verifiedJWT = await jwt.verify(accessToken, process.env.JWT_SECRET)
   if (verifiedJWT) {
     const user = db

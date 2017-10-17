@@ -13,14 +13,14 @@ const content = (
       </Link>
     </div>
     <div className="menu-link">
-      <Link href="/" prefetch>
+      <Link href="/pastes" prefetch>
         <a className="nav-link">
           <Icon type="inbox" style={{ marginRight: 5 }} />Pastes
         </a>
       </Link>
     </div>
     <div className="menu-link">
-      <Link href="/" prefetch>
+      <Link href="/dashboard" prefetch>
         <a className="nav-link">
           <Icon type="appstore" style={{ marginRight: 5 }} />Dashboard
         </a>

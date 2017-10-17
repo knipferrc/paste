@@ -1,6 +1,6 @@
 const Query = `
 type Query {
-  userProfile(accessToken: String!): User
+  userProfile(accessToken: String): User
 }
 `
 

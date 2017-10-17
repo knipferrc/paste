@@ -1,11 +1,3 @@
-import DefaultLayout from 'layouts/DefaultLayout'
-import React from 'react'
-import withData from 'lib/withData'
+import LoginView from './components/LoginView'
 
-const Login = () => (
-  <DefaultLayout title="Login">
-    <h1>Login</h1>
-  </DefaultLayout>
-)
-
-export default withData(Login)
+export default LoginView
