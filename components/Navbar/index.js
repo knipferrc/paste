@@ -1,4 +1,5 @@
 import DesktopMenu from 'components/DesktopMenu'
+import MobileMenu from 'components/MobileMenu'
 import React from 'react'
 
 const Navbar = () => (
@@ -7,7 +8,20 @@ const Navbar = () => (
     <div className="desktop-menu">
       <DesktopMenu />
     </div>
+    <div className="mobile-menu">
+      <MobileMenu />
+    </div>
     <style jsx>{`
+      @media screen and (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .mobile-menu {
+          display: none;
+        }
+      }
       .navbar-container {
         display: flex;
         align-items: center;
@@ -24,8 +38,10 @@ const Navbar = () => (
       .desktop-menu {
         margin-left: auto;
         padding-right: 10px;
-        display: flex;
-        align-items: center;
+      }
+      .mobile-menu {
+        margin-left: auto;
+        padding-right: 10px;
       }
     `}</style>
   </div>

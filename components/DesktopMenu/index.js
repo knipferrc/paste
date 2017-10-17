@@ -1,32 +1,64 @@
-import { Button, Dropdown, Icon, Menu } from 'antd'
+import { Button, Icon, Popover } from 'antd'
 
 import Link from 'next/link'
 import React from 'react'
 
-const menu = (
-  <Menu>
-    <Menu.Item key="login">Login</Menu.Item>
-    <Menu.Item key="register">Register</Menu.Item>
-    <Menu.Item key="logout">Logout</Menu.Item>
-  </Menu>
+const content = (
+  <div>
+    <div className="menu-link">
+      <Link href="/login">
+        <a>
+          <Icon type="login" style={{ marginRight: 5 }} />Login
+        </a>
+      </Link>
+    </div>
+    <div className="menu-link">
+      <Link href="/register">
+        <a>
+          <Icon type="idcard" style={{ marginRight: 5 }} />Register
+        </a>
+      </Link>
+    </div>
+    <div className="menu-link">
+      <a href="#!">
+        <Icon type="logout" style={{ marginRight: 5 }} />Logout
+      </a>
+    </div>
+    <style jsx>{`
+      .menu-link {
+        margin-bottom: 10px;
+      }
+    `}</style>
+  </div>
 )
 
 const DesktopMenu = () => (
   <div>
     <Link href="/">
-      <a className="nav-link">Home</a>
+      <a className="nav-link">
+        <Icon type="home" style={{ marginRight: 5 }} />Home
+      </a>
     </Link>
     <Link href="/">
-      <a className="nav-link">Pastes</a>
+      <a className="nav-link">
+        <Icon type="inbox" style={{ marginRight: 5 }} />Pastes
+      </a>
     </Link>
     <Link href="/">
-      <a className="nav-link">Dashboard</a>
+      <a className="nav-link">
+        <Icon type="appstore" style={{ marginRight: 5 }} />Dashboard
+      </a>
     </Link>
-    <Dropdown overlay={menu}>
-      <Button type="primary">
-        My Account <Icon type="down" />
+    <Popover
+      content={content}
+      title="My Account"
+      trigger="click"
+      arrowPointAtCenter
+    >
+      <Button icon="down" type="primary">
+        Account
       </Button>
-    </Dropdown>
+    </Popover>
     <style jsx>{`
       .nav-link {
         color: white;
