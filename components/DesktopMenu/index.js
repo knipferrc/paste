@@ -9,13 +9,19 @@ const menu = (
     <Menu.Item key="2">Register</Menu.Item>
     <Menu.Item key="3">Logout</Menu.Item>
   </Menu>
-);
+)
 
 const DesktopMenu = () => (
   <div>
-    <Link href="/"><a className="nav-link">Home</a></Link>
-    <Link href="/"><a className="nav-link">Pastes</a></Link>
-    <Link href="/"><a className="nav-link">Dashboard</a></Link>
+    <Link href="/">
+      <a className="nav-link">Home</a>
+    </Link>
+    <Link href="/">
+      <a className="nav-link">Pastes</a>
+    </Link>
+    <Link href="/">
+      <a className="nav-link">Dashboard</a>
+    </Link>
     <Dropdown overlay={menu}>
       <Button type="primary">
         My Account <Icon type="down" />

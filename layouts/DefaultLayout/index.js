@@ -9,14 +9,12 @@ const DefaultLayout = ({ title, children }) => (
     <div>
       <Meta title={title} />
       <Navbar />
-      <div className="content-container">
-        {children}
-      </div>
+      <div className="content-container">{children}</div>
       <style jsx>{`
-      .content-container {
-        padding-top: 55px;
-      }
-    `}</style>
+        .content-container {
+          padding-top: 55px;
+        }
+      `}</style>
     </div>
   </LocaleProvider>
 )
