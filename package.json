@@ -19,7 +19,8 @@
     "apollo"
   ],
   "now": {
-    "alias": "pastey"
+    "alias": "pastey",
+    "dotenv": true
   },
   "scripts": {
     "dev": "node server",
