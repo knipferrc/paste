@@ -4,18 +4,25 @@ import Navbar from 'components/Navbar'
 import PropTypes from 'prop-types'
 import React from 'react'
 import enUS from 'antd/lib/locale-provider/en_US'
+import hoc from './hoc'
 
-const DefaultLayout = ({ title, children }) => (
+const DefaultLayout = ({ title, children, loading, userProfile }) => (
   <LocaleProvider locale={enUS}>
     <div>
       <Meta title={title} />
-      <Navbar />
-      <div className="content-container">{children}</div>
-      <style jsx>{`
-        .content-container {
-          padding-top: 55px;
-        }
-      `}</style>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div>
+          <Navbar />
+          <div className="content-container">{children}</div>
+          <style jsx>{`
+            .content-container {
+              padding-top: 55px;
+            }
+          `}</style>
+        </div>
+      )}
     </div>
   </LocaleProvider>
 )
@@ -25,4 +32,4 @@ DefaultLayout.propTypes = {
   children: PropTypes.node
 }
 
-export default DefaultLayout
+export default hoc(DefaultLayout)

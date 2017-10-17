@@ -1,3 +1,10 @@
-import PastesView from './components/PastesView'
+import DefaultLayout from 'layouts/DefaultLayout'
+import React from 'react'
 
-export default PastesView
+const Pastes = () => (
+  <DefaultLayout title="Pastes">
+    <h1>Pastes</h1>
+  </DefaultLayout>
+)
+
+export default Pastes

@@ -1,4 +1,4 @@
 import { compose } from 'react-apollo'
-import withData from 'lib/withData'
+import withData from 'hoc/withData'
 
 export default compose(withData)

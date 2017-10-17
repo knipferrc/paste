@@ -41,7 +41,6 @@
     "bcrypt": "^1.0.3",
     "better-sqlite3": "^4.0.3",
     "compression": "^1.7.1",
-    "cookie": "^0.3.1",
     "dotenv": "^4.0.0",
     "eslint": "^4.9.0",
     "eslint-plugin-react": "^7.4.0",

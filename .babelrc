@@ -14,7 +14,7 @@
           "components": "./components",
           "lib": "./lib",
           "layouts": "./layouts",
-          "utils": "./utils"
+          "hoc": "./hoc"
         }
       }
     ],
