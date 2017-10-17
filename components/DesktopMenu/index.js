@@ -6,14 +6,14 @@ import React from 'react'
 const content = (
   <div>
     <div className="menu-link">
-      <Link href="/login">
+      <Link href="/login" prefetch>
         <a>
           <Icon type="login" style={{ marginRight: 5 }} />Login
         </a>
       </Link>
     </div>
     <div className="menu-link">
-      <Link href="/register">
+      <Link href="/register" prefetch>
         <a>
           <Icon type="idcard" style={{ marginRight: 5 }} />Register
         </a>
@@ -34,17 +34,17 @@ const content = (
 
 const DesktopMenu = () => (
   <div>
-    <Link href="/">
+    <Link href="/" prefetch>
       <a className="nav-link">
         <Icon type="home" style={{ marginRight: 5 }} />Home
       </a>
     </Link>
-    <Link href="/">
+    <Link href="/" prefetch>
       <a className="nav-link">
         <Icon type="inbox" style={{ marginRight: 5 }} />Pastes
       </a>
     </Link>
-    <Link href="/">
+    <Link href="/" prefetch>
       <a className="nav-link">
         <Icon type="appstore" style={{ marginRight: 5 }} />Dashboard
       </a>
