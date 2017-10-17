@@ -1,6 +1,5 @@
 import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
-import withData from 'lib/withData'
 
 const Register = () => (
   <DefaultLayout title="Register">

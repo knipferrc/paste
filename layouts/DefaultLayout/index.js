@@ -1,6 +1,7 @@
 import { LocaleProvider } from 'antd'
 import Meta from 'components/Meta'
 import Navbar from 'components/Navbar'
+import PropTypes from 'prop-types'
 import React from 'react'
 import enUS from 'antd/lib/locale-provider/en_US'
 
@@ -18,5 +19,10 @@ const DefaultLayout = ({ title, children }) => (
     </div>
   </LocaleProvider>
 )
+
+DefaultLayout.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node
+}
 
 export default DefaultLayout

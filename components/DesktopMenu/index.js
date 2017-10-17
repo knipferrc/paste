@@ -5,9 +5,9 @@ import React from 'react'
 
 const menu = (
   <Menu>
-    <Menu.Item key="1">Login</Menu.Item>
-    <Menu.Item key="2">Register</Menu.Item>
-    <Menu.Item key="3">Logout</Menu.Item>
+    <Menu.Item key="login">Login</Menu.Item>
+    <Menu.Item key="register">Register</Menu.Item>
+    <Menu.Item key="logout">Logout</Menu.Item>
   </Menu>
 )
 
