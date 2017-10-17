@@ -14,7 +14,7 @@ const DefaultLayout = ({ title, children, loading, userProfile }) => (
         <div>Loading...</div>
       ) : (
         <div>
-          <Navbar />
+          <Navbar user={userProfile} />
           <div className="content-container">{children}</div>
           <style jsx>{`
             .content-container {
@@ -29,6 +29,8 @@ const DefaultLayout = ({ title, children, loading, userProfile }) => (
 
 DefaultLayout.propTypes = {
   title: PropTypes.string,
+  loading: PropTypes.bool,
+  userProfile: PropTypes.object,
   children: PropTypes.node
 }
 
