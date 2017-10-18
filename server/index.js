@@ -5,6 +5,7 @@ const compression = require('compression')
 const helmet = require('helmet')
 const hpp = require('hpp')
 const dotenv = require('dotenv')
+const path = require('path')
 
 const schema = require('./api')
 const db = require('./utils/db')
@@ -27,6 +28,7 @@ app.prepare().then(() => {
     graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } }))
   )
   server.get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
+  server.get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
   server.get('*', (req, res) => handle(req, res))
   server.listen(port, err => {
     if (err) throw err
