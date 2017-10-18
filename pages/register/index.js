@@ -1,10 +1,10 @@
-import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
+import hoc from './hoc'
 
 const Register = () => (
-  <DefaultLayout title="Register">
+  <div>
     <h1>Register</h1>
-  </DefaultLayout>
+  </div>
 )
 
-export default Register
+export default hoc(Register)

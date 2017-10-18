@@ -1,11 +1,10 @@
-import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
 import hoc from './hoc'
 
 const Dashboard = () => (
-  <DefaultLayout title="Dashboard">
+  <div>
     <h1>Dashboard</h1>
-  </DefaultLayout>
+  </div>
 )
 
 export default hoc(Dashboard)

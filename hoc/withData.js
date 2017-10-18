@@ -15,6 +15,7 @@ export default ComposedComponent => {
     static displayName = `WithData(${getComponentDisplayName(
       ComposedComponent
     )})`
+
     static propTypes = {
       serverState: PropTypes.object.isRequired
     }

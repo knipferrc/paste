@@ -1,15 +1,16 @@
 import DesktopMenu from 'components/DesktopMenu'
 import MobileMenu from 'components/MobileMenu'
+import PropTypes from 'prop-types'
 import React from 'react'
 
-const Navbar = () => (
+const Navbar = ({ user }) => (
   <div className="navbar-container">
     <div className="brand">#Pastey!</div>
     <div className="desktop-menu">
-      <DesktopMenu />
+      <DesktopMenu user={user} />
     </div>
     <div className="mobile-menu">
-      <MobileMenu />
+      <MobileMenu user={user} />
     </div>
     <style jsx>{`
       @media screen and (max-width: 768px) {
@@ -46,5 +47,9 @@ const Navbar = () => (
     `}</style>
   </div>
 )
+
+Navbar.propTypes = {
+  user: PropTypes.object
+}
 
 export default Navbar

@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const Meta = ({ title }) => (
+const Meta = () => (
   <Head>
-    <title>{`#Pastey! - ${title}`}</title>
+    <title>#Pastey!</title>
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta charSet="utf-8" />
     <meta
@@ -34,9 +33,5 @@ const Meta = ({ title }) => (
     />
   </Head>
 )
-
-Meta.propTypes = {
-  title: PropTypes.string
-}
 
 export default Meta

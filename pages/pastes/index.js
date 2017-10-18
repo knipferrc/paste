@@ -1,10 +1,10 @@
-import DefaultLayout from 'layouts/DefaultLayout'
 import React from 'react'
+import hoc from './hoc'
 
 const Pastes = () => (
-  <DefaultLayout title="Pastes">
+  <div>
     <h1>Pastes</h1>
-  </DefaultLayout>
+  </div>
 )
 
-export default Pastes
+export default hoc(Pastes)

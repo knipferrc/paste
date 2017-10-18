@@ -33,7 +33,7 @@ const LoginForm = ({ login }) => (
         setSubmitting(true)
         const token = await login(values.email, values.password)
         Cookies.set('accesstoken', token.data.login, { path: '/' })
-        Router.push('/')
+        Router.push('/dashboard')
       } catch (e) {
         setSubmitting(false)
         setErrors({ submitError: e.graphQLErrors[0].message })
@@ -50,7 +50,7 @@ const LoginForm = ({ login }) => (
       <Form onSubmit={handleSubmit}>
         <FormItem
           validateStatus={touched.email && errors.email && 'error'}
-          help={errors.email}
+          help={touched.email && errors.email && errors.email}
         >
           <Input
             name="email"
@@ -62,7 +62,7 @@ const LoginForm = ({ login }) => (
         </FormItem>
         <FormItem
           validateStatus={touched.password && errors.password && 'error'}
-          help={errors.password}
+          help={touched.password && errors.password && errors.password}
         >
           <Input
             name="password"

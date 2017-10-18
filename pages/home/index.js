@@ -1,16 +1,16 @@
 import { Button } from 'antd'
-import DefaultLayout from 'layouts/DefaultLayout'
 import Link from 'next/link'
 import React from 'react'
+import hoc from './hoc'
 
 const Home = () => (
-  <DefaultLayout title="Home">
+  <div>
     <Button type="primary">
       <Link href="/login">
         <a>Home</a>
       </Link>
     </Button>
-  </DefaultLayout>
+  </div>
 )
 
-export default Home
+export default hoc(Home)
