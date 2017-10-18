@@ -1,4 +1,4 @@
-import LoginMutation from './mutations/login.gql'
+import LoginMutation from './mutations/login'
 import { graphql } from 'react-apollo'
 
 const withLogin = graphql(LoginMutation, {

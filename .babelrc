@@ -3,7 +3,6 @@
     "next/babel"
   ],
   "plugins": [
-    "babel-plugin-inline-import-graphql-ast",
     [
       "module-resolver",
       {
@@ -14,7 +13,8 @@
           "components": "./components",
           "lib": "./lib",
           "layouts": "./layouts",
-          "hoc": "./hoc"
+          "hoc": "./hoc",
+          "utils": "./utils"
         }
       }
     ],

@@ -1,3 +1,5 @@
+import 'utils/offlineInstall'
+
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import React, { PureComponent } from 'react'
 

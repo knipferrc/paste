@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react'
-import { gql, graphql } from 'react-apollo'
 
-import Cookies from 'js-cookie'
 import { LocaleProvider } from 'antd'
 import Meta from 'components/Meta'
 import Navbar from 'components/Navbar'
