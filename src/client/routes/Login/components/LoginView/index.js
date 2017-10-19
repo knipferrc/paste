@@ -18,11 +18,10 @@ const LoginView = ({ history }) => {
             <article className="message">
               <div className="message-header">
                 <p>Welcome, Login to continue</p>
-                </div>
-                <div className="message-body">
-                  <LoginForm history={history} />
-                </div>
-  
+              </div>
+              <div className="message-body">
+                <LoginForm history={history} />
+              </div>
             </article>
           </div>
         </Container>
