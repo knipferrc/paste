@@ -1,41 +1,13 @@
 {
   "presets": [
-    "next/babel"
+    "razzle/babel"
   ],
   "plugins": [
     [
-      "module-resolver",
+      "babel-plugin-styled-components",
       {
-        "root": [
-          "./"
-        ],
-        "alias": {
-          "components": "./components",
-          "lib": "./lib",
-          "layouts": "./layouts",
-          "hoc": "./hoc",
-          "utils": "./utils"
-        }
-      }
-    ],
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": false
+        "ssr": true
       }
     ]
-  ],
-  "env": {
-    "development": {
-      "plugins": [
-        "inline-dotenv"
-      ]
-    },
-    "production": {
-      "plugins": [
-        "transform-inline-environment-variables"
-      ]
-    }
-  }
+  ]
 }
