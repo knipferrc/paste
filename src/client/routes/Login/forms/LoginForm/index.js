@@ -49,7 +49,7 @@ const LoginForm = ({ login, history }) => {
                 value={values.email}
                 onChange={handleChange}
                 name="email"
-                className="input"
+                className={`input ${touched.email && errors.email && 'is-danger'}`}
                 type="email"
                 placeholder="Email"
               />
@@ -64,7 +64,7 @@ const LoginForm = ({ login, history }) => {
                 value={values.password}
                 onChange={handleChange}
                 name="password"
-                className="input"
+                className={`input ${touched.password && errors.password && 'is-danger'}`}
                 type="password"
                 placeholder="Password"
               />
@@ -77,7 +77,7 @@ const LoginForm = ({ login, history }) => {
             <p className="control">
               <button
                 type="submit"
-                className={`button is-primary is-fullwidth ${isSubmitting &&
+                className={`button is-danger is-fullwidth ${isSubmitting &&
                   'is-loading'}`}
               >
                 Login

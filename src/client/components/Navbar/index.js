@@ -4,7 +4,7 @@ import hoc from './hoc'
 
 const Navbar = ({ active, toggleActive }) => {
   return (
-    <nav className="navbar is-danger" aria-label="main navigation">
+    <nav className="navbar is-link" aria-label="main navigation">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
           <div className="title has-text-white has-text-weight-light">
@@ -13,7 +13,7 @@ const Navbar = ({ active, toggleActive }) => {
         </Link>
         <button
           onClick={() => toggleActive(!active)}
-          className={`button is-danger navbar-burger ${active && 'is-active'}`}
+          className={`button is-link navbar-burger ${active && 'is-active'}`}
         >
           <span />
           <span />
@@ -25,21 +25,20 @@ const Navbar = ({ active, toggleActive }) => {
           <Link to="/" className="navbar-item">
             Home
           </Link>
-          <Link to="/" className="navbar-item">
+          <Link to="/pastes" className="navbar-item">
             Pastes
           </Link>
-          <Link to="/" className="navbar-item">
+          <Link to="/dashboard" className="navbar-item">
             Dashboard
           </Link>
         </div>
         <div className="navbar-end">
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link">My Account</a>
-
             <div className="navbar-dropdown is-right">
-              <a className="navbar-item">Login</a>
-              <a className="navbar-item">Register</a>
-              <a className="navbar-item">Profile</a>
+              <Link to="/login" className="navbar-item">Login</Link>
+              <Link to="/register" className="navbar-item">Register</Link>
+              <Link to="/account" className="navbar-item">Account</Link>
               <hr className="navbar-divider" />
               <div className="navbar-item">Logout</div>
             </div>

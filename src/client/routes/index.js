@@ -1,17 +1,15 @@
+import AccountRoute from './Account'
+import DashboardRoute from './Dashboard'
 import HomeRoute from './Home'
 import LoginRoute from './Login'
+import PastesView from './Pastes'
+import RegisterRoute from './Register'
 
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    component: HomeRoute
-  },
-  {
-    path: '/login',
-    exact: true,
-    component: LoginRoute
-  }
+export default [
+  HomeRoute,
+  LoginRoute,
+  PastesView,
+  AccountRoute,
+  DashboardRoute,
+  RegisterRoute
 ]
-
-export default routes

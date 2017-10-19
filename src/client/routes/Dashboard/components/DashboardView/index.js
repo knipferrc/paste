@@ -1,12 +1,12 @@
 import DefaultLayout from 'client/layouts/DefaultLayout'
 import React from 'react'
 
-const HomeView = () => {
+const DashboardView = () => {
   return (
     <DefaultLayout>
-      <div>Home</div>
+      <div>Dashboard</div>
     </DefaultLayout>
   )
 }
 
-export default HomeView
+export default DashboardView

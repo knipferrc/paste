@@ -1,3 +1,7 @@
 import HomeView from './components/HomeView'
 
-export default HomeView
+export default {
+  path: '/',
+  exact: true,
+  component: HomeView
+}
