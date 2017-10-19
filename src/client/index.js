@@ -8,9 +8,7 @@ import { renderRoutes } from 'react-router-config'
 import routes from './routes'
 
 hydrate(
-  <BrowserRouter>
-    {renderRoutes(routes)}
-  </BrowserRouter>,
+  <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>,
   document.getElementById('root')
 )
 

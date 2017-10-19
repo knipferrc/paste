@@ -36,9 +36,15 @@ const Navbar = ({ active, toggleActive }) => {
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link">My Account</a>
             <div className="navbar-dropdown is-right">
-              <Link to="/login" className="navbar-item">Login</Link>
-              <Link to="/register" className="navbar-item">Register</Link>
-              <Link to="/account" className="navbar-item">Account</Link>
+              <Link to="/login" className="navbar-item">
+                Login
+              </Link>
+              <Link to="/register" className="navbar-item">
+                Register
+              </Link>
+              <Link to="/account" className="navbar-item">
+                Account
+              </Link>
               <hr className="navbar-divider" />
               <div className="navbar-item">Logout</div>
             </div>

@@ -49,7 +49,9 @@ const LoginForm = ({ login, history }) => {
                 value={values.email}
                 onChange={handleChange}
                 name="email"
-                className={`input ${touched.email && errors.email && 'is-danger'}`}
+                className={`input ${touched.email &&
+                  errors.email &&
+                  'is-danger'}`}
                 type="email"
                 placeholder="Email"
               />
@@ -64,7 +66,9 @@ const LoginForm = ({ login, history }) => {
                 value={values.password}
                 onChange={handleChange}
                 name="password"
-                className={`input ${touched.password && errors.password && 'is-danger'}`}
+                className={`input ${touched.password &&
+                  errors.password &&
+                  'is-danger'}`}
                 type="password"
                 placeholder="Password"
               />
