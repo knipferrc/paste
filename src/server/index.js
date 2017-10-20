@@ -2,9 +2,12 @@ import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
 import api from './api'
+import compression from 'compression'
+import cookieParser from 'cookie-parser'
 import db from './utils/db'
 import express from 'express'
-import middleware from './middleware'
+import helmet from 'helmet'
+import hpp from 'hpp'
 import { minify } from 'html-minifier'
 import { renderRoutes } from 'react-router-config'
 import { renderToString } from 'react-dom/server'
@@ -21,7 +24,11 @@ server
     next()
   })
   .use(express.json())
-  .use(middleware())
+  .use(express.urlencoded({ extended: false }))
+  .use(cookieParser())
+  .use(helmet())
+  .use(compression())
+  .use(hpp())
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .use('/api', api)
   .get('/*', (req, res) => {
