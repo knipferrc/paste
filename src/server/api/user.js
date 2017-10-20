@@ -1,8 +1,11 @@
 import express from 'express'
-import userRoutes from './user'
 
 const router = express.Router()
 
-router.use('/users', userRoutes)
+router.get('/me', (req, res) => {
+  res.json({
+    username: 'knipferrc'
+  })
+})
 
 export default router

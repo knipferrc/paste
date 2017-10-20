@@ -1,9 +1,7 @@
-import Cookies from 'js-cookie'
 import { Formik } from 'formik'
 import React from 'react'
-import hoc from './hoc'
 
-const LoginForm = ({ login, history }) => {
+const LoginForm = ({ history }) => {
   return (
     <Formik
       initialValues={{
@@ -26,8 +24,6 @@ const LoginForm = ({ login, history }) => {
       onSubmit={async (values, { setSubmitting, setErrors }) => {
         try {
           setSubmitting(true)
-          const token = await login(values.email, values.password)
-          Cookies.set('accesstoken', token.data.login, { path: '/' })
           history.push('/')
         } catch (e) {
           setSubmitting(false)
@@ -94,4 +90,4 @@ const LoginForm = ({ login, history }) => {
   )
 }
 
-export default hoc(LoginForm)
+export default LoginForm
