@@ -27,7 +27,7 @@ const LoginForm = ({ history }) => {
           history.push('/')
         } catch (e) {
           setSubmitting(false)
-          setErrors({ submitError: e.graphQLErrors[0].message })
+          setErrors({ submitError: e })
         }
       }}
       render={({

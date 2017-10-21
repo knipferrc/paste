@@ -1,7 +1,8 @@
+import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
+
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { StaticRouter } from 'react-router-dom'
-import api from './api'
 import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import db from './utils/db'
@@ -12,6 +13,7 @@ import { minify } from 'html-minifier'
 import { renderRoutes } from 'react-router-config'
 import { renderToString } from 'react-dom/server'
 import routes from 'client/routes'
+import schema from './api'
 
 const server = express()
 
@@ -30,7 +32,12 @@ server
   .use(compression())
   .use(hpp())
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .use('/api', api)
+  .use(
+    '/api',
+    express.json(),
+    graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } }))
+  )
+  .get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
   .get('/*', (req, res) => {
     const context = {}
     const sheet = new ServerStyleSheet()

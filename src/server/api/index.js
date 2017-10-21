@@ -1,10 +1,10 @@
-import express from 'express'
-import userRoutes from './user'
+import { makeExecutableSchema } from 'graphql-tools'
+import resolvers from './resolvers'
+import typeDefs from './types'
 
-const router = express.Router()
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers
+})
 
-router.get('/health-check', (req, res) => res.send('OK'))
-
-router.use('/users', userRoutes)
-
-export default router
+export default schema

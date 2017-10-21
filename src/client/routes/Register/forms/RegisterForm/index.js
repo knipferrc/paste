@@ -1,7 +1,5 @@
-import Cookies from 'js-cookie'
 import { Formik } from 'formik'
 import React from 'react'
-import axios from 'axios'
 
 const RegisterForm = ({ history }) => {
   return (
@@ -34,13 +32,6 @@ const RegisterForm = ({ history }) => {
       onSubmit={async (values, { setSubmitting, setErrors }) => {
         try {
           setSubmitting(true)
-          const { data: { token } } = await axios.post('/api/users/register', {
-            firstName: values.firstName,
-            lastName: values.lastName,
-            email: values.email,
-            password: values.password
-          })
-          Cookies.set('accesstoken', token, { path: '/' })
           history.push('/')
         } catch (e) {
           setSubmitting(false)
