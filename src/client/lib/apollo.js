@@ -1,6 +1,7 @@
 import { ApolloClient, createBatchingNetworkInterface } from 'react-apollo'
 
 export default new ApolloClient({
+  initialState: window.__APOLLO_STATE__,
   ssrMode: true,
   ssrForceFetchDelay: 100,
   networkInterface: createBatchingNetworkInterface({

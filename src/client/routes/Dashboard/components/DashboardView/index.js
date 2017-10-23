@@ -1,5 +1,6 @@
 import DefaultLayout from 'client/layouts/DefaultLayout'
 import React from 'react'
+import hoc from './hoc'
 
 const DashboardView = () => {
   return (
@@ -9,4 +10,4 @@ const DashboardView = () => {
   )
 }
 
-export default DashboardView
+export default hoc(DashboardView)

@@ -28,7 +28,7 @@ const LoginForm = ({ history, login }) => {
         try {
           setSubmitting(true)
           const data = await login(values.email, values.password)
-          Cookies.set('accesstoken', data.login, { path: '/' })
+          Cookies.set('accesstoken', data.data.login, { path: '/' })
           history.push('/')
         } catch (e) {
           setSubmitting(false)

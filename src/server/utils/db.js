@@ -8,7 +8,7 @@ const usersTable = db.prepare(
 usersTable.run()
 
 const pastesTable = db.prepare(
-  'CREATE TABLE if not exists pastes(id text, title text, description text, content text)'
+  'CREATE TABLE if not exists pastes(title text, category text, description text, content text, createdBy text, status text, id string)'
 )
 pastesTable.run()
 
