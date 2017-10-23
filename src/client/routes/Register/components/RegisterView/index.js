@@ -1,4 +1,5 @@
 import DefaultLayout from 'client/layouts/DefaultLayout'
+import PropTypes from 'prop-types'
 import React from 'react'
 import RegisterForm from '../../forms/RegisterForm'
 import styled from 'styled-components'
@@ -28,6 +29,10 @@ const RegisterView = ({ history }) => {
       </div>
     </DefaultLayout>
   )
+}
+
+RegisterView.propTypes = {
+  history: PropTypes.object
 }
 
 export default RegisterView

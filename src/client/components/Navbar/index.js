@@ -1,4 +1,5 @@
 import Link from 'react-router-dom/Link'
+import PropTypes from 'prop-types'
 import React from 'react'
 import hoc from './hoc'
 
@@ -53,6 +54,11 @@ const Navbar = ({ active, toggleActive }) => {
       </div>
     </nav>
   )
+}
+
+Navbar.propTypes = {
+  active: PropTypes.bool,
+  toggleActive: PropTypes.func
 }
 
 export default hoc(Navbar)

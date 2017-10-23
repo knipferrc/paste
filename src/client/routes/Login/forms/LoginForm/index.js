@@ -1,4 +1,5 @@
 import { Formik } from 'formik'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const LoginForm = ({ history }) => {
@@ -88,6 +89,10 @@ const LoginForm = ({ history }) => {
       )}
     />
   )
+}
+
+LoginForm.propTypes = {
+  history: PropTypes.object
 }
 
 export default LoginForm

@@ -1,5 +1,6 @@
 import DefaultLayout from 'client/layouts/DefaultLayout'
 import LoginForm from '../../forms/LoginForm'
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -28,6 +29,10 @@ const LoginView = ({ history }) => {
       </div>
     </DefaultLayout>
   )
+}
+
+LoginView.propTypes = {
+  history: PropTypes.object
 }
 
 export default LoginView

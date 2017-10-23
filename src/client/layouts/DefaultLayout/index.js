@@ -1,4 +1,5 @@
 import Navbar from 'client/components/Navbar'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const DefaultLayout = ({ children }) => {
@@ -8,6 +9,10 @@ const DefaultLayout = ({ children }) => {
       {children}
     </div>
   )
+}
+
+DefaultLayout.propTypes = {
+  children: PropTypes.node
 }
 
 export default DefaultLayout

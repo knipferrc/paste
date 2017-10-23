@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const path = require('path')
 

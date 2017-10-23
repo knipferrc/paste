@@ -15,6 +15,7 @@
     "quotes": [
       "error",
       "single"
-    ]
+    ],
+    "no-console": 0
   }
 }

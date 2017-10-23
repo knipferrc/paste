@@ -1,3 +1,9 @@
+import {
+  ApolloClient,
+  ApolloProvider,
+  createNetworkInterface,
+  renderToStringWithData
+} from 'react-apollo'
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 
 import React from 'react'
@@ -11,9 +17,9 @@ import helmet from 'helmet'
 import hpp from 'hpp'
 import { minify } from 'html-minifier'
 import { renderRoutes } from 'react-router-config'
-import { renderToString } from 'react-dom/server'
 import routes from 'client/routes'
 import schema from './api'
+import serialize from 'serialize-javascript'
 
 const server = express()
 
@@ -39,26 +45,48 @@ server
   )
   .get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
   .get('/*', (req, res) => {
-    const context = {}
-    const sheet = new ServerStyleSheet()
+    const client = new ApolloClient({
+      ssrMode: true,
+      networkInterface: createNetworkInterface({
+        uri:
+          process.env.NODE_ENV === 'development'
+            ? 'http://localhost:3000/api'
+            : 'https://pastey.now.sh/api',
+        opts: {
+          credentials: 'same-origin'
+        }
+      })
+    })
 
-    const markup = renderToString(
-      sheet.collectStyles(
+    const context = {}
+
+    const frontend = (
+      <ApolloProvider client={client}>
         <StaticRouter context={context} location={req.url}>
           {renderRoutes(routes)}
         </StaticRouter>
-      )
+      </ApolloProvider>
     )
 
-    const styleTags = sheet.getStyleTags()
+    const sheet = new ServerStyleSheet()
 
-    if (context.url) {
-      res.redirect(context.url)
-    } else {
-      res.status(200).send(
-        minify(
-          `<!doctype html>
-             <html lang="en">
+    renderToStringWithData(sheet.collectStyles(frontend))
+      .then(content => {
+        if (context.url) {
+          res.redirect(301, context.url)
+          return
+        }
+
+        const initialState = {
+          apollo: client.getInitialState()
+        }
+
+        const styleTags = sheet.getStyleTags()
+        res.status(200)
+        res.send(
+          minify(
+            `<!doctype html>
+              <html lang="en">
               <head>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta charSet='utf-8' />
@@ -90,18 +118,27 @@ server
                       .js}" defer crossorigin></script>`}
               </head>
               <body>
-                <div id="root">${markup}</div>
+                <div id="root">${content}</div>
+                <script>window.__APOLLO_STATE__ = ${serialize(initialState, {
+                  isJSON: true
+                })};</script>
               </body>
-          </html>`,
-          {
-            collapseWhitespace: true,
-            minifyCSS: true,
-            minifyJS: true
-          }
+            </html>`,
+            {
+              collapseWhitespace: true,
+              minifyCSS: true,
+              minifyJS: true
+            }
+          )
         )
-      )
-      res.end()
-    }
+        res.end()
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500)
+        res.end()
+        throw err
+      })
   })
 
 export default server
