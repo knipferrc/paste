@@ -1,8 +1,10 @@
+import Cookies from 'js-cookie'
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import React from 'react'
+import hoc from './hoc'
 
-const LoginForm = ({ history }) => {
+const LoginForm = ({ history, login }) => {
   return (
     <Formik
       initialValues={{
@@ -25,10 +27,12 @@ const LoginForm = ({ history }) => {
       onSubmit={async (values, { setSubmitting, setErrors }) => {
         try {
           setSubmitting(true)
+          const data = await login(values.email, values.password)
+          Cookies.set('accesstoken', data.login, { path: '/' })
           history.push('/')
         } catch (e) {
           setSubmitting(false)
-          setErrors({ submitError: e })
+          setErrors({ submitError: e.graphQLErrors[0].message })
         }
       }}
       render={({
@@ -92,7 +96,8 @@ const LoginForm = ({ history }) => {
 }
 
 LoginForm.propTypes = {
-  history: PropTypes.object
+  history: PropTypes.object,
+  login: PropTypes.func
 }
 
-export default LoginForm
+export default hoc(LoginForm)

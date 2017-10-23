@@ -1,8 +1,10 @@
+import Cookies from 'js-cookie'
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import React from 'react'
+import hoc from './hoc'
 
-const RegisterForm = ({ history }) => {
+const RegisterForm = ({ history, register }) => {
   return (
     <Formik
       initialValues={{
@@ -33,10 +35,17 @@ const RegisterForm = ({ history }) => {
       onSubmit={async (values, { setSubmitting, setErrors }) => {
         try {
           setSubmitting(true)
+          const data = await register(
+            values.firstName,
+            values.lastName,
+            values.email,
+            values.password
+          )
+          Cookies.set('accesstoken', data.data.register, { path: '/' })
           history.push('/')
         } catch (e) {
           setSubmitting(false)
-          setErrors({ submitError: e })
+          setErrors({ submitError: e.graphQLErrors[0].message })
         }
       }}
       render={({
@@ -134,7 +143,8 @@ const RegisterForm = ({ history }) => {
 }
 
 RegisterForm.propTypes = {
-  history: PropTypes.object
+  history: PropTypes.object,
+  register: PropTypes.func
 }
 
-export default RegisterForm
+export default hoc(RegisterForm)
