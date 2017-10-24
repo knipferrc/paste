@@ -1,6 +1,6 @@
 export default `
 type Query {
-  userProfile: User
+  userProfile(accessToken: String!): User
   myPastes(userId: ID!): [Paste]
 }
 `
