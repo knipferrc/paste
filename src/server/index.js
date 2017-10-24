@@ -27,10 +27,6 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 
 server
   .disable('x-powered-by')
-  .use((req, res, next) => {
-    server.locals.db = db
-    next()
-  })
   .use(express.json())
   .use(express.urlencoded({ extended: false }))
   .use(cookieParser())
@@ -40,8 +36,7 @@ server
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .use(
     '/api',
-    express.json(),
-    graphqlExpress(req => ({ schema, context: { db: req.app.locals.db } }))
+    graphqlExpress(() => ({ schema, context: { db } }))
   )
   .get('/graphiql', graphiqlExpress({ endpointURL: '/api' }))
   .get('/*', (req, res) => {

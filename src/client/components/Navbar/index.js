@@ -1,7 +1,13 @@
+import Cookies from 'js-cookie'
 import Link from 'react-router-dom/Link'
 import PropTypes from 'prop-types'
 import React from 'react'
 import hoc from './hoc'
+
+const logout = () => {
+  Cookies.remove('accesstoken')
+  window.location.href = '/'
+}
 
 const Navbar = ({ active, toggleActive }) => {
   return (
@@ -47,7 +53,7 @@ const Navbar = ({ active, toggleActive }) => {
                 Account
               </Link>
               <hr className="navbar-divider" />
-              <div className="navbar-item">Logout</div>
+              <div onClick={logout} className="navbar-item">Logout</div>
             </div>
           </div>
         </div>
